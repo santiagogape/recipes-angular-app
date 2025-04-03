@@ -24,10 +24,10 @@ export class IndexMarketingComponent implements OnInit {
   }
 
   direction(section: Marketing) {
-    if (section.side === "right") {
-      return 'index-marketing-container grid-columns-auto-300 section-max-width'
-    } else {
+    if (section.reverse) {
       return 'index-marketing-container-reverse grid-columns-auto-300 section-max-width'
+    } else {
+      return 'index-marketing-container grid-columns-auto-300 section-max-width'
     }
   }
 }

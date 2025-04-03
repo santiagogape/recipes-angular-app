@@ -6,8 +6,8 @@ export interface Tab {
 }
 
 export interface Marketing {
+  reverse: boolean;
   image: ImageSrc
   tabs: Tab[]
-  side: string
 }
 

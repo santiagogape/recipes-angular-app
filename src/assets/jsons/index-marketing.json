@@ -18,7 +18,7 @@
         "content": "Step-by-step instructions for each recipe"
       }
     ],
-    "side": "right"
+    "reverse": false
   },
   {
     "image": {
@@ -39,6 +39,6 @@
         "content": "Learn about ingredient alternatives to accommodate dietary preferences or restrictions"
       }
     ],
-    "side": "left"
+    "reverse": true
   }
 ]
