@@ -1,0 +1,48 @@
+.index-marketing-container {
+  grid-template-areas: "image tabs";
+}
+.index-marketing-container-reverse {
+  grid-template-areas: "tabs image";
+}
+
+.index-marketing-image {
+  animation-name: fadeIn;
+  animation-delay: 0s;
+  animation-duration: 300ms;
+  animation-direction: normal;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+  grid-area: image;
+  align-self: center;
+}
+
+.index-marketing-tabs-menu {
+  grid-area: tabs;
+}
+
+.index-marketing-tab {
+  gap: var(--dl-space-space-twounits);
+  align-self: stretch;
+}
+
+.index-marketing-divider-container {
+  align-self: stretch;
+  background-color: var(--dl-color-theme-neutral-dark);
+  width: 0.2rem;
+}
+
+.index-marketing-content {
+  gap: 0;
+  align-items: flex-start;
+}
+
+
+@media(max-width: 991px) {
+  .index-marketing-container, .index-marketing-container-reverse {
+    grid-gap: var(--dl-space-space-twounits);
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "image"
+    "tabs";
+  }
+}
