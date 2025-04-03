@@ -1,1 +1,41 @@
-<p>carousel works!</p>
+<div class="carousel-container ">
+  <div class="carousel-column section-padding section-max-width">
+    <div class="carousel-header">
+      <span class=" heading-1 carousel-text">{{carousel.title}}</span>
+      <p class=" text-body-large carousel-text">{{carousel.intro}}</p>
+    </div>
+    <!--
+    <div class="carousel-actions">
+        <button class="button-background-filled carousel-button">
+            <span class="text-body-small carousel-text">Main action</span>
+        </button>
+        <button class="button-background-filled-reverse carousel-button">
+      <span class="text-body-small carousel-text">
+      Secondary action
+      </span>
+        </button>
+    </div>
+    -->
+  </div>
+  <div class="carousel-gallery">
+    <div class="carousel-container-horizontal">
+      <div class="carousel-horizontal">
+        @for (num of times; track num) {
+          @for (image of carousel.normal; track image.src) {
+            <img [alt]="image.alt" [src]="image.src" class="carousel-placeholder-image  img-scale"/>
+          }
+        }
+      </div>
+    </div>
+    <div class="carousel-container-horizontal">
+      <div class="carousel-horizontal carousel-horizontal-reverse">
+        @for (num of times; track num) {
+          @for (image of carousel.reverse; track image.src) {
+            <img [alt]="image.alt" [src]="image.src" class="carousel-placeholder-image  img-scale"/>
+          }
+        }
+      </div>
+    </div>
+  </div>
+</div>
+

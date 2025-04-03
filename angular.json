@@ -21,13 +21,17 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+              "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/stylesheets/reset.css",
+              "src/stylesheets/default.css",
+              "src/stylesheets/animate-sheet.css",
+              "src/stylesheets/style.css",
+              "src/stylesheets/swiper.css",
+              "src/fonts/inter.css",
+              "src/fonts/noto-sans.css",
+              "src/fonts/STIX-two-text.css"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -84,13 +88,17 @@
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+              "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/stylesheets/reset.css",
+              "src/stylesheets/default.css",
+              "src/stylesheets/animate-sheet.css",
+              "src/stylesheets/style.css",
+              "src/stylesheets/swiper.css",
+              "src/fonts/inter.css",
+              "src/fonts/noto-sans.css",
+              "src/fonts/STIX-two-text.css"
             ],
             "scripts": []
           }

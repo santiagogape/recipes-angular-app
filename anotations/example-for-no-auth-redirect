@@ -1,0 +1,58 @@
+En el else de tu función onUserAuth, puedes usar el Router de Angular para redirigir al usuario a la página de inicio de sesión. Aquí tienes un ejemplo de cómo hacerlo:
+
+1️⃣ Inyecta el Router en el constructor
+Asegúrate de inyectar Router en el servicio o componente donde estás manejando la autenticación.
+
+import { Router } from '@angular/router';
+
+constructor(private router: Router) { }
+
+2️⃣ Redirige en el else
+Modifica tu función de autenticación para redirigir al usuario si no está autenticado:
+
+onUserAuth(auth, (user) => {
+  if (user) {
+    // Usuario autenticado, continúa con la lógica normal
+  } else {
+    // Usuario no autenticado, redirigir a la página de login
+    this.router.navigate(['/login']);
+  }
+});
+
+🔥 Opcional: Implementar Guardas de Ruta
+Si además quieres asegurarte de que nadie accede a ciertas rutas sin autenticarse, usa Route Guards (CanActivate).
+
+1️⃣ Crea un Guard de autenticación
+ng generate guard auth
+
+2️⃣ Modifica el Guard (auth.guard.ts)
+
+import { Injectable } from '@angular/core';
+import { CanActivate, Router } from '@angular/router';
+import { AuthService } from './auth.service'; // Tu servicio de autenticación
+
+@Injectable({
+  providedIn: 'root',
+})
+export class AuthGuard implements CanActivate {
+  constructor(private authService: AuthService, private router: Router) {}
+
+  canActivate(): boolean {
+    if (this.authService.isAuthenticated()) {
+      return true;
+    } else {
+      this.router.navigate(['/login']);
+      return false;
+    }
+  }
+}
+
+3️⃣ Protege las rutas en app.routes.ts
+
+import { AuthGuard } from './auth.guard';
+
+const routes: Routes = [
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
+];
+Con esto, cualquier usuario no autenticado será redirigido automáticamente a la página de inicio de sesión. 🚀
