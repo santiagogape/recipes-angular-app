@@ -1,6 +1,8 @@
-import {Component, inject, Input, OnInit} from '@angular/core';
+import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
 import {JsonCarouselService} from '../../services/instances/JsonCarouselService';
 import {CarouselTwoRows} from '../../models/interfaces/carousel';
+import {CarouselService} from '../../services/interfaces/carousel-service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'carousel',
@@ -9,8 +11,8 @@ import {CarouselTwoRows} from '../../models/interfaces/carousel';
   styleUrl: './carousel.component.css',
   standalone: true
 })
-export class CarouselComponent implements OnInit {
-  service = inject(JsonCarouselService)
+export class CarouselComponent implements OnInit, OnDestroy {
+  service:CarouselService = inject(JsonCarouselService)
   protected carousel: CarouselTwoRows = {  // Valor por defecto
     title: '',
     intro: '',
@@ -19,14 +21,19 @@ export class CarouselComponent implements OnInit {
   };
   protected times: Array<number> = [1,2]
   @Input() src: string = "";
+  protected sub: Subscription = new Subscription();
+
   constructor() {}
 
   ngOnInit() {
     if (this.src) {
-      this.service.getCarouselTwoRowsFrom(this.src).then((carousel) => {
-        this.carousel = carousel;
-        console.log(carousel)
-      });
+      this.sub = this.service.getCarouselTwoRowsFrom(this.src).subscribe(
+        carousel => this.carousel = carousel
+      );
     }
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe()
   }
 }
