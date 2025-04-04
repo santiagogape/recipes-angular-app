@@ -1,0 +1,17 @@
+{
+  "title": "Delicious Recipes of your own",
+  "images": [
+    {
+      "alt": "Image of a mouth-watering pasta dish",
+      "src": "https://imag.bonviveur.com/espaguetis-carbonara-primer-plano.jpg"
+    },
+    {
+      "alt": "Image of a colorful salad bowl",
+      "src": "https://www.crazyvegankitchen.com/wp-content/uploads/2023/11/buddha-bowl-recipe.jpg"
+    },
+    {
+      "alt": "Image of a decadent chocolate dessert",
+      "src": "https://www.foodandwine.com/thmb/XdFd-DvTtouryLCjeCqwhfmmK-A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/molten-chocolate-cake-FT-RECIPE0220-0a33d7d0ab0c45588f7bfe742d33a9bc.jpg"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
-import {JsonIndexMarketingService} from '../../services/instances/JsonIndexMarketingService';
-import {Marketing} from '../../models/interfaces/index-marketing';
-import {IndexMarketingService} from '../../services/interfaces/index-marketing-service';
+import {JsonIndexMarketingService} from '../../services/instances/json.index.marketing.service';
+import {Marketing} from '../../models/interfaces/index.marketing';
+import {IndexMarketingService} from '../../services/interfaces/index.marketing.service';
 import {Subscription} from 'rxjs';
 
 @Component({

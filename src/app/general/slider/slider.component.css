@@ -1,0 +1,128 @@
+.slider-container, .swiper {
+  align-items: center;
+  aspect-ratio: 4 / 3;
+  height: 450px;
+}
+
+@media (max-width: 1600px) {
+  .slider-container,.swiper {
+    width: 600px;
+  }
+}
+
+@media (max-width: 800px) {
+  .slider-container,.swiper {
+    width: 100%
+  }
+}
+
+.testimonials-slide-container {
+  gap: var(--dl-space-space-twounits);
+  flex: 0 0 auto;
+  display: flex;
+  padding: var(--dl-space-space-fiveunits);
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.testimonials-slide-container:hover img.img-ratio-4-3 {
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.testimonials-slide-container img.img-ratio-4-3 {
+  transition: transform 0.3s ease;
+}
+
+
+.testimonials-thumbnail {
+  flex-grow: 1;
+  max-width: 640px;
+  width: auto;
+  height: auto;
+  border-radius: var(--dl-radius-radius-radius4);
+}
+
+.testimonials-content {
+  gap: var(--dl-space-space-twounits);
+  flex: 1;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  max-width: 800px;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+
+.testimonials-stars {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.testimonials-avatar {
+  gap: var(--dl-space-space-oneandhalfunits);
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.testimonials-avatar-content {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.testimonials-text {
+  font-style: normal;
+  font-weight: 600;
+}
+
+.testimonials-logo {
+  height: 2rem;
+}
+
+@media(max-width: 1300px) {
+  .testimonials-slide-container {
+    flex-direction: column;
+  }
+  .testimonials-thumbnail {
+    width: 100%;
+  }
+  .testimonials-content {
+    align-items: center;
+    justify-content: center;
+  }
+  .testimonials-avatar {
+    gap: 0;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+}
+
+@media(max-width: 767px) {
+  .testimonials-slide {
+    padding: var(--dl-space-space-threeunits);
+  }
+}
+
+@media(max-width: 479px) {
+  .testimonials-slide {
+    padding: var(--dl-space-space-oneandhalfunits);
+  }
+  .testimonials-text {
+    text-align: center;
+  }
+  .testimonials-avatar {
+    flex-direction: column;
+  }
+  .testimonials-avatar-content {
+    align-items: center;
+    margin-bottom: var(--dl-space-space-oneandhalfunits);
+  }
+}

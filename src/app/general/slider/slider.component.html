@@ -1,1 +1,54 @@
-<p>slider works!</p>
+<!-- Swiper -->
+<div class="section-padding">
+  <span class="heading-1">{{title}}</span>
+  <div class="section-max-width slider-container">
+    <div id="swiper" class="swiper">
+      <div class="swiper-wrapper">
+        <!-- .swiper-slide-->
+        @if (type==="gallery"){
+          @for (image of gallery.images; track image.src){
+            <div class="swiper-slide" #galleryRef>
+              <img [alt]=image.alt [src]="image.src" class="img-ratio-4-3"/>
+            </div>
+          }
+        }
+        @else { <!-- testimonials -->
+          @for (slide of testimonials.slides; track slide.image.src){
+            <div class="swiper-slide">
+              <div class="testimonials-slide-container">
+                <img [alt]=slide.image.alt [src]=slide.image.src class="testimonials-thumbnail img-ratio-4-3"/>
+                <div class="testimonials-content">
+                  <div class="testimonials-stars">
+                    <!-- stars valuation -->
+                    @for (i of Array(slide.testimonial.valuation).fill(0); track i){
+                      <svg viewBox="0 0 1024 1024" class="icon-small">
+                        <path d="M512 736l-264 160 70-300-232-202 306-26 120-282 120 282 306 26-232 202 70 300z"></path>
+                      </svg>
+                    }
+                  </div>
+                  <p class="text-body-large testimonials-text">{{slide.testimonial.description}}</p>
+                  <div class="testimonials-avatar">
+                    <div class="testimonials-avatar-content">
+                      <span class="testimonials-text text-body-small">
+                        {{slide.testimonial.author}}
+                      </span>
+                      <span class="text-body-small">
+                        {{slide.testimonial.author}}
+                      </span>
+                    </div>
+                    <img [alt]="slide.logo.alt" [src]="slide.logo.src" class="recipes-testimonials-logo"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        }
+      </div>
+
+      <!-- Opcional: controles -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</div>

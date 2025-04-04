@@ -1,0 +1,29 @@
+{
+  "title": "Learn Popular Recipes",
+  "images": [
+    {
+      "alt": "Delicious Pasta Dish",
+      "src": "https://images.unsplash.com/photo-1430931071372-38127bd472b8?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczODg3ODE1OXw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+    },
+    {
+      "alt": "Mouthwatering Chocolate Cake",
+      "src": "https://images.unsplash.com/photo-1708388464516-b52bfefde2b0?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczODg3ODU1OXw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+    },
+    {
+      "alt": "Savory Appetizers Platter",
+      "src": "https://images.unsplash.com/photo-1724795612879-a8942152b22d?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczODg3ODE1OXw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+    },
+    {
+      "alt": "Refreshing Fruit Salad",
+      "src": "https://images.unsplash.com/photo-1654723011662-e9be9ab3fe84?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczODg3ODE1OHw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+    },
+    {
+      "alt": "Exotic Thai Curry",
+      "src": "https://images.unsplash.com/photo-1516448620398-c5f44bf9f441?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczODg3ODE1OHw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+    },
+    {
+      "alt": "Decadent Cheesecake",
+      "src": "https://images.unsplash.com/photo-1560512154-fa1f9d3a810a?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczODg3ODE1OHw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+    }
+  ]
+}
