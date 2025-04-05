@@ -1,0 +1,89 @@
+{
+  "header": {
+    "title": "Meet our team",
+    "subtitle": "Join Our Team Today!"
+  },
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  "members": [
+    {
+      "name": "Alice Johnson",
+      "job": "Job Title 1",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+      "image": {
+				"alt": "team member",
+				"src": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920"
+			},
+      "icons": ["linkedin", "instagram"]
+    },
+    {
+      "name": "Bob Smith",
+      "job": "Job Title 2",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+      "image": {
+				"alt": "team member",
+				"src": "https://www.essence.com/wp-content/uploads/2020/12/Broderick-Hunter-Essence-July-2018-Ph-Michael-Rowe.png"
+			},
+      "icons": ["linkedin", "instagram"]
+    },
+    {
+      "name": "Catherine Lee",
+      "job": "Job Title 3",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+      "image": {
+				"alt": "team member",
+				"src": "https://www.generalatlantic.com/wp-content/uploads/2024/11/catherine-lee.jpg"
+			},
+      "icons": ["linkedin", "instagram"]
+    },
+    {
+      "name": "Daniel Brown",
+      "job": "Job Title 4",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+      "image": {
+				"alt": "team member",
+				"src": "https://pga-tour-res.cloudinary.com/image/upload/c_fill,g_face:center,q_auto,f_auto,dpr_2.0,h_250,w_200,d_stub:default_avatar_light.webp/headshots_57259"
+			},
+      "icons": ["linkedin", "instagram"]
+    },
+    {
+      "name": "Eva Taylor",
+      "job": "Job Title 5",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+      "image": {
+				"alt": "team member",
+				"src": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920"
+			},
+      "icons": ["linkedin", "instagram"]
+    },
+    {
+      "name": "Frank Wilson",
+      "job": "Job Title 6",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+      "image": {
+				"alt": "team member",
+				"src": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920"
+			},
+      "icons": ["linkedin", "instagram"]
+    },
+    {
+      "name": "Grace Nguyen",
+      "job": "Job Title 7",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+      "image": {
+				"alt": "team member",
+				"src": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920"
+			},
+      "icons": ["linkedin", "instagram"]
+    },
+    {
+      "name": "Henry Adams",
+      "job": "Job Title 8",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+      "image": {
+				"alt": "team member",
+				"src": "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920"
+			},
+      "icons": ["linkedin", "instagram"]
+    }
+  ]
+}

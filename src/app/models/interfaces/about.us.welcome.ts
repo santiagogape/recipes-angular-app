@@ -1,7 +1,7 @@
 import {ImageSrc} from './ImageSrc';
+import {Header} from './header';
 
 export interface AboutUsWelcome {
-  title: string;
-  subtitle: string;
+  header: Header
   image: ImageSrc;
 }

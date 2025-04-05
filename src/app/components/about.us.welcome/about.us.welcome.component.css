@@ -1,0 +1,24 @@
+.welcome-about-us-actions {
+  gap: var(--dl-space-space-unit);
+  display: flex;
+  align-items: flex-start;
+}
+
+.welcome-about-us-button {
+  animation-name: none;
+  animation-delay: 0s;
+  animation-duration: 300ms;
+  animation-direction: normal;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+}
+
+@media(max-width: 479px) {
+  .welcome-about-us-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+  .welcome-about-us-button {
+    width: 100%;
+  }
+}

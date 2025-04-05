@@ -5,7 +5,7 @@ export interface Tab {
   content: string;
 }
 
-export interface Marketing {
+export interface IndexMarketing {
   reverse: boolean;
   image: ImageSrc
   tabs: Tab[]

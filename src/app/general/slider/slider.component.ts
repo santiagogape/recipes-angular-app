@@ -43,7 +43,7 @@ export class SliderComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     if (this.type === "gallery") {
-      this.service.getGallery(this.slider).subscribe(
+      this.sub = this.service.getGallery(this.slider).subscribe(
         data => {
           this.gallery = data; this.title = data.title;
           console.log(this.gallery)

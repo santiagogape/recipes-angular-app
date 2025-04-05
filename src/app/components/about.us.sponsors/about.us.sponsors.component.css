@@ -1,0 +1,10 @@
+.sponsors-max-width {
+  gap: var(--dl-space-space-twounits);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sponsors-text {
+  text-align: center;
+}

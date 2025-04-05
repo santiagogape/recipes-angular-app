@@ -1,5 +1,5 @@
 import {ImageSrc} from './ImageSrc';
-import {Testimonial} from './testimonial';
+import {RecipesTestimonial} from './recipes.testimonial';
 
 
 export interface GallerySlider {
@@ -11,7 +11,7 @@ export interface TestimonialsSlider {
   title: string
   slides: {
     image: ImageSrc,
-    testimonial: Testimonial,
+    testimonial: RecipesTestimonial,
     logo: ImageSrc
   }[]
 }

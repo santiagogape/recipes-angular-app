@@ -1,6 +1,6 @@
 import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
 import {JsonIndexMarketingService} from '../../services/instances/json.index.marketing.service';
-import {Marketing} from '../../models/interfaces/index.marketing';
+import {IndexMarketing} from '../../models/interfaces/index.marketing';
 import {IndexMarketingService} from '../../services/interfaces/index.marketing.service';
 import {Subscription} from 'rxjs';
 
@@ -13,7 +13,7 @@ import {Subscription} from 'rxjs';
 export class IndexMarketingComponent implements OnInit, OnDestroy {
   private service: IndexMarketingService = inject(JsonIndexMarketingService)
   @Input() marketing: string = "";
-  protected sections: Marketing[] = [];
+  protected sections: IndexMarketing[] = [];
   protected sub: Subscription = new Subscription();
   constructor() {}
 
@@ -29,7 +29,7 @@ export class IndexMarketingComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe()
   }
 
-  direction(section: Marketing) {
+  direction(section: IndexMarketing) {
     if (section.reverse) {
       return 'index-marketing-container-reverse grid-columns-auto-300 section-max-width'
     } else {
