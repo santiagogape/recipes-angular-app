@@ -2,7 +2,7 @@ import {Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {JsonMyRecipesDescriptionService} from '../../services/instances/json.my.recipes.description.service';
 import {MyRecipesDescriptionService} from '../../services/interfaces/my.recipes.description.service';
 import {Subscription} from 'rxjs';
-import {RecipeDescription} from '../../models/my/my.recipes.descriptions';
+import {Recipe} from '../../models/my/myRecipes';
 import {RecipeDescriptionComponent} from '../../components.my/recipe-description/recipe-description.component';
 
 @Component({
@@ -17,8 +17,8 @@ export class MyComponent implements OnInit, OnDestroy {
   mine: string = 'assets/my/my.recipes.description.json'
   service: MyRecipesDescriptionService = inject(JsonMyRecipesDescriptionService)
   sub: Subscription = new Subscription();
-  recipes: RecipeDescription[] = []
-  recipe!: RecipeDescription;
+  recipes: Recipe[] = []
+  recipe!: Recipe;
   index : number = 0;
 
 
@@ -44,7 +44,7 @@ export class MyComponent implements OnInit, OnDestroy {
     } else if (change === 'previous') {
       this.index = (this.index - 1 + this.recipes.length) % this.recipes.length
     }
-    console.log(this.index, <RecipeDescription>this.recipes.at(this.index))
-    this.recipe =  <RecipeDescription>this.recipes.at(this.index)
+    console.log(this.index, <Recipe>this.recipes.at(this.index))
+    this.recipe =  <Recipe>this.recipes.at(this.index)
   }
 }

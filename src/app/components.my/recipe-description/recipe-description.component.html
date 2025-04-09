@@ -1,12 +1,12 @@
 @if (recipe){
-  <div [id]="recipe.intro.header.title" class="section-padding">
+  <div [id]="recipe.description.intro.header.title" class="section-padding">
     <div class="recipe-container flex-column section-max-width">
       <header>
-        <h1 id="recipe-name" class="heading-2">{{recipe.intro.header.title}}</h1>
-        <p id="recipe-description" class="text-body-small">{{recipe.intro.header.text}}</p>
+        <h1 id="recipe-name" class="heading-2">{{recipe.description.intro.header.title}}</h1>
+        <p id="recipe-description" class="text-body-small">{{recipe.description.intro.header.text}}</p>
         <button (click)="next()">Next</button>
         <button (click)="previous()">Previous</button>
-        <img [src]="recipe.intro.image.src" [alt]="recipe.intro.image.alt" class="img-ratio-4-3">
+        <img [src]="recipe.description.intro.image.src" [alt]="recipe.description.intro.image.alt" class="img-ratio-4-3">
       </header>
       <section class="recipe-container section-max-width">
         <h2 class="heading-2">Ingredientes</h2>

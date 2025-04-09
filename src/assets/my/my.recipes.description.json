@@ -1,21 +1,23 @@
 {
   "recipes": [
     {
-      "intro": {
-        "header": {
-          "title": "Spaghetti Carbonara",
-          "text": "A classic Italian pasta dish made with simple ingredients."
+      "description": {
+        "intro": {
+          "header": {
+            "title": "Spaghetti Carbonara",
+            "text": "A classic Italian pasta dish made with simple ingredients."
+          },
+          "image" : {
+            "alt": "Image of a mouth-watering pasta dish",
+            "src": "https://imag.bonviveur.com/espaguetis-carbonara-primer-plano.jpg"
+          }
         },
-        "image" : {
-          "alt": "Image of a mouth-watering pasta dish",
-          "src": "https://imag.bonviveur.com/espaguetis-carbonara-primer-plano.jpg"
+        "author": "FoodChampsHQ",
+        "icons": ["link","linkedin","twitter","facebook"],
+        "tags": {
+          "categories": ["Vegetariano", "Vegano", "Sin Gluten"],
+          "allergens": ["Lácteos", "Frutos Secos", "Gluten"]
         }
-      },
-      "author": "FoodChampsHQ",
-      "icons": ["link","linkedin","twitter","facebook"],
-      "tags": {
-        "categories": ["Vegetariano", "Vegano", "Sin Gluten"],
-        "allergens": ["Lácteos", "Frutos Secos", "Gluten"]
       },
       "ingredients": [
         { "title": "Pasta", "text": "200g of spaghetti." },
@@ -49,14 +51,22 @@
       "votes": 1
     },
     {
-      "intro": {
-        "header": {
-          "title": "Vegan Buddha Bowl",
-          "text": "A nutritious and colorful bowl packed with wholesome ingredients."
+      "description": {
+        "intro": {
+          "header": {
+            "title": "Vegan Buddha Bowl",
+            "text": "A nutritious and colorful bowl packed with wholesome ingredients."
+          },
+          "image": {
+            "alt": "Image of a colorful salad bowl",
+            "src": "https://www.crazyvegankitchen.com/wp-content/uploads/2023/11/buddha-bowl-recipe.jpg"
+          }
         },
-        "image": {
-          "alt": "Image of a colorful salad bowl",
-          "src": "https://www.crazyvegankitchen.com/wp-content/uploads/2023/11/buddha-bowl-recipe.jpg"
+        "author": "FoodChampsHQ",
+        "icons": ["link","linkedin","twitter","facebook"],
+        "tags": {
+          "categories": ["Vegetariano", "Vegano", "Sin Gluten"],
+          "allergens": ["Lácteos", "Frutos Secos", "Gluten"]
         }
       },
       "ingredients": [
@@ -86,14 +96,22 @@
       "votes": 1
     },
     {
-      "intro":  {
-        "header": {
-          "title": "Chocolate Lava Cake",
-          "text": "A rich and decadent dessert with a molten chocolate center."
+      "description": {
+        "intro":  {
+          "header": {
+            "title": "Chocolate Lava Cake",
+            "text": "A rich and decadent dessert with a molten chocolate center."
+          },
+          "image": {
+            "alt": "Image of a decadent chocolate dessert",
+            "src": "https://www.foodandwine.com/thmb/XdFd-DvTtouryLCjeCqwhfmmK-A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/molten-chocolate-cake-FT-RECIPE0220-0a33d7d0ab0c45588f7bfe742d33a9bc.jpg"
+          }
         },
-        "image": {
-          "alt": "Image of a decadent chocolate dessert",
-          "src": "https://www.foodandwine.com/thmb/XdFd-DvTtouryLCjeCqwhfmmK-A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/molten-chocolate-cake-FT-RECIPE0220-0a33d7d0ab0c45588f7bfe742d33a9bc.jpg"
+        "author": "FoodChampsHQ",
+        "icons": ["link","linkedin","twitter","facebook"],
+        "tags": {
+          "categories": ["Vegetariano", "Vegano", "Sin Gluten"],
+          "allergens": ["Lácteos", "Frutos Secos", "Gluten"]
         }
       },
       "ingredients": [

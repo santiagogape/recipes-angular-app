@@ -1,6 +1,6 @@
 import {Observable} from 'rxjs';
-import {MyRecipesDescriptions} from '../../models/my/my.recipes.descriptions';
+import {MyRecipes} from '../../models/my/myRecipes';
 
 export interface MyRecipesDescriptionService {
-  getMyRecipesDescriptions(src:string): Observable<MyRecipesDescriptions>
+  getMyRecipesDescriptions(src:string): Observable<MyRecipes>
 }

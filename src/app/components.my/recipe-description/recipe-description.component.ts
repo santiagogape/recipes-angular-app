@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { RecipeDescription} from '../../models/my/my.recipes.descriptions';
+import { Recipe} from '../../models/my/myRecipes';
 import {of} from 'rxjs';
 
 @Component({
@@ -9,7 +9,7 @@ import {of} from 'rxjs';
   styleUrl: './recipe-description.component.css'
 })
 export class RecipeDescriptionComponent {
-  @Input() recipe!: RecipeDescription;
+  @Input() recipe!: Recipe;
   @Output() change: EventEmitter<string> = new EventEmitter();
   constructor() {
     of(this.recipe).subscribe(

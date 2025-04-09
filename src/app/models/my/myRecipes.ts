@@ -11,12 +11,16 @@ export interface RecipeDescription {
   author: string
   icons: string[]
   tags: RecipeTags
+}
+
+export interface Recipe {
+  description: RecipeDescription
   ingredients: Header[]
   steps: Header[]
   stars: number
   votes: number
 }
 
-export interface MyRecipesDescriptions {
-  recipes: RecipeDescription[];
+export interface MyRecipes {
+  recipes: Recipe[];
 }

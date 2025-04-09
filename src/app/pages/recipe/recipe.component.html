@@ -1,1 +1,7 @@
-<p>recipe works!</p>
+@if (recipe){
+  <app-recipe-front [description]="recipe.description"></app-recipe-front>
+  <app-recipe-steps [ingredients]="recipe.ingredients" [steps]="recipe.steps"></app-recipe-steps>
+}
+@if (carousel) {
+  <carousel [src]="carousel"></carousel>
+}
