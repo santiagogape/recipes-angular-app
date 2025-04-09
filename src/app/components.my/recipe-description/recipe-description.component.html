@@ -1,0 +1,34 @@
+@if (recipe){
+  <div [id]="recipe.intro.header.title" class="section-padding">
+    <div class="recipe-container flex-column section-max-width">
+      <header>
+        <h1 id="recipe-name" class="heading-2">{{recipe.intro.header.title}}</h1>
+        <p id="recipe-description" class="text-body-small">{{recipe.intro.header.text}}</p>
+        <button (click)="next()">Next</button>
+        <button (click)="previous()">Previous</button>
+        <img [src]="recipe.intro.image.src" [alt]="recipe.intro.image.alt" class="img-ratio-4-3">
+      </header>
+      <section class="recipe-container section-max-width">
+        <h2 class="heading-2">Ingredientes</h2>
+        <ul id="recipe-ingredients" class="my_recipe_description-ul flex-column">
+          @for (ingredient of recipe.ingredients; track ingredient.title){
+            <span class="heading-3 text-align-left">{{ingredient.title}}</span>
+            <p class="text-body-small">{{ingredient.text}}</p>
+          }
+        </ul>
+      </section>
+      <section class="recipe-container section-max-width">
+        <h2 class="heading-2">Pasos</h2>
+        <ul id="recipe-steps" class="my_recipe_description-ul flex-column">
+          @for (step of recipe.steps; track step.title){
+            <span class="heading-3 text-align-left">{{step.title}}</span>
+            <p class="text-body-small">{{step.text}}</p>
+          }
+        </ul>
+      </section>
+    </div>
+  </div>
+} @else {
+  no recipe
+}
+

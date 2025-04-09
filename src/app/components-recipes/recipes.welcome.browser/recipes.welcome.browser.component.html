@@ -1,0 +1,18 @@
+<div class="welcome-browser-header section-padding">
+  <img [alt]="browser.intro.image.alt" [src]="browser.intro.image.src" class="welcome-browser-image"/>
+  <div class="welcome-browser-image-mask"><!-- background --></div>
+  <div class="welcome-browser-max-width section-max-width"> <!-- actual content-->
+    <div class="welcome-browser-content">
+      <span class="welcome-browser-text heading-1 welcome-browser-text-inline">{{browser.intro.header.title}}</span>
+      <p class="welcome-browser-text text-body-large welcome-browser-text-inline">{{browser.intro.header.text}}</p>
+      <div class="welcome-browser-actions">
+        <button class="button-background-filled welcome-browser-button">
+          <span class="welcome-browser-text text-body-small welcome-browser-text-inline">Browse Recipes</span>
+        </button>
+        <button class="button-background-filled-reverse welcome-browser-button">
+          <span class="welcome-browser-text text-body-small welcome-browser-text-inline">Get Cooking</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

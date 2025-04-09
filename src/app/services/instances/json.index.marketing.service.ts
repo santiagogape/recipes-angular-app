@@ -1,8 +1,8 @@
 import {IndexMarketingService} from '../interfaces/index.marketing.service';
-import {Injectable} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {IndexMarketing} from '../../models/interfaces/index.marketing';
-import {HttpClient, HttpXhrBackend} from '@angular/common/http';
+import {IndexMarketing} from '../../models/home/index.marketing';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ import {HttpClient, HttpXhrBackend} from '@angular/common/http';
 
 export class JsonIndexMarketingService implements IndexMarketingService {
 
-  private http: HttpClient = new HttpClient(new HttpXhrBackend({ build: () => new XMLHttpRequest() }));
+  private http: HttpClient = inject(HttpClient)
   getMarketingSections(src: string): Observable<IndexMarketing[]> {
     return this.http.get<IndexMarketing[]>(src).pipe()
   }

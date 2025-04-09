@@ -1,0 +1,39 @@
+{
+  "front": {
+    "intro": {
+      "header": {
+        "title": "Recipes",
+        "text": "Delicious Recipes to Satisfy Your Cravings"
+      },
+      "image": {
+        "alt": "Variety of delicious dishes",
+        "src": "https://images.unsplash.com/photo-1600398138360-ae1ac2285bc3?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczODY5MzcwNHw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+      }
+    },
+    "author": "FoodChampsHQ",
+    "icons": ["link","linkedin","twitter","facebook"],
+    "tags": {
+      "categories": ["Vegetariano", "Vegano", "Sin Gluten"],
+      "allergens": ["Lácteos", "Frutos Secos", "Gluten"]
+    }
+  },
+  "steps": {
+    "title": "FoodChampsHQ Launch",
+    "ingredients": ["Heading","Heading","Heading"],
+    "steps": [
+      {
+        "chapter": "Paso 1",
+        "description": "FoodChampsHQ community started to grow, with more users sharing their cooking experiences."
+      },
+      {
+        "chapter": "Paso 2",
+        "description": "FoodChampsHQ introduced new recipe categories, including international cuisines and dietary options."
+      },
+      {
+        "chapter": "Paso n",
+        "description": "Satisfied users shared their cooking success stories and experiences with FoodChampsHQ recipes."
+      }
+    ]
+  },
+  "stars": 5
+}

@@ -1,0 +1,12 @@
+{
+  "intro": {
+    "header": {
+      "title": "Discover Delicious Recipes",
+      "text": "Explore a wide range of mouth-watering recipes from around the\n                world. From quick and easy meals to gourmet dishes, we have\n                something for every taste bud."
+    },
+    "image": {
+      "alt": "Image of a variety of delicious dishes",
+      "src": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczODY5MDM5Mnw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+    }
+  }
+}

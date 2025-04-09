@@ -1,0 +1,40 @@
+{
+  "header": {
+    "title": "Explore Our Culinary Creations",
+    "text": "Browse through a selection of our visually stunning and\n                  delectable dishes. From appetizers to desserts, we have\n                  something for every palate."
+  },
+  "first": [
+    {
+      "alt": "Delicious Pasta Carbonara",
+      "src": "https://images.unsplash.com/photo-1715204800869-5c24da515b33?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczODY5MDM5M3w&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+    },
+    {
+      "alt": "Mouth-watering Chocolate Lava Cake",
+      "src": "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczODY5MDM5M3w&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+    }
+  ],
+  "middle": [
+    {
+      "alt": "Fresh and Colorful Greek Salad",
+      "src": "https://images.unsplash.com/photo-1528649247577-4f5a475af4d0?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczODY5MDM5Mnw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+    },
+    {
+      "alt": "Sizzling BBQ Ribs",
+      "src": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczODY5MDM5Mnw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+    },
+    {
+      "alt": "Decadent Tiramisu Dessert",
+      "src": "https://images.unsplash.com/photo-1625144093498-bf62fca631c5?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczODY5MDM5Mnw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+    }
+  ],
+  "last": [
+    {
+      "alt": "Spicy Chicken Tacos",
+      "src": "https://images.unsplash.com/photo-1547417080-bdc11256756f?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczODY5MDM5M3w&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+    },
+    {
+      "alt": "Refreshing Watermelon Salad",
+      "src": "https://images.unsplash.com/photo-1681168714705-532b9764e4f9?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczODY5MDM5Mnw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+    }
+  ]
+}

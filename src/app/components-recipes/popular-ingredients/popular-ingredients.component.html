@@ -1,0 +1,17 @@
+<div class="ingredients-layout section-padding">
+  <div class="ingredients-max-width section-max-width">
+    <div class="ingredients-container1">
+      <span class="heading-1 ingredients-text-inline"></span>
+      <span class="ingredients-text text-body-large ingredients-text-inline"></span>
+    </div>
+    <div class="ingredients-grid">
+      @for (card of ingredients.cards; track card.header.title){
+        <div class="ingredients-card flex-column card-layout">
+          <img [alt]="card.image.alt" [src]="card.image.src" class="ingredients-image img-round img-ratio-1-1"/>
+          <span class="heading-2 ingredients-text-inline">{{card.header.title}}</span>
+          <span class="ingredients-text text-body-small ingredients-text-inline">{{card.header.text}}</span>
+        </div>
+      }
+    </div>
+  </div>
+</div>

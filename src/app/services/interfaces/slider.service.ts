@@ -1,4 +1,4 @@
-import {GallerySlider, TestimonialsSlider} from '../../models/interfaces/slider';
+import {GallerySlider, TestimonialsSlider} from '../../models/general/slider';
 import {Observable} from 'rxjs';
 
 export interface SliderService {

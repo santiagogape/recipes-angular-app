@@ -1,0 +1,27 @@
+.star-rating-wrapper {
+  display: contents;
+}
+
+.star-rating {
+  font-size: 30px;
+  color: #ccc;
+}
+
+.star-rating .star {
+  cursor: pointer;
+}
+
+.star-rating .star.selected {
+  color: gold;
+}
+
+.rectangle {
+  width: 100%;
+  height: 50%;
+  background-color: #E65100;
+  border: 2px solid black;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5); /* blurred shadow */
+  display: flex; /*  flexbox */
+  justify-content: center; /* on X-axis */
+  align-items: center; /* on Y-axis */
+}

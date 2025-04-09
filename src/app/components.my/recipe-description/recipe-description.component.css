@@ -1,0 +1,42 @@
+.my_recipe_description-ul {
+  align-items: flex-start;
+  padding-left: var(--dl-space-space-fiveunits);
+  width: fit-content;
+}
+
+.recipe-container {
+  justify-items: center;
+}
+
+@media(max-width: 767px) {
+  .my_recipe_description-ul {
+    padding-left: var(--dl-space-space-threeunits);
+  }
+}
+
+@media(max-width: 479px) {
+
+
+  .my_recipe_description-ul {
+    padding-left: var(--dl-space-space-oneandhalfunits);
+  }
+
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.text-align-justify {
+  text-align: justify;
+}
+
+

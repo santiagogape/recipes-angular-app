@@ -1,0 +1,42 @@
+{
+  "header": {
+    "title": "Medium length hero headline goes here",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n                Suspendisse varius enim in eros elementum tristique. Duis\n                cursus, mi quis viverra ornare, eros dolor interdum nulla, ut\n                commodo diam libero vitae erat."
+  },
+  "normal": [
+    {
+      "alt": "Hero Image",
+      "src": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczODYxMzYyMnw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1500"
+    },
+    {
+      "alt": "Hero Image",
+      "src": "https://images.unsplash.com/photo-1595855759920-86582396756a?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczODYxMzYxOXw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+    },
+    {
+      "alt": "Hero Image",
+      "src": "https://images.unsplash.com/photo-1501959915551-4e8d30928317?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczODYxMzYxOXw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+    },
+    {
+      "alt": "Hero Image",
+      "src": "https://images.unsplash.com/photo-1618153351015-e2f282e09d94?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczODYxMzYyMXw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1500"
+    }
+  ],
+  "reverse": [
+    {
+      "alt": "Hero Image",
+      "src": "https://images.unsplash.com/photo-1609269139523-3ef050397e70?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczODYxMzYxOXw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+    },
+    {
+      "alt": "Hero Image",
+      "src": "https://images.unsplash.com/photo-1612172791729-fa48bd00fc48?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczODYxMzYyMHw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+    },
+    {
+      "alt": "Hero Image",
+      "src": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczODYxMzYyMHw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080"
+    },
+    {
+      "alt": "Hero Image",
+      "src": "https://images.unsplash.com/photo-1543362906-acfc16c67564?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTczODYxMzYyMXw&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1500"
+    }
+  ]
+}

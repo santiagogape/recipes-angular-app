@@ -1,0 +1,14 @@
+.my-recipes-container {
+  justify-items: center;
+}
+
+.my-recipes-buttons-container {
+  justify-content: center;
+}
+
+@media(max-width: 767px) {
+  .my-recipes-buttons-container {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

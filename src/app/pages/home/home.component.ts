@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import {CarouselComponent} from '../../general/carousel/carousel.component';
-import {IndexMarketingComponent} from '../../components/index-marketing/index-marketing.component';
-import {SliderComponent} from '../../general/slider/slider.component';
+import {CarouselComponent} from '../../components-general/carousel/carousel.component';
+import {IndexMarketingComponent} from '../../components-home/index.marketing/index.marketing.component';
+import {SliderComponent} from '../../components-general/slider/slider.component';
+
 
 @Component({
-  selector: 'app-home',
+  selector: 'home',
   imports: [
     CarouselComponent,
     IndexMarketingComponent,
@@ -15,9 +16,9 @@ import {SliderComponent} from '../../general/slider/slider.component';
   standalone: true
 })
 export class HomeComponent {
-  public carousel: string = "assets/jsons/carousel.json";
-  public marketing: string = "assets/jsons/index-marketing.json";
-  public slider: string = "assets/jsons/index-slider.json";
+  public carousel: string = "assets/general/carousel.json";
+  public marketing: string = "assets/home/index.marketing.json";
+  public slider: string = "assets/home/index.slider.json";
     public type: string = "gallery";
   constructor() {}
 }

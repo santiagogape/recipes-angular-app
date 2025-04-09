@@ -1,8 +1,8 @@
 // src/app/services/carousel.service.ts
-import { Injectable} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {CarouselService} from '../interfaces/carousel.service';
-import {CarouselTwoRows} from '../../models/interfaces/carousel';
-import {HttpClient, HttpXhrBackend} from '@angular/common/http';
+import {CarouselTwoRows} from '../../models/general/carousel';
+import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
 @Injectable({
@@ -10,7 +10,7 @@ import {Observable} from 'rxjs';
 })
 
 export class JsonCarouselService implements CarouselService {
-  private http: HttpClient = new HttpClient(new HttpXhrBackend({ build: () => new XMLHttpRequest() }))
+  private http: HttpClient = inject(HttpClient)
   constructor() {}
 
   getCarouselTwoRowsFrom(src: string): Observable<CarouselTwoRows> {

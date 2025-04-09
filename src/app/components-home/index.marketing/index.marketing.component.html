@@ -1,0 +1,27 @@
+<p>index-marketing works!</p>
+<div>
+  <div class="flex-column section-padding">
+    @for (section of sections; track section.image.src) {
+        <div [class]=this.direction(section)>
+        <!-- marketing image 'index-marketing-container-reverse grid-columns-auto-300 section-max-width' -->
+        <img
+          [alt]=section.image.alt
+          [src]=section.image.src
+          class="index-marketing-image img-ratio-16-9"
+        />
+        <div class="index-marketing-tabs-menu flex-column">
+          <!-- tab templates-->
+          @for (tab of section.tabs; track tab.title) {
+            <div class="index-marketing-tab flex-row">
+              <div class="index-marketing-divider-container"></div>
+              <div class="index-marketing-content flex-column">
+                <h2 class="heading-2 ">{{tab.title}}</h2> <!-- tab title -->
+                <span class="text-body-small ">{{tab.text}}</span> <!-- tab content -->
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</div>

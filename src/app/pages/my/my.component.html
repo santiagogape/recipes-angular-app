@@ -1,1 +1,14 @@
-<p>my works!</p>
+@if (recipe){
+  <app-recipe-description [recipe]="recipe" (change)="show($event)"></app-recipe-description>
+} @else {
+  no recipe sent
+}
+<div class="section-padding">
+  <div class="my-recipes-container flex-column section-max-width">
+    <div class="my-recipes-buttons-container flex-row section-max-width">
+      <button class="button-background-filled">Get Cooking Now!</button>
+      <button class="button-background-filled-reverse">Privacy statement</button>
+      <button class="button-background-filled-reverse">Refund Policy</button>
+    </div>
+  </div>
+</div>
