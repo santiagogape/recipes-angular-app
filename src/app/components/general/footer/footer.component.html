@@ -1,1 +1,23 @@
-<p>footer works!</p>
+<footer class="section-padding footer">
+  <div class="flex-column section-max-width">
+    <div class="flex-column">
+      <div id="logo">
+        <!-- Ruta adaptada para Angular -->
+        <img alt="Foodie Recipes Logo" src="assets/logo-food-champs.png"/>
+      </div>
+      <div class="footer-links flex-row">
+        <!-- Usamos routerLink para navegación interna -->
+        <a routerLink="/" class="text-body-small"><span class="footer-text">Home</span></a>
+        <a routerLink="/recipes" class="text-body-small"><span class="footer-text">Recipes</span></a>
+        <a routerLink="/about-us" class="text-body-small"><span class="footer-text">About Us</span></a>
+      </div>
+    </div>
+    <div class="footer-credits flex-column">
+      <div class="divider-horizontal"></div>
+      <div class="footer-container">
+        <!-- Año dinámico -->
+        <span class="text-body-small">© {{ currentYear }} FoodChampsHQ</span>
+      </div>
+    </div>
+  </div>
+</footer>
