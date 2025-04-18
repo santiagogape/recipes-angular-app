@@ -1,0 +1,40 @@
+.profile-form-root, .profile-form-root .flex-column {
+  gap: 10px;
+  align-items: stretch;
+}
+
+.profile-max-width {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.profile-intro {
+  width: 100%;
+  padding: 2%;
+}
+
+.profile-form-root {
+  padding: 2em;
+}
+
+.forms-divider {
+  flex: 0 0 auto;
+  width: auto;
+  height: 57px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.divider {
+  width: 92px;
+  height: 56px;
+  object-fit: contain;
+}
+
+@media (max-width: 1000px) {
+  .profile-max-width {
+    grid-template-columns: 1fr;
+  }
+}

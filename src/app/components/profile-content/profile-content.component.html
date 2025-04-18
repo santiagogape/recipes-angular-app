@@ -1,1 +1,89 @@
-<p>profile-content works!</p>
+<div class="section-padding">
+  <div class="profile-max-width section-max-width">
+    <div class="profile-intro flex-column">
+      <span id="profile-title" class="heading-2">Your Profile</span>
+      <div class="profile-image" *ngIf="profileImage">
+        <img
+          [alt]="'Profile Image'"
+          [src]="profileImage"
+          class="img-ratio-4-6"
+        />
+      </div>
+    </div>
+
+    <div class="profile-form-root flex-column">
+      <!-- Sección de información del perfil -->
+      <div class="flex-column">
+        <span class="heading-3">Change your information</span>
+        <form class="profile-form flex-column" (ngSubmit)="updateProfile()">
+          <div class="flex-column">
+            <span class="text-body-large">Username</span>
+            <input
+              type="text"
+              id="username"
+              required
+              placeholder="Username"
+              class="text-input text-body-large"
+              [(ngModel)]="profileData.username"
+              name="username"
+            />
+          </div>
+          <div class="flex-column">
+            <span class="text-body-large">Email</span>
+            <input
+              type="email"
+              id="email"
+              required
+              placeholder="Email"
+              class="text-input text-body-large"
+              [(ngModel)]="profileData.email"
+              name="email"
+            />
+          </div>
+          <button type="submit" class="button-background-filled">
+            <span class="text-body-small">Change your Profile</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Divisor -->
+      <div class="forms-divider flex-row">
+        <div class="divider"></div>
+        <span class="heading-2">OR</span>
+        <div class="divider"></div>
+      </div>
+
+      <!-- Sección de cambio de contraseña -->
+      <form class="flex-column" (ngSubmit)="updatePassword()">
+        <span class="heading-3">Change your password</span>
+        <div class="flex-column">
+          <h2 class="text-body-large">Old password</h2>
+          <input
+            type="password"
+            id="oldPassword"
+            required
+            placeholder="Old password"
+            class="text-input text-body-large"
+            [(ngModel)]="passwordData.oldPassword"
+            name="oldPassword"
+          />
+        </div>
+        <div class="flex-column">
+          <h2 class="text-body-large">New password</h2>
+          <input
+            type="password"
+            id="newPassword"
+            required
+            placeholder="New password"
+            class="text-input text-body-large"
+            [(ngModel)]="passwordData.newPassword"
+            name="newPassword"
+          />
+        </div>
+        <button type="submit" class="button-background-filled">
+          <span class="text-body-small">Change your Password</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
