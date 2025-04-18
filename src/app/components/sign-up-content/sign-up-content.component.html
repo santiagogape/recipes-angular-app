@@ -1,1 +1,88 @@
-<p>sign-up-content works!</p>
+<div class="section-padding">
+  <div class="sign-up-max-width section-max-width">
+    <div class="image-container" *ngIf="signUpImageUrl">
+      <img
+        [alt]="'Sign Up Image'"
+        [src]="signUpImageUrl"
+        class="img-ratio-4-6"
+      />
+    </div>
+    <div class="sign-up-form flex-column">
+      <div id="sign-up-title-root" *ngIf="showTitle">
+        <span class="heading-2">Join Our Foodie Community</span>
+        <p class="text-body-large">Already have an account?
+          <a routerLink="/sign-in" class="text-link">Sign in</a>
+        </p>
+      </div>
+
+      <form class="flex-column" (ngSubmit)="onSubmit()">
+        <!-- Campos del formulario -->
+        <div id="sign-up-username" class="flex-column">
+          <label for="username" class="text-body-large">Username</label>
+          <input
+            type="text"
+            id="username"
+            required
+            placeholder="Username"
+            class="text-input text-body-large"
+            [(ngModel)]="user.username"
+            name="username"
+          >
+        </div>
+
+        <!-- Email Field -->
+        <div id="sign-up-email" class="flex-column">
+          <label for="email" class="text-body-large">Email</label>
+          <input
+            type="email"
+            id="email"
+            required
+            placeholder="Email address"
+            class="text-input text-body-large"
+            [(ngModel)]="user.email"
+            name="email"
+          >
+        </div>
+
+        <!-- Password Field -->
+        <div id="sign-up-password" class="flex-column">
+          <div class="flex-row">
+            <label for="password" class="text-body-large">Password</label>
+            <div class="sign-up-hide-password" (click)="togglePasswordVisibility(passwordField)">
+              <span class="text-body-small">Toggle Visibility</span>
+            </div>
+          </div>
+          <input
+            #passwordField
+            type="password"
+            id="password"
+            required
+            placeholder="Password"
+            class="text-input text-body-large"
+            [(ngModel)]="user.password"
+            name="password"
+          >
+        </div>
+
+        <div id="sign-up-terms-agree">
+          <p class="text-body-large">
+            By creating an account, you agree to the Terms of use and
+            Privacy Policy.
+          </p>
+        </div>
+
+        <div class="flex-column sign-up-buttons-container">
+          <button type="submit" class="sign-up-button button-background-filled">
+            <span class="text-body-small">Sign Up Now</span>
+          </button>
+
+          <div class="divider"></div>
+
+          <button type="button" class="sign-up-button button-background-filled" routerLink="/sign-in">
+            <span class="text-body-small">Sign In</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
