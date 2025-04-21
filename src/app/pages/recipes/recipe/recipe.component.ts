@@ -1,7 +1,7 @@
 import {Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {RecipeFrontComponent} from '../../../components/recipes/page/recipe.front/recipe.front.component';
 import {Subscription} from 'rxjs';
-import {Recipe} from '../../../models/my/myRecipes';
+import {Recipe} from '../../../models/my/my.recipes';
 import {RecipeService} from '../../../services/interfaces/page/recipes/recipe/recipe.service';
 import {JsonRecipeService} from '../../../services/instances/page/recipes/page/json.recipe.service';
 import {RecipeStepsComponent} from '../../../components/recipes/page/recipe.steps/recipe.steps.component';

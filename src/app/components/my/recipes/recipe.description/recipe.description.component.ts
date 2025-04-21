@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Recipe} from '../../../../models/my/myRecipes';
+import { Recipe} from '../../../../models/my/my.recipes';
 import {of} from 'rxjs';
 
 @Component({

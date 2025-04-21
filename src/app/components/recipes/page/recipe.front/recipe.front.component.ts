@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {RecipeDescription} from '../../../../models/my/myRecipes';
+import {RecipeDescription} from '../../../../models/my/my.recipes';
 import {TaggingComponent} from '../../../general/tagging/tagging.component';
 
 @Component({

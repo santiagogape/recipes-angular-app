@@ -1,1 +1,91 @@
-<p>profile works!</p>
+<div class="section-padding">
+  <div class="profile-max-width section-max-width">
+    <div class="profile-intro flex-column">
+      <span id="profile-title" class="heading-2"></span>
+      <div class="profile-image">
+        <img
+          alt=""
+          src=""
+          class="img-ratio-4-6"
+        />
+      </div>
+    </div>
+    <div class="profile-form-root flex-column">
+      <div class="flex-column">
+        <span class="heading-3">Change your information</span>
+        <form class="profile-form flex-column">
+          <div class="flex-column">
+            <span data-form="thq-sign-up-2-username" class=" text-body-large">Username</span>
+            <input
+              type="text"
+              id="thq-sign-up-2-username1"
+              required="required"
+              placeholder="Mr. Lorem Ipsum"
+              class=" text-input text-body-large"/>
+            <label for="thq-sign-up-2-username1"></label>
+          </div>
+          <div class="flex-column">
+            <span data-form="thq-sign-up-2-email" class=" text-body-large">Email</span>
+            <input
+              type="email"
+              id="thq-sign-up-2-email1"
+              required="required"
+              placeholder="lorem@ipsum.com"
+              class=" text-input text-body-large"/>
+            <label for="thq-sign-up-2-email1"></label>
+          </div>
+        </form>
+        <button type="submit" class="button-background-filled" onclick=updateProfile()>
+          <span class=" text-body-small">Change your Profile</span>
+        </button>
+      </div>
+      <div class="forms-divider flex-row">
+        <img
+          alt="image"
+          src="assets/images/divider.png"
+          class="divider"
+        />
+        <span class="heading-2">OR</span>
+        <img
+          alt="image"
+          src="assets/images/divider.png"
+          class="divider"
+        />
+      </div>
+      <form class="flex-column">
+        <span class="heading-3">Change your password</span>
+        <div class="flex-column">
+          <h2 data-form="thq-sign-up-2-username"
+              class=" text-body-large"
+          >
+            Old password
+          </h2>
+          <input
+            type="text"
+            id="thq-sign-up-2-username2"
+            required="required"
+            placeholder="Mr. Lorem Ipsum"
+            class="text-input text-body-large"/>
+          <label for="thq-sign-up-2-username2"></label>
+        </div>
+        <div class="flex-column">
+          <h2 data-form="thq-sign-up-2-email"
+              class=" text-body-large"
+          >
+            New password
+          </h2>
+          <input
+            type="email"
+            id="thq-sign-up-2-email2"
+            required="required"
+            placeholder="lorem@ipsum.com"
+            class=" text-input text-body-large"/>
+          <label for="thq-sign-up-2-email2"></label>
+        </div>
+        <button type="submit" class="button-background-filled" onclick=updatePassword()>
+          <span class=" text-body-small">Change your Password</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

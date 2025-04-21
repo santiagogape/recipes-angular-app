@@ -1,4 +1,4 @@
-import {Recipe} from '../../../../../models/my/myRecipes';
+import {Recipe} from '../../../../../models/my/my.recipes';
 import {Observable} from 'rxjs';
 
 export interface RecipeService {
