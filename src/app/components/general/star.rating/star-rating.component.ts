@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnDestroy} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'star-rating',
@@ -6,54 +6,30 @@ import {AfterViewInit, Component, OnDestroy} from '@angular/core';
   templateUrl: './star-rating.component.html',
   styleUrl: './star-rating.component.css'
 })
-export class StarRatingComponent implements AfterViewInit, OnDestroy {
-  constructor() {
-  }
-  private starClickHandlers: (() => void)[] = [];
 
-  ngAfterViewInit() {
-    const stars = document.querySelectorAll(".star.rating .star");
+export class StarRatingComponent {
+  constructor() {}
 
-    stars.forEach(star => {
-      // Definimos la función por separado para poder quitarla luego
-      const clickHandler = (e: Event) => {
-        const target = e.target as HTMLElement;
-        const rating = target.dataset["value"];
-        if (!rating) return;
+  rate(event: MouseEvent){
+    let target = event.target as HTMLElement;
+    let forward = target;
+    const rating = target.dataset["value"];
+    if (!rating) return;
 
-        stars.forEach(s => {
-          const starElement = s as HTMLElement;
-          starElement.classList.toggle("selected", (starElement.dataset["value"] ?? '') <= rating);
-        });
 
-        localStorage.setItem("rating", rating);
-      };
-
-      star.addEventListener("click", clickHandler);
-
-      // Guardamos una función que al llamarla quite el listener
-      this.starClickHandlers.push(() => {
-        star.removeEventListener("click", clickHandler);
-      });
-    });
-
-    // Guardar también el de beforeunload si quieres
-    this.beforeUnloadHandler = () => {
-      console.log(localStorage.getItem("rating"));
-    };
-    window.addEventListener("beforeunload", this.beforeUnloadHandler);
-  }
-
-  private beforeUnloadHandler!: () => void;
-
-  ngOnDestroy() {
-    // Limpiar todos los listeners de estrellas
-    this.starClickHandlers.forEach(remove => remove());
-    this.starClickHandlers = [];
-
-    // Limpiar el listener de window
-    if (this.beforeUnloadHandler) {
-      window.removeEventListener("beforeunload", this.beforeUnloadHandler);
+    function toggle(target: HTMLElement, rating: string) {
+      return target.classList.toggle("selected", (target.dataset["value"] ?? '') <= rating);
     }
+
+    for (let i = Number.parseInt(rating); i > 0; i--) {
+      toggle(target, rating)
+      target = target.previousElementSibling as HTMLElement;
+    }
+    for (let i = Number.parseInt(rating) + 1; i < 6; i++) {
+      forward = forward.nextElementSibling as HTMLElement;
+      toggle(forward, rating);
+    }
+
+    localStorage.setItem("rating", rating);
   }
 }
