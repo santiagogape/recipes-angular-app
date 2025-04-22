@@ -1,6 +1,6 @@
 import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
-import {JsonRecipesWelcomeBrowserService} from '../../../services/instances/page/recipes/json.recipes.welcome.browser.service';
-import {RecipesWelcomeBrowserService} from '../../../services/interfaces/page/recipes/recipes.welcome.browser.service';
+import {JsonRecipesWelcomeBrowserService} from '../../../services/instances/loading/recipes/json.recipes.welcome.browser.service';
+import {RecipesWelcomeBrowserService} from '../../../services/interfaces/loading/recipes/recipes.welcome.browser.service';
 import {Subscription} from 'rxjs';
 import { CardInitializer} from '../../../models/general/card';
 import {RecipesWelcomeBrowser} from '../../../models/recipes/recipes.welcome.browser';

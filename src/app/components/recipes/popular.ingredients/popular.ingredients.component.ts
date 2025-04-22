@@ -1,7 +1,7 @@
 import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {RecipesIngredientsService} from '../../../services/interfaces/page/recipes/recipes.ingredients.service';
-import {JsonRecipesIngredientsService} from '../../../services/instances/page/recipes/json.recipes.ingredients.service';
+import {RecipesIngredientsService} from '../../../services/interfaces/loading/recipes/recipes.ingredients.service';
+import {JsonRecipesIngredientsService} from '../../../services/instances/loading/recipes/json.recipes.ingredients.service';
 import {RecipesIngredients} from '../../../models/recipes/recipes.ingredients';
 import {HeaderInitializer} from '../../../models/general/header';
 

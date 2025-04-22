@@ -1,5 +1,5 @@
 import {inject, Injectable} from '@angular/core';
-import {RecipesWelcomeBrowserService} from '../../../interfaces/page/recipes/recipes.welcome.browser.service';
+import {RecipesWelcomeBrowserService} from '../../../interfaces/loading/recipes/recipes.welcome.browser.service';
 import { Observable } from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {RecipesWelcomeBrowser} from '../../../../models/recipes/recipes.welcome.browser';

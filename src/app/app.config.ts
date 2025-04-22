@@ -17,7 +17,7 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(withEventReplay()),
     provideHttpClient(withFetch()),
     // Configuración de Firebase sin usar importProvidersFrom
-    provideFirebaseApp(() => initializeApp(environment)),
+    provideFirebaseApp(() => initializeApp(environment)), //initializeApp(environment.firebaseConfig))
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage())

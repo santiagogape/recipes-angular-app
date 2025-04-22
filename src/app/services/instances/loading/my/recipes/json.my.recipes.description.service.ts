@@ -1,5 +1,5 @@
 import {inject, Injectable} from '@angular/core';
-import {MyRecipesDescriptionService} from '../../../../interfaces/page/my/recipes/my.recipes.description.service';
+import {MyRecipesDescriptionService} from '../../../../interfaces/loading/my/recipes/my.recipes.description.service';
 import { Observable } from 'rxjs';
 import { MyRecipes } from '../../../../../models/my/my.recipes';
 import {HttpClient} from '@angular/common/http';

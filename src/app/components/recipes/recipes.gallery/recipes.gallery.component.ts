@@ -1,6 +1,6 @@
 import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
-import {RecipesGalleryService} from '../../../services/interfaces/page/recipes/recipes.gallery.service';
-import {JsonRecipesGalleryService} from '../../../services/instances/page/recipes/json.recipes.gallery.service';
+import {RecipesGalleryService} from '../../../services/interfaces/loading/recipes/recipes.gallery.service';
+import {JsonRecipesGalleryService} from '../../../services/instances/loading/recipes/json.recipes.gallery.service';
 import {Subscription} from 'rxjs';
 import {RecipesGallery} from '../../../models/recipes/recipes.gallery';
 import {HeaderInitializer} from '../../../models/general/header';

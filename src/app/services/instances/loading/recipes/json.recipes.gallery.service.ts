@@ -1,4 +1,4 @@
-import {RecipesGalleryService} from '../../../interfaces/page/recipes/recipes.gallery.service';
+import {RecipesGalleryService} from '../../../interfaces/loading/recipes/recipes.gallery.service';
 import {inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';

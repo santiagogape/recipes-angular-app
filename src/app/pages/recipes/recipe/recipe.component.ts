@@ -2,8 +2,8 @@ import {Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {RecipeFrontComponent} from '../../../components/recipes/page/recipe.front/recipe.front.component';
 import {Subscription} from 'rxjs';
 import {Recipe} from '../../../models/my/my.recipes';
-import {RecipeService} from '../../../services/interfaces/page/recipes/recipe/recipe.service';
-import {JsonRecipeService} from '../../../services/instances/page/recipes/page/json.recipe.service';
+import {RecipeService} from '../../../services/interfaces/loading/recipes/recipe/recipe.service';
+import {JsonRecipeService} from '../../../services/instances/loading/recipes/page/json.recipe.service';
 import {RecipeStepsComponent} from '../../../components/recipes/page/recipe.steps/recipe.steps.component';
 import {CarouselComponent} from '../../../components/general/carousel/carousel.component';
 

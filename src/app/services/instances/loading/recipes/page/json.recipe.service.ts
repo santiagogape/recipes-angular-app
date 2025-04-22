@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { Recipe } from '../../../../../models/my/my.recipes';
-import {RecipeService} from '../../../../interfaces/page/recipes/recipe/recipe.service';
+import {RecipeService} from '../../../../interfaces/loading/recipes/recipe/recipe.service';
 import {inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 

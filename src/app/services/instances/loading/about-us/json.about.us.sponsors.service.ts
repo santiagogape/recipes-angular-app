@@ -1,5 +1,5 @@
 import {inject, Injectable} from '@angular/core';
-import {AboutUsSponsorsService} from '../../../interfaces/page/about-us/about.us.sponsors.service';
+import {AboutUsSponsorsService} from '../../../interfaces/loading/about-us/about.us.sponsors.service';
 import {Observable} from 'rxjs';
 import {AboutUsSponsors} from '../../../../models/about/about.us.sponsors';
 import {HttpClient} from '@angular/common/http';

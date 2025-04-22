@@ -1,7 +1,7 @@
 import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
 import {AboutUsTeam} from '../../../models/about/about.us.team';
-import {JsonAboutUsTeamService} from '../../../services/instances/page/about-us/json.about.us.team.service';
-import {AboutUsTeamService} from '../../../services/interfaces/page/about-us/about.us.team.service';
+import {JsonAboutUsTeamService} from '../../../services/instances/loading/about-us/json.about.us.team.service';
+import {AboutUsTeamService} from '../../../services/interfaces/loading/about-us/about.us.team.service';
 import {Subscription} from 'rxjs';
 import {HeaderInitializer} from '../../../models/general/header';
 

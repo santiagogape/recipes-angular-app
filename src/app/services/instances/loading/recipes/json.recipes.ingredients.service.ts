@@ -1,4 +1,4 @@
-import {RecipesIngredientsService} from '../../../interfaces/page/recipes/recipes.ingredients.service';
+import {RecipesIngredientsService} from '../../../interfaces/loading/recipes/recipes.ingredients.service';
 import {inject, Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {RecipesIngredients} from '../../../../models/recipes/recipes.ingredients';

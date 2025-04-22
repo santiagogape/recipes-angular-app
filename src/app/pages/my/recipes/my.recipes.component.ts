@@ -1,6 +1,6 @@
 import {Component, inject, OnDestroy, OnInit} from '@angular/core';
-import {JsonMyRecipesDescriptionService} from '../../../services/instances/page/my/recipes/json.my.recipes.description.service';
-import {MyRecipesDescriptionService} from '../../../services/interfaces/page/my/recipes/my.recipes.description.service';
+import {JsonMyRecipesDescriptionService} from '../../../services/instances/loading/my/recipes/json.my.recipes.description.service';
+import {MyRecipesDescriptionService} from '../../../services/interfaces/loading/my/recipes/my.recipes.description.service';
 import {Subscription} from 'rxjs';
 import {Recipe} from '../../../models/my/my.recipes';
 import {RecipeDescriptionComponent} from '../../../components/my/recipes/recipe.description/recipe.description.component';

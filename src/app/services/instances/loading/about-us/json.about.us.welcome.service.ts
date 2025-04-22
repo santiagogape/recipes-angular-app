@@ -1,5 +1,5 @@
 import {inject, Injectable} from '@angular/core';
-import {AboutUsWelcomeService} from '../../../interfaces/page/about-us/about.us.welcome.service';
+import {AboutUsWelcomeService} from '../../../interfaces/loading/about-us/about.us.welcome.service';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {AboutUsWelcome} from '../../../../models/about/about.us.welcome';
