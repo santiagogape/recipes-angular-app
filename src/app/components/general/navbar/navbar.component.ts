@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { AuthService } from '@services/firebase/auth.service';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -41,6 +41,8 @@ export class NavbarComponent implements OnInit {
   protected auth = inject(AuthService);
   private http = inject(HttpClient);
 
+  constructor(private router: Router) {}
+
   navbarData$!: Observable<NavbarData>;
   mobileMenuOpen = false;
 
@@ -55,6 +57,7 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.auth.signOut().then(r => console.log('logged out'));
     this.mobileMenuOpen = false;
+    this.router.navigate(['/home']);
     this.loadNavbar()
   }
 

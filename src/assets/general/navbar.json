@@ -12,7 +12,7 @@
   "buttons": [
     { "id": "link-sign-up", "label": "Sign Up", "href": "sign-up" },
     { "id": "link-sign-in", "label": "Sign In", "href": "sign-in" },
-    { "id": "link-profile", "label": "Your profile", "href": "profile" },
+    { "id": "link-profile", "label": "Your profile", "href": "my/profile" },
     { "id": "link-log-out", "label": "Log Out", "href": "home"}
   ],
   "mobileLinks": [
