@@ -1,6 +1,7 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Recipe} from '../../../../models/my/my.recipes';
-import {of} from 'rxjs';
+import {Component, input, output, computed, inject, signal, effect} from '@angular/core';
+import {FirestoreService} from '@services/firebase/firestore.service';
+import {Recipe, RecipeInitializer} from '@models/my/my.recipes';
+import {NoRecipes} from '@services/error.codes';
 
 @Component({
   selector: 'recipe-description',
@@ -9,21 +10,29 @@ import {of} from 'rxjs';
   styleUrl: './recipe.description.component.css'
 })
 export class RecipeDescriptionComponent {
-  @Input() recipe!: Recipe;
-  @Output() change: EventEmitter<string> = new EventEmitter();
+  firestoreService = inject(FirestoreService)
+  id = input.required<string>()
+  recipe = signal<Recipe>(RecipeInitializer());
+  fillContent = computed(() => this.id() !== NoRecipes)
+  next =  output<MouseEvent>();
+  prev =  output<MouseEvent>();
   constructor() {
-    of(this.recipe).subscribe(
-      recipe => {
-      console.log("one:",recipe);
-      }
-    )
+    effect(() => {
+      if (this.id() === NoRecipes) return;
+      this.updateRecipe()
+    })
   }
-  next() {
-    console.log("next from",this.recipe)
-    this.change.emit("next")
+
+  updateRecipe() {
+    console.log("id read", this.id())
+    this.firestoreService.getDocument<Recipe>(this.id(),"users", "KjRmbKn1gvb567YaTDptzGY0AlH3", "recipes")
+      .subscribe(res => { this.recipe.set(res)})
   }
-  previous() {
-    console.log("previos from",this.recipe)
-    this.change.emit("previous")
+
+  nextRecipe(event: MouseEvent) {
+    this.next.emit(event)
+  }
+  previousRecipe(event: MouseEvent) {
+    this.prev.emit(event)
   }
 }

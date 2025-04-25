@@ -1,7 +1,13 @@
 import { Injectable, inject } from '@angular/core';
-import { Auth, authState, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
-import { Router } from '@angular/router';
-import { Observable, map } from 'rxjs';
+import {
+  Auth,
+  authState,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  updateProfile
+} from '@angular/fire/auth';
+import { map } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -13,29 +19,30 @@ export class AuthService {
   // Observable booleano si está autenticado
   isLoggedIn$ = this.authState$.pipe(map(user => !!user));
 
-  constructor(private router: Router) {}
+  constructor() {}
 
-  async signUp(email: string, password: string) {
+  async signUp(email: string, password: string, username: string) {
     try {
-      await createUserWithEmailAndPassword(this.auth, email, password);
-      // this.router.navigate(['/profile']);
-    } catch (error) {
-      throw this.handleAuthError(error);
+      return await createUserWithEmailAndPassword(this.auth, email, password)
+        .then(async (userCredential) => {
+          await updateProfile(userCredential.user, { displayName: username })
+          return userCredential.user;
+        }).then((user) => { return user})
+    } catch (error: any) {
+      throw new Error(this.handleAuthError(error));
     }
   }
 
   async signIn(email: string, password: string) {
     try {
-      await signInWithEmailAndPassword(this.auth, email, password);
-      this.router.navigate(['/dashboard']);
+      await signInWithEmailAndPassword(this.auth, email, password)
     } catch (error) {
       throw this.handleAuthError(error);
     }
   }
 
   async signOut() {
-    await signOut(this.auth);
-    this.router.navigate(['/login']);
+    await signOut(this.auth)
   }
 
   private handleAuthError(error: any): string {

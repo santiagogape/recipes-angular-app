@@ -1,5 +1,5 @@
-@if (recipe){
-  <recipe-description [recipe]="recipe" (change)="show($event)"></recipe-description>
+@if (current()){
+  <recipe-description [id]="current()" (next)="next()" (prev)="previous()"></recipe-description>
 } @else {
   no recipe sent
 }

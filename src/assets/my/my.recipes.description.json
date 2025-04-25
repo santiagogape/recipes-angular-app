@@ -1,154 +1,152 @@
-{
-  "recipes": [
-    {
-      "description": {
-        "intro": {
-          "header": {
-            "title": "Spaghetti Carbonara",
-            "text": "A classic Italian pasta dish made with simple ingredients."
-          },
-          "image" : {
-            "alt": "Image of a mouth-watering pasta dish",
-            "src": "https://imag.bonviveur.com/espaguetis-carbonara-primer-plano.jpg"
-          }
+[
+  {
+    "description": {
+      "intro": {
+        "header": {
+          "title": "Spaghetti Carbonara",
+          "text": "A classic Italian pasta dish made with simple ingredients."
         },
-        "author": "FoodChampsHQ",
-        "icons": ["link","linkedin","twitter","facebook"],
-        "tags": {
-          "categories": ["Vegetariano", "Vegano", "Sin Gluten"],
-          "allergens": ["Lácteos", "Frutos Secos", "Gluten"]
+        "image" : {
+          "alt": "Image of a mouth-watering pasta dish",
+          "src": "https://imag.bonviveur.com/espaguetis-carbonara-primer-plano.jpg"
         }
       },
-      "ingredients": [
-        { "title": "Pasta", "text": "200g of spaghetti." },
-        { "title": "Eggs", "text": "2 large eggs for creaminess." },
-        { "title": "Pecorino Cheese", "text": "50g of grated cheese." },
-        { "title": "Panceta", "text": "100g, cut into small cubes." }
-      ],
-      "steps": [
-        {
-          "title": "Step 1",
-          "text":"Cook the spaghetti in salted boiling water until al dente."
-        },
-        {
-          "title": "Step 2",
-          "text": "Crisp the Panceta in a frying pan over medium heat."
-        },
-        {
-          "title": "Step 3",
-          "text": "Whisk the eggs and cheese together in a bowl."
-        },
-        {
-          "title": "Step 4",
-          "text": "Combine the drained pasta with panceta and mix with the egg mixture."
-        },
-        {
-          "title": "Step 5",
-          "text": "Serve with freshly ground pepper and extra cheese."
-        }
-      ],
-      "stars": 5,
-      "votes": 1
+      "author": "FoodChampsHQ",
+      "icons": ["link","linkedin","twitter","facebook"],
+      "tags": {
+        "categories": ["Vegetariano", "Vegano", "Sin Gluten"],
+        "allergens": ["Lácteos", "Frutos Secos", "Gluten"]
+      }
     },
-    {
-      "description": {
-        "intro": {
-          "header": {
-            "title": "Vegan Buddha Bowl",
-            "text": "A nutritious and colorful bowl packed with wholesome ingredients."
-          },
-          "image": {
-            "alt": "Image of a colorful salad bowl",
-            "src": "https://www.crazyvegankitchen.com/wp-content/uploads/2023/11/buddha-bowl-recipe.jpg"
-          }
+    "ingredients": [
+      { "title": "Pasta", "text": "200g of spaghetti." },
+      { "title": "Eggs", "text": "2 large eggs for creaminess." },
+      { "title": "Pecorino Cheese", "text": "50g of grated cheese." },
+      { "title": "Panceta", "text": "100g, cut into small cubes." }
+    ],
+    "steps": [
+      {
+        "title": "Step 1",
+        "text":"Cook the spaghetti in salted boiling water until al dente."
+      },
+      {
+        "title": "Step 2",
+        "text": "Crisp the Panceta in a frying pan over medium heat."
+      },
+      {
+        "title": "Step 3",
+        "text": "Whisk the eggs and cheese together in a bowl."
+      },
+      {
+        "title": "Step 4",
+        "text": "Combine the drained pasta with panceta and mix with the egg mixture."
+      },
+      {
+        "title": "Step 5",
+        "text": "Serve with freshly ground pepper and extra cheese."
+      }
+    ],
+    "stars": 5,
+    "votes": 1
+  },
+  {
+    "description": {
+      "intro": {
+        "header": {
+          "title": "Vegan Buddha Bowl",
+          "text": "A nutritious and colorful bowl packed with wholesome ingredients."
         },
-        "author": "FoodChampsHQ",
-        "icons": ["link","linkedin","twitter","facebook"],
-        "tags": {
-          "categories": ["Vegetariano", "Vegano", "Sin Gluten"],
-          "allergens": ["Lácteos", "Frutos Secos", "Gluten"]
+        "image": {
+          "alt": "Image of a colorful salad bowl",
+          "src": "https://www.crazyvegankitchen.com/wp-content/uploads/2023/11/buddha-bowl-recipe.jpg"
         }
       },
-      "ingredients": [
-        { "title": "Quinoa", "text": "1 cup, cooked according to package instructions." },
-        { "title": "Chickpeas", "text": "1 cup of canned or cooked chickpeas." },
-        { "title": "Sweet Potato", "text": "1 large potato, roasted." }
-      ],
-      "steps": [
-        {
-          "title": "Step 1",
-          "text": "Cook the quinoa according to package instructions."
-        },
-        {
-          "title": "Step 2",
-          "text": "Roast the sweet potato until tender."
-        },
-        {
-          "title": "Step 3",
-          "text": "Assemble the quinoa, chickpeas, and sweet potato in a bowl."
-        },
-        {
-          "title": "Step 4",
-          "text": "Top with your favorite dressing and serve."
-        }
-      ],
-      "stars": 5,
-      "votes": 1
+      "author": "FoodChampsHQ",
+      "icons": ["link","linkedin","twitter","facebook"],
+      "tags": {
+        "categories": ["Vegetariano", "Vegano", "Sin Gluten"],
+        "allergens": ["Lácteos", "Frutos Secos", "Gluten"]
+      }
     },
-    {
-      "description": {
-        "intro":  {
-          "header": {
-            "title": "Chocolate Lava Cake",
-            "text": "A rich and decadent dessert with a molten chocolate center."
-          },
-          "image": {
-            "alt": "Image of a decadent chocolate dessert",
-            "src": "https://www.foodandwine.com/thmb/XdFd-DvTtouryLCjeCqwhfmmK-A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/molten-chocolate-cake-FT-RECIPE0220-0a33d7d0ab0c45588f7bfe742d33a9bc.jpg"
-          }
+    "ingredients": [
+      { "title": "Quinoa", "text": "1 cup, cooked according to package instructions." },
+      { "title": "Chickpeas", "text": "1 cup of canned or cooked chickpeas." },
+      { "title": "Sweet Potato", "text": "1 large potato, roasted." }
+    ],
+    "steps": [
+      {
+        "title": "Step 1",
+        "text": "Cook the quinoa according to package instructions."
+      },
+      {
+        "title": "Step 2",
+        "text": "Roast the sweet potato until tender."
+      },
+      {
+        "title": "Step 3",
+        "text": "Assemble the quinoa, chickpeas, and sweet potato in a bowl."
+      },
+      {
+        "title": "Step 4",
+        "text": "Top with your favorite dressing and serve."
+      }
+    ],
+    "stars": 5,
+    "votes": 1
+  },
+  {
+    "description": {
+      "intro":  {
+        "header": {
+          "title": "Chocolate Lava Cake",
+          "text": "A rich and decadent dessert with a molten chocolate center."
         },
-        "author": "FoodChampsHQ",
-        "icons": ["link","linkedin","twitter","facebook"],
-        "tags": {
-          "categories": ["Vegetariano", "Vegano", "Sin Gluten"],
-          "allergens": ["Lácteos", "Frutos Secos", "Gluten"]
+        "image": {
+          "alt": "Image of a decadent chocolate dessert",
+          "src": "https://www.foodandwine.com/thmb/XdFd-DvTtouryLCjeCqwhfmmK-A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/molten-chocolate-cake-FT-RECIPE0220-0a33d7d0ab0c45588f7bfe742d33a9bc.jpg"
         }
       },
-      "ingredients": [
-        { "title": "Dark Chocolate", "text": "100g, melted." },
-        { "title": "Unsalted Butter", "text": "50g, melted with the chocolate." },
-        { "title": "Eggs", "text": "2 whole eggs and 2 yolks, whisked." },
-        { "title": "Sugar", "text": "50g granulated sugar." },
-        { "title": "Flour", "text": "30g all-purpose flour." }
-      ],
-      "steps": [
-        {
-          "title": "Step 1",
-          "text": "Preheat the oven to 200°C (400°F). Grease ramekins with butter and dust with cocoa powder."
-        },
-        {
-          "title": "Step 2",
-          "text": "Melt the chocolate and butter together until smooth. Let it cool slightly."
-        },
-        {
-          "title": "Step 3",
-          "text": "Whisk the eggs, yolks, and sugar until pale and fluffy. Fold in the chocolate mixture."
-        },
-        {
-          "title": "Step 4",
-          "text": "Gently fold in the flour until fully combined."
-        },
-        {
-          "title": "Step 5",
-          "text": "Pour the mixture into the prepared ramekins and bake for 10-12 minutes."
-        },
-        {
-          "title": "Step 6",
-          "text": "Let the cakes cool for 1 minute, then carefully invert onto plates. Serve immediately."
-        }
-      ],
-      "stars": 5,
-      "votes": 1
-    }
-  ]
-}
+      "author": "FoodChampsHQ",
+      "icons": ["link","linkedin","twitter","facebook"],
+      "tags": {
+        "categories": ["Vegetariano", "Vegano", "Sin Gluten"],
+        "allergens": ["Lácteos", "Frutos Secos", "Gluten"]
+      }
+    },
+    "ingredients": [
+      { "title": "Dark Chocolate", "text": "100g, melted." },
+      { "title": "Unsalted Butter", "text": "50g, melted with the chocolate." },
+      { "title": "Eggs", "text": "2 whole eggs and 2 yolks, whisked." },
+      { "title": "Sugar", "text": "50g granulated sugar." },
+      { "title": "Flour", "text": "30g all-purpose flour." }
+    ],
+    "steps": [
+      {
+        "title": "Step 1",
+        "text": "Preheat the oven to 200°C (400°F). Grease ramekins with butter and dust with cocoa powder."
+      },
+      {
+        "title": "Step 2",
+        "text": "Melt the chocolate and butter together until smooth. Let it cool slightly."
+      },
+      {
+        "title": "Step 3",
+        "text": "Whisk the eggs, yolks, and sugar until pale and fluffy. Fold in the chocolate mixture."
+      },
+      {
+        "title": "Step 4",
+        "text": "Gently fold in the flour until fully combined."
+      },
+      {
+        "title": "Step 5",
+        "text": "Pour the mixture into the prepared ramekins and bake for 10-12 minutes."
+      },
+      {
+        "title": "Step 6",
+        "text": "Let the cakes cool for 1 minute, then carefully invert onto plates. Serve immediately."
+      }
+    ],
+    "stars": 5,
+    "votes": 1
+  }
+]

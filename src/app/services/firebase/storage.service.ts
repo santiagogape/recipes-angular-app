@@ -17,4 +17,5 @@ export class StorageService {
     const storageRef = ref(this.storage, path);
     return getDownloadURL(storageRef);
   }
+
 }

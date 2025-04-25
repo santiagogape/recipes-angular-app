@@ -1,9 +1,11 @@
-import {Component, inject, OnDestroy, OnInit} from '@angular/core';
-import {JsonMyRecipesDescriptionService} from '../../../services/instances/loading/my/recipes/json.my.recipes.description.service';
-import {MyRecipesDescriptionService} from '../../../services/interfaces/loading/my/recipes/my.recipes.description.service';
+import {Component, computed, inject, OnDestroy, OnInit, signal} from '@angular/core';
+import {JsonMyRecipesDescriptionService} from '@services/instances/loading/my/recipes/json.my.recipes.description.service';
+import {MyRecipesDescriptionService} from '@services/interfaces/loading/my/recipes/my.recipes.description.service';
 import {Subscription} from 'rxjs';
-import {Recipe} from '../../../models/my/my.recipes';
-import {RecipeDescriptionComponent} from '../../../components/my/recipes/recipe.description/recipe.description.component';
+import {Recipe} from '@models/my/my.recipes';
+import {RecipeDescriptionComponent} from '@components/my/recipes/recipe.description/recipe.description.component';
+import {FirestoreService} from '@services/firebase/firestore.service';
+import {NoRecipes} from '@services/error.codes';
 
 @Component({
   selector: 'my-recipes',
@@ -13,38 +15,47 @@ import {RecipeDescriptionComponent} from '../../../components/my/recipes/recipe.
   templateUrl: './my.recipes.component.html',
   styleUrl: './my.recipes.component.css'
 })
+
 export class MyRecipesComponent implements OnInit, OnDestroy {
-  mine: string = 'assets/my/my.recipes.description.json'
   service: MyRecipesDescriptionService = inject(JsonMyRecipesDescriptionService)
   sub: Subscription = new Subscription();
   recipes: Recipe[] = []
   recipe!: Recipe;
   index : number = 0;
 
+  recipesIdLoader = inject(FirestoreService)
+  idSignals = signal<string[]>([])
+  currentIndex = signal<number>(0)
+  current = computed(() => {
+    let ids = this.idSignals()
+    let current = this.currentIndex()
+    if (ids.length >= 0) {
+      return ids[current]
+    } else {
+      return NoRecipes
+    }
+  })
+
 
   constructor() {}
 
   ngOnDestroy(): void {
-        this.sub.unsubscribe()
-    }
+    this.sub.unsubscribe()
+  }
 
   ngOnInit(): void {
-    this.sub = this.service.getMyRecipesDescriptions(this.mine).subscribe(
-      descriptions => {
-        this.recipes = descriptions.recipes
-        this.show()
-        console.log("modified",this.recipe)
-      }
-    )
+    // this.sub = this.recipeLoader.getMyRecipesDescriptions("").subscribe(data => this.recipesSignal.set(data))
+    this.sub = this.recipesIdLoader.getIDs<Recipe>("users", "KjRmbKn1gvb567YaTDptzGY0AlH3", "recipes").subscribe( ids => {
+      this.idSignals.set(ids)
+    })
   }
 
-  show(change: string = ''): void {
-    if (change === 'next') {
-      this.index = (this.index + 1) % this.recipes.length
-    } else if (change === 'previous') {
-      this.index = (this.index - 1 + this.recipes.length) % this.recipes.length
-    }
-    console.log(this.index, <Recipe>this.recipes.at(this.index))
-    this.recipe =  <Recipe>this.recipes.at(this.index)
+  next(){
+    this.currentIndex.update(index => (index + 1) % this.idSignals().length)
   }
+
+  previous(){
+    this.currentIndex.update(index => (index - 1 + this.idSignals().length) % this.idSignals().length)
+  }
+
 }
