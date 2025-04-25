@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import {Router, RouterModule} from '@angular/router';
+import {AuthService} from '@services/firebase/auth.service';
 
 @Component({
   selector: 'sign-in-content',
@@ -14,17 +15,30 @@ export class SignInContentComponent {
   @Input() showTitle: boolean = true;
   @Input() redirectOnSubmit: string | null = '/dashboard';
   @Input() showSignUpLink: boolean = true;
+  authService = inject(AuthService);
+  private router: Router =  inject(Router);
 
   credentials = {
     email: '',
     password: ''
   };
-
   showPassword = false;
 
-  onSubmit() {
+  async onSubmit() {
     console.log('Form submitted:', this.credentials);
     // Aquí iría la lógica de autenticación real
+    try {
+      const userFire = await this.authService.signIn(
+        this.credentials.email,
+        this.credentials.password
+      );
+      console.log('Usuario registrado:', userFire);
+      // Redirigir o mostrar mensaje de éxito
+      await this.router.navigate(['/home']); // o a donde quieras
+    } catch (error) {
+      console.error('Error al iniciar sesión:', error);
+      // Muestra el error al usuario
+    }
   }
 
   togglePasswordVisibility() {

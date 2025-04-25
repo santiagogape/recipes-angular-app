@@ -3,12 +3,14 @@ import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { FooterComponent } from "./components/general/footer/footer.component";
 import { filter } from 'rxjs/operators';
 import { isPlatformBrowser } from '@angular/common';
+import {NavbarComponent} from '@components/general/navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
   imports: [
     RouterOutlet,
-    FooterComponent
+    FooterComponent,
+    NavbarComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

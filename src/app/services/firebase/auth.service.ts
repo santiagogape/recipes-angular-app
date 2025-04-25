@@ -7,7 +7,7 @@ import {
   signOut,
   updateProfile
 } from '@angular/fire/auth';
-import { map } from 'rxjs';
+import {map, shareReplay} from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -17,9 +17,10 @@ export class AuthService {
   authState$ = authState(this.auth);
 
   // Observable booleano si está autenticado
-  isLoggedIn$ = this.authState$.pipe(map(user => !!user));
-
-  constructor() {}
+  isLoggedIn$ = this.authState$.pipe(
+    map(user => !!user),
+    shareReplay(1)
+  );
 
   async signUp(email: string, password: string, username: string) {
     try {
@@ -36,8 +37,12 @@ export class AuthService {
   async signIn(email: string, password: string) {
     try {
       await signInWithEmailAndPassword(this.auth, email, password)
-    } catch (error) {
-      throw this.handleAuthError(error);
+        .then(async (userCredential) => {
+          await updateProfile(userCredential.user, {displayName: "username"})
+          return userCredential.user;
+        }).then((user) => { return user})
+    } catch (error: any) {
+      throw new Error(this.handleAuthError(error));
     }
   }
 
