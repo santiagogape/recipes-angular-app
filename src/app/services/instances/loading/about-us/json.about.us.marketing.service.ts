@@ -1,7 +1,7 @@
 import {inject, Injectable} from '@angular/core';
-import {AboutUsMarketingService} from '../../../interfaces/loading/about-us/about.us.marketing.service';
+import {AboutUsMarketingService} from '@services/interfaces/loading/about-us/about.us.marketing.service';
 import {Observable} from 'rxjs';
-import {AboutUsMarketing} from '../../../../models/about/about.us.marketing';
+import {AboutUsMarketing} from '@models/about/about.us.marketing';
 import {HttpClient} from '@angular/common/http';
 
 @Injectable({providedIn: 'root'})

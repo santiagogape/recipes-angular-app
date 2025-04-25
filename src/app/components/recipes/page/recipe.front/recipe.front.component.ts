@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
-import {RecipeDescription} from '../../../../models/my/my.recipes';
-import {TaggingComponent} from '../../../general/tagging/tagging.component';
+import {RecipeDescription} from '@models/my/my.recipes';
+import {TaggingComponent} from '@components/general/tagging/tagging.component';
 
 @Component({
   selector: 'recipe-front',

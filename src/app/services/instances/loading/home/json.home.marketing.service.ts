@@ -1,7 +1,7 @@
-import {HomeMarketingService} from '../../../interfaces/loading/home/home.marketing.service';
+import {HomeMarketingService} from '@services/interfaces/loading/home/home.marketing.service';
 import {inject, Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {IndexMarketing} from '../../../../models/home/index.marketing';
+import {IndexMarketing} from '@models/home/index.marketing';
 import {HttpClient} from '@angular/common/http';
 
 @Injectable({

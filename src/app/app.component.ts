@@ -1,6 +1,6 @@
-import { Component, OnInit, inject, PLATFORM_ID, Inject } from '@angular/core';
+import { Component, OnInit, inject, PLATFORM_ID } from '@angular/core';
 import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
-import { FooterComponent } from "./components/general/footer/footer.component";
+import { FooterComponent } from "@components/general/footer/footer.component";
 import { filter } from 'rxjs/operators';
 import { isPlatformBrowser } from '@angular/common';
 import {NavbarComponent} from '@components/general/navbar/navbar.component';

@@ -57,8 +57,8 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.auth.signOut().then(r => console.log(r));
     this.mobileMenuOpen = false;
-    this.router.navigate(['/home']).then(r => console.log(r));
-    this.loadNavbar()
+    this.router.navigate(['/home']).then(() => this.loadNavbar());
+
   }
 
   toggleMobileMenu() {

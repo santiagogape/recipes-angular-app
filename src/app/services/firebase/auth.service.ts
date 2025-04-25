@@ -49,10 +49,6 @@ export class AuthService {
   async signIn(email: string, password: string) {
     try {
       await signInWithEmailAndPassword(this.auth, email, password)
-        .then(async (userCredential) => {
-          await updateProfile(userCredential.user, {displayName: "username"})
-          return userCredential.user;
-        }).then((user) => { return user})
     } catch (error: any) {
       throw new Error(this.handleAuthError(error));
     }

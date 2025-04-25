@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {SignUpContentComponent} from '../../components/sign-up-content/sign-up-content.component';
+import {SignUpContentComponent} from '@components/sign-up-content/sign-up-content.component';
 
 @Component({
   selector: 'app-sign-up',

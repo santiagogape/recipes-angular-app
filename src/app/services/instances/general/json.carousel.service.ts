@@ -1,7 +1,6 @@
-// src/app/services/carousel.service.ts
 import {inject, Injectable} from '@angular/core';
-import {CarouselService} from '../../interfaces/general/carousel.service';
-import {CarouselTwoRows} from '../../../models/general/carousel';
+import {CarouselService} from '@services/interfaces/general/carousel.service';
+import {CarouselTwoRows} from '@models/general/carousel';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 

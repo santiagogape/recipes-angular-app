@@ -1,7 +1,3 @@
-.carousel-wrapper {
-  display: contents;
-}
-
 .carousel-container {
   gap: var(--dl-space-space-threeunits);
   width: 100%;
@@ -34,15 +30,6 @@
   display: inline-block;
 }
 
-
-
-.carousel-actions {
-  gap: var(--dl-space-space-unit);
-  display: flex;
-  align-items: flex-start;
-  padding-top: var(--dl-space-space-unit);
-}
-
 .carousel-gallery {
   gap: var(--dl-space-space-oneandhalfunits);
   width: 100%;
@@ -57,15 +44,6 @@
   object-fit: cover;
 }
 
-@media(max-width: 479px) {
-  .carousel-actions {
-    width: 100%;
-    flex-direction: column;
-  }
-  .carousel-button {
-    width: 100%;
-  }
-}
 
 @keyframes scroll-x {
   from {

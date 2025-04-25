@@ -1,7 +1,7 @@
 import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
-import {JsonCarouselService} from '../../../services/instances/general/json.carousel.service';
-import {CarouselInitializer, CarouselTwoRows} from '../../../models/general/carousel';
-import {CarouselService} from '../../../services/interfaces/general/carousel.service';
+import {JsonCarouselService} from '@services/instances/general/json.carousel.service';
+import {CarouselInitializer, CarouselTwoRows} from '@models/general/carousel';
+import {CarouselService} from '@services/interfaces/general/carousel.service';
 import {Subscription} from 'rxjs';
 
 @Component({

@@ -1,3 +1,3 @@
-const NoRecipes = "NORECIPES"
+const NoRecipes = "NoRecipes"
 
 export { NoRecipes }

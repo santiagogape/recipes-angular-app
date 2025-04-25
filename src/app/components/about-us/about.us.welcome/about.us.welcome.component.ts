@@ -1,9 +1,9 @@
 import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {AboutUsWelcomeService} from '../../../services/interfaces/loading/about-us/about.us.welcome.service';
-import {JsonAboutUsWelcomeService} from '../../../services/instances/loading/about-us/json.about.us.welcome.service';
-import {AboutUsWelcome} from '../../../models/about/about.us.welcome';
-import {CardInitializer} from '../../../models/general/card';
+import {AboutUsWelcomeService} from '@services/interfaces/loading/about-us/about.us.welcome.service';
+import {JsonAboutUsWelcomeService} from '@services/instances/loading/about-us/json.about.us.welcome.service';
+import {AboutUsWelcome} from '@models/about/about.us.welcome';
+import {CardInitializer} from '@models/general/card';
 
 @Component({
   selector: 'about-us-welcome',

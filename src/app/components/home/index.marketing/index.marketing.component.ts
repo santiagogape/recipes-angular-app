@@ -1,7 +1,7 @@
 import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
-import {JsonHomeMarketingService} from '../../../services/instances/loading/home/json.home.marketing.service';
-import {IndexMarketing} from '../../../models/home/index.marketing';
-import {HomeMarketingService} from '../../../services/interfaces/loading/home/home.marketing.service';
+import {JsonHomeMarketingService} from '@services/instances/loading/home/json.home.marketing.service';
+import {IndexMarketing} from '@models/home/index.marketing';
+import {HomeMarketingService} from '@services/interfaces/loading/home/home.marketing.service';
 import {Subscription} from 'rxjs';
 
 @Component({

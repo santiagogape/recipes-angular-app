@@ -1,7 +1,5 @@
 
-.recipe-front-wrapper {
-  display: contents;
-}
+
 
 .recipe-front-max-width {
   gap: var(--dl-space-space-oneandhalfunits);
@@ -55,11 +53,7 @@
   align-self: flex-start;
 }
 
-.recipe-front-container3 {
-  width: 263px;
-  height: 108px;
-  display: contents;
-}
+
 
 @media(max-width: 991px) {
   .recipe-front-card {

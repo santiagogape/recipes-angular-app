@@ -1,7 +1,7 @@
 import {inject, Injectable} from '@angular/core';
-import {AboutUsSponsorsService} from '../../../interfaces/loading/about-us/about.us.sponsors.service';
+import {AboutUsSponsorsService} from '@services/interfaces/loading/about-us/about.us.sponsors.service';
 import {Observable} from 'rxjs';
-import {AboutUsSponsors} from '../../../../models/about/about.us.sponsors';
+import {AboutUsSponsors} from '@models/about/about.us.sponsors';
 import {HttpClient} from '@angular/common/http';
 
 @Injectable({

@@ -1,7 +1,7 @@
-import {RecipesIngredientsService} from '../../../interfaces/loading/recipes/recipes.ingredients.service';
+import {RecipesIngredientsService} from '@services/interfaces/loading/recipes/recipes.ingredients.service';
 import {inject, Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {RecipesIngredients} from '../../../../models/recipes/recipes.ingredients';
+import {RecipesIngredients} from '@models/recipes/recipes.ingredients';
 import {HttpClient} from '@angular/common/http';
 
 @Injectable({providedIn: 'root'})

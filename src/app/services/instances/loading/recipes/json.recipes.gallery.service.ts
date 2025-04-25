@@ -1,8 +1,8 @@
-import {RecipesGalleryService} from '../../../interfaces/loading/recipes/recipes.gallery.service';
+import {RecipesGalleryService} from '@services/interfaces/loading/recipes/recipes.gallery.service';
 import {inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { RecipesGallery } from '../../../../models/recipes/recipes.gallery';
+import { RecipesGallery } from '@models/recipes/recipes.gallery';
 
 
 @Injectable({providedIn: 'root'})

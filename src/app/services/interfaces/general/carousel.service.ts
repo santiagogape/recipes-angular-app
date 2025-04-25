@@ -1,4 +1,4 @@
-import { CarouselTwoRows } from '../../../models/general/carousel';
+import { CarouselTwoRows } from '@models/general/carousel';
 import {Observable} from 'rxjs';
 
 export interface CarouselService {

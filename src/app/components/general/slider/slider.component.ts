@@ -6,10 +6,10 @@ import {
   OnInit,
 } from '@angular/core';
 
-import {JsonSliderService} from '../../../services/instances/general/json.slider.service';
-import {SliderService} from '../../../services/interfaces/general/slider.service';
+import {JsonSliderService} from '@services/instances/general/json.slider.service';
+import {SliderService} from '@services/interfaces/general/slider.service';
 import {Subscription} from 'rxjs';
-import {GallerySlider, TestimonialsSlider} from '../../../models/general/slider';
+import {GallerySlider, TestimonialsSlider} from '@models/general/slider';
 import Swiper from 'swiper';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';

@@ -1,8 +1,8 @@
 import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {AboutUsSponsors} from '../../../models/about/about.us.sponsors';
-import {AboutUsSponsorsService} from '../../../services/interfaces/loading/about-us/about.us.sponsors.service';
-import {JsonAboutUsSponsorsService} from '../../../services/instances/loading/about-us/json.about.us.sponsors.service';
+import {AboutUsSponsors} from '@models/about/about.us.sponsors';
+import {AboutUsSponsorsService} from '@services/interfaces/loading/about-us/about.us.sponsors.service';
+import {JsonAboutUsSponsorsService} from '@services/instances/loading/about-us/json.about.us.sponsors.service';
 
 @Component({
   selector: 'about-us-sponsors',

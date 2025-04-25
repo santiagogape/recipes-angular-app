@@ -1,9 +1,9 @@
 import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {RecipesIngredientsService} from '../../../services/interfaces/loading/recipes/recipes.ingredients.service';
-import {JsonRecipesIngredientsService} from '../../../services/instances/loading/recipes/json.recipes.ingredients.service';
-import {RecipesIngredients} from '../../../models/recipes/recipes.ingredients';
-import {HeaderInitializer} from '../../../models/general/header';
+import {RecipesIngredientsService} from '@services/interfaces/loading/recipes/recipes.ingredients.service';
+import {JsonRecipesIngredientsService} from '@services/instances/loading/recipes/json.recipes.ingredients.service';
+import {RecipesIngredients} from '@models/recipes/recipes.ingredients';
+import {HeaderInitializer} from '@models/general/header';
 
 @Component({
   selector: 'popular-ingredients',

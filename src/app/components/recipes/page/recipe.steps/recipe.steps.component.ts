@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
-import {StarRatingComponent} from '../../../general/star.rating/star-rating.component';
-import {Header} from '../../../../models/general/header';
+import {StarRatingComponent} from '@components/general/star.rating/star-rating.component';
+import {Header} from '@models/general/header';
 
 @Component({
   selector: 'recipe-steps',

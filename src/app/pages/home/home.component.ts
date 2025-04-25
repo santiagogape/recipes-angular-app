@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {CarouselComponent} from '../../components/general/carousel/carousel.component';
-import {IndexMarketingComponent} from '../../components/home/index.marketing/index.marketing.component';
-import {SliderComponent} from '../../components/general/slider/slider.component';
+import {CarouselComponent} from '@components/general/carousel/carousel.component';
+import {IndexMarketingComponent} from '@components/home/index.marketing/index.marketing.component';
+import {SliderComponent} from '@components/general/slider/slider.component';
 
 
 @Component({

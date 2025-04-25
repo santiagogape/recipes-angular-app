@@ -1,7 +1,3 @@
-.recipes-gallery-wrapper {
-  display: contents;
-}
-
 .recipes-gallery {
   width: 100%;
   height: auto;
@@ -74,11 +70,6 @@
 
 .recipes-gallery-image-short {
   flex-grow: 0.5;
-}
-
-
-.recipes-gallery-fragment {
-  display: contents;
 }
 
 @media(max-width: 991px) {

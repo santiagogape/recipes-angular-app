@@ -1,7 +1,3 @@
-.welcome-browser-wrapper {
-  display: contents;
-}
-
 .welcome-browser-header {
   gap: var(--dl-space-space-twounits);
 }
@@ -50,10 +46,6 @@
   gap: var(--dl-space-space-unit);
   display: flex;
   align-items: flex-start;
-}
-
-.welcome-browser-fragment {
-  display: contents;
 }
 
 .welcome-browser-text-inline {

@@ -1,9 +1,9 @@
 import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
-import {AboutUsStatsService} from '../../../services/interfaces/loading/about-us/about.us.stats.service';
-import {JsonAboutUsStatsService} from '../../../services/instances/loading/about-us/json.about.us.stats.service';
-import {AboutUsStats} from '../../../models/about/about.us.stats';
+import {AboutUsStatsService} from '@services/interfaces/loading/about-us/about.us.stats.service';
+import {JsonAboutUsStatsService} from '@services/instances/loading/about-us/json.about.us.stats.service';
+import {AboutUsStats} from '@models/about/about.us.stats';
 import {Subscription} from 'rxjs';
-import {CardInitializer} from '../../../models/general/card';
+import {CardInitializer} from '@models/general/card';
 
 @Component({
   selector: 'about-us-stats',

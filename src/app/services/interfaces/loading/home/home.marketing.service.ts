@@ -1,4 +1,4 @@
-import {IndexMarketing} from '../../../../models/home/index.marketing';
+import {IndexMarketing} from '@models/home/index.marketing';
 import {Observable} from 'rxjs';
 
 export interface HomeMarketingService {
