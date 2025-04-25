@@ -1,0 +1,108 @@
+<header class="navbar-interactive">
+  <!-- Navbar para escritorio -->
+  <div class="navbar-desktop-menu flex-row">
+    <!-- Logo -->
+    <img alt="Food Champs Logo" src="/public/external/logo-food-champs.png" class="logo" />
+
+    <!-- Contenedor de enlaces principales -->
+    <nav id="navigation-bar" class="flex-row">
+      <ng-container *ngIf="navbarData$ | async as data">
+        <ng-container *ngFor="let link of data.links">
+          <!-- Mostrar enlace si no está en los excluidos según autenticación -->
+          <a *ngIf="(auth.isLoggedIn$ | async) ? !['link-sign-up', 'link-sign-in'].includes(link.id) : !['link-my-recipes', 'link-profile', 'link-log-out'].includes(link.id)"
+             [routerLink]="link.href"
+             class="text-body-small link">
+            <span>{{link.label}}</span>
+          </a>
+        </ng-container>
+      </ng-container>
+    </nav>
+
+    <!-- Contenedor de botones -->
+    <div class="flex-row">
+      <ng-container *ngIf="navbarData$ | async as data">
+        <ng-container *ngFor="let button of data.buttons">
+          <!-- Mostrar botón si no está en los excluidos según autenticación -->
+          <ng-container *ngIf="(auth.isLoggedIn$ | async) ? !['link-sign-up', 'link-sign-in'].includes(button.id) : !['link-my-recipes', 'link-profile', 'link-log-out'].includes(button.id)">
+            <button *ngIf="button.id !== 'link-log-out'; else logoutBtn"
+                    [routerLink]="button.href"
+                    [class]="button.id === 'link-profile' ? 'button-animated button-background-filled-reverse' : 'button-animated button-background-filled'"
+                    class="button-link">
+              {{button.label}}
+            </button>
+
+            <ng-template #logoutBtn>
+              <button (click)="logout()"
+                      class="button-animated button-background-filled button-link">
+                {{button.label}}
+              </button>
+            </ng-template>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- Botón de menú (burger menu) para móvil -->
+  <div class="navbar-burger-menu" (click)="toggleMobileMenu()">
+    <svg viewBox="0 0 1024 1024" class="navbar-icon-pop-up">
+      <path d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667-42.667z"></path>
+    </svg>
+  </div>
+
+  <!-- Menú móvil -->
+  <div class="navbar-mobile-menu" [class.active]="mobileMenuOpen">
+    <div class="flex-column menu">
+      <!-- Encabezado del menú móvil -->
+      <div class="navbar-top section-max-width flex-row">
+        <img alt="Food Champs Logo" src="/public/external/logo-food-champs.png" class="logo" />
+        <svg (click)="toggleMobileMenu()" class="navbar-close-menu navbar-icon-pop-up" viewBox="0 0 1024 1024">
+          <path d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238z"></path>
+        </svg>
+      </div>
+
+      <!-- Contenedor de enlaces móviles -->
+      <nav id="links-pop-up" class="flex-column">
+        <ng-container *ngIf="navbarData$ | async as data">
+          <ng-container *ngFor="let link of data.mobileLinks">
+            <a *ngIf="(auth.isLoggedIn$ | async) ? !['link-sign-up', 'link-sign-in'].includes(link.id) : !['link-my-recipes', 'link-profile', 'link-log-out'].includes(link.id)"
+               [routerLink]="link.href"
+               (click)="mobileMenuOpen = false">
+              <div class="flex-row">
+                <img [src]="link.imageSrc" [alt]="link.altText" class="navbar-page-image img-ratio-1-1"/>
+                <div class="flex-column link-content">
+                  <span class="navbar-page text-body-large">{{link.title}}</span>
+                  <span class="text-body-small">{{link.description}}</span>
+                </div>
+              </div>
+            </a>
+          </ng-container>
+        </ng-container>
+      </nav>
+
+      <!-- Contenedor de botones móviles -->
+      <div class="flex-row">
+        <ng-container *ngIf="navbarData$ | async as data">
+          <ng-container *ngFor="let button of data.buttons">
+            <ng-container *ngIf="(auth.isLoggedIn$ | async) ? !['link-sign-up', 'link-sign-in'].includes(button.id) : !['link-my-recipes', 'link-profile', 'link-log-out'].includes(button.id)">
+              <button *ngIf="button.id !== 'link-log-out'; else mobileLogoutBtn"
+                      [routerLink]="button.href"
+                      [class]="button.id === 'link-profile' ? 'button-animated button-background-filled-reverse' : 'button-animated button-background-filled'"
+                      class="button-link"
+                      (click)="mobileMenuOpen = false">
+                {{button.label}}
+              </button>
+
+              <ng-template #mobileLogoutBtn>
+                <button (click)="logout()"
+                        class="button-animated button-background-filled button-link">
+                  {{button.label}}
+                </button>
+              </ng-template>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</header>
