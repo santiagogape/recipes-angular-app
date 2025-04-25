@@ -7,7 +7,7 @@ import {
   signOut,
   updateProfile
 } from '@angular/fire/auth';
-import {map, shareReplay} from 'rxjs';
+import {map, Observable, shareReplay} from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -21,6 +21,18 @@ export class AuthService {
     map(user => !!user),
     shareReplay(1)
   );
+
+  // Método para obtener el UID como observable
+  get currentUserId$(): Observable<string | null> {
+    return this.authState$.pipe(
+      map(user => user?.uid || null)
+    );
+  }
+
+  // Método para obtener el UID de forma sincrónica
+  getCurrentUserId(): string | null {
+    return this.auth.currentUser?.uid || null;
+  }
 
   async signUp(email: string, password: string, username: string) {
     try {
