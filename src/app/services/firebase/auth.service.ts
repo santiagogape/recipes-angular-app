@@ -8,6 +8,7 @@ import {
   updateProfile
 } from '@angular/fire/auth';
 import {map, Observable, shareReplay} from 'rxjs';
+import {NoLogin} from '@services/error.codes';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -30,8 +31,8 @@ export class AuthService {
   }
 
   // Método para obtener el UID de forma sincrónica
-  getCurrentUserId(): string | null {
-    return this.auth.currentUser?.uid || null;
+  getCurrentUserId(): string {
+    return this.auth.currentUser?.uid || NoLogin;
   }
 
   async signUp(email: string, password: string, username: string) {
