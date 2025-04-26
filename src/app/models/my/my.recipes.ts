@@ -1,6 +1,6 @@
 import {Header} from '@models/general/header';
 import {Card, CardInitializer} from '@models/general/card';
-import {ID} from '@services/firebase/firestore.service';
+import {ID} from '@services/firebase/databaseAPI';
 
 export interface RecipeTags {
   categories: string[];

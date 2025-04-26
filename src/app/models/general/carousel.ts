@@ -1,7 +1,8 @@
 import {ImageSrc} from './ImageSrc';
 import {Header, HeaderInitializer} from './header';
+import {ID} from '@services/firebase/databaseAPI';
 
-export interface CarouselTwoRows {
+export interface CarouselTwoRows extends ID{
   header: Header
   normal: ImageSrc[];
   reverse: ImageSrc[];

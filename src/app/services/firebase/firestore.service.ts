@@ -1,4 +1,5 @@
 import { Injectable, inject } from '@angular/core';
+import {DatabaseAPI} from './databaseAPI';
 import {
   Firestore,
   collection,
@@ -11,13 +12,11 @@ import {
   addDoc, docData
 } from '@angular/fire/firestore';
 import {map, Observable} from 'rxjs';
+import { ID } from './databaseAPI';
 
-export interface ID {
-  id?: string
-}
 
 @Injectable({ providedIn: 'root' })
-export class FirestoreService {
+export class FirestoreService implements DatabaseAPI {
   private firestore = inject(Firestore);
 
   // Obtener colección completa
@@ -26,8 +25,8 @@ export class FirestoreService {
     return collectionData(ref, { idField: 'id' });
   }
 
-  getIDs<T extends ID>(collectionName: string, ...path: string[]): Observable<string[]> {
-    const ref = collection(this.firestore, collectionName, ...path) as CollectionReference<T>;
+  getIDs(collectionName: string, ...path: string[]): Observable<string[]> {
+    const ref = collection(this.firestore, collectionName, ...path);
     return collectionData(ref, { idField: 'id' }).pipe(
       map((docs: any[]) => docs.map(doc => doc.id)) // Extraemos solo las IDs
     );
@@ -35,7 +34,7 @@ export class FirestoreService {
 
 
   // Guardar documento
-  async saveDocument<T extends ID>(data: T, collectionName: string, ...path: string[]): Promise<string> {
+  async createDocument<T extends ID>(data: T, collectionName: string, ...path: string[]): Promise<string> {
     const ref = collection(this.firestore, collectionName, ...path) as CollectionReference<T>;
     return await addDoc(ref, data).then(docRef => {return docRef.id});
   }
@@ -46,8 +45,8 @@ export class FirestoreService {
     await setDoc(ref, data);
   }
 
-  //leer por id
-  getDocument<T extends ID>(id: string, collectionName: string, ...path: string[]): Observable<T> {
+  //leer por ID
+  readDocument<T extends ID>(id: string, collectionName: string, ...path: string[]): Observable<T> {
     return docData(doc(this.firestore, collectionName, ...path, id) as DocumentReference<T>) as Observable<T>;
   }
 

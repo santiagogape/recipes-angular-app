@@ -19,6 +19,6 @@ export class HomeComponent {
   public carousel: string = "assets/general/carousel.json";
   public marketing: string = "assets/home/index.marketing.json";
   public slider: string = "assets/home/index.slider.json";
-    public type: string = "gallery";
+  public type: string = "gallery";
   constructor() {}
 }

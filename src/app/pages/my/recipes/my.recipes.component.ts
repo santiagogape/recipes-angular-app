@@ -6,6 +6,7 @@ import {Recipe} from '@models/my/my.recipes';
 import {RecipeDescriptionComponent} from '@components/my/recipes/recipe.description/recipe.description.component';
 import {FirestoreService} from '@services/firebase/firestore.service';
 import {NoRecipes} from '@services/error.codes';
+import {DatabaseAPI} from '@services/firebase/databaseAPI';
 
 @Component({
   selector: 'my-recipes',
@@ -23,7 +24,7 @@ export class MyRecipesComponent implements OnInit, OnDestroy {
   recipe!: Recipe;
   index : number = 0;
 
-  recipesIdLoader = inject(FirestoreService)
+  recipesIdLoader: DatabaseAPI = inject(FirestoreService)
   idSignals = signal<string[]>([])
   currentIndex = signal<number>(0)
   current = computed(() => {
@@ -44,8 +45,7 @@ export class MyRecipesComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    // this.sub = this.recipeLoader.getMyRecipesDescriptions("").subscribe(data => this.recipesSignal.set(data))
-    this.sub = this.recipesIdLoader.getIDs<Recipe>("users", "KjRmbKn1gvb567YaTDptzGY0AlH3", "recipes").subscribe( ids => {
+    this.sub = this.recipesIdLoader.getIDs("users", "KjRmbKn1gvb567YaTDptzGY0AlH3", "recipes").subscribe( ids => {
       this.idSignals.set(ids)
     })
   }

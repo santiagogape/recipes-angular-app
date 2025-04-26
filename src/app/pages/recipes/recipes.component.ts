@@ -8,7 +8,6 @@ import {SliderComponent} from '@components/general/slider/slider.component';
   selector: 'recipes',
   imports: [
     RecipesWelcomeBrowserComponent,
-    RecipesWelcomeBrowserComponent,
     PopularIngredientsComponent,
     RecipesGalleryComponent,
     SliderComponent

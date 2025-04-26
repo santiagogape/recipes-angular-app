@@ -24,8 +24,7 @@ export class RecipeDescriptionComponent {
   }
 
   updateRecipe() {
-    console.log("id read", this.id())
-    this.firestoreService.getDocument<Recipe>(this.id(),"users", "KjRmbKn1gvb567YaTDptzGY0AlH3", "recipes")
+    this.firestoreService.readDocument<Recipe>(this.id(),"users", "KjRmbKn1gvb567YaTDptzGY0AlH3", "recipes")
       .subscribe(res => { this.recipe.set(res)})
   }
 
