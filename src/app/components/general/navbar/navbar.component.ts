@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { AuthService } from '@services/firebase/auth.service';
-import { CommonModule } from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 import { RouterLink, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -33,7 +33,7 @@ interface NavButton {
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, NgOptimizedImage],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
@@ -51,7 +51,7 @@ export class NavbarComponent implements OnInit {
   }
 
   loadNavbar() {
-    this.navbarData$ = this.http.get<NavbarData>('/assets/general/navbar.json');
+    this.navbarData$ = this.http.get<NavbarData>('https://firebasestorage.googleapis.com/v0/b/foodchamps-c1e3a.firebasestorage.app/o/navbar.json?alt=media&token=69a7bff1-283e-4f2f-ae3c-124ec6ebdc52');
   }
 
   logout() {
