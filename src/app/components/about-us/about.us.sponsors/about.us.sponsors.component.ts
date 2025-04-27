@@ -1,8 +1,8 @@
-import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, effect, inject, input, OnDestroy, OnInit, signal} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {AboutUsSponsors} from '@models/about/about.us.sponsors';
-import {AboutUsSponsorsService} from '@services/interfaces/loading/about-us/about.us.sponsors.service';
-import {JsonAboutUsSponsorsService} from '@services/instances/loading/about-us/json.about.us.sponsors.service';
+import {DatabaseAPI} from '@services/firebase/databaseAPI';
+import {FirestoreService} from '@services/firebase/firestore.service';
 
 @Component({
   selector: 'about-us-sponsors',
@@ -11,23 +11,34 @@ import {JsonAboutUsSponsorsService} from '@services/instances/loading/about-us/j
   styleUrl: './about.us.sponsors.component.css'
 })
 export class AboutUsSponsorsComponent implements OnInit, OnDestroy{
-  @Input() src: string = "";
   sub: Subscription = new Subscription();
-  sponsors: AboutUsSponsors = {title:"",sponsors:[]}
-  service: AboutUsSponsorsService = inject(JsonAboutUsSponsorsService);
+  service: DatabaseAPI = inject(FirestoreService);
   constructor() {}
 
+  sponsors = signal<AboutUsSponsors>({title:"",sponsors:[]})
+  src = input.required<string>()
+  root = input.required<string>()
+  path = input.required<string[]>()
 
   ngOnDestroy(): void {
     this.sub.unsubscribe()
   }
 
   ngOnInit(): void {
-    if (this.src){
-      this.sub = this.service.getSponsorsFrom(this.src).subscribe( sponsors => {
-        this.sponsors = sponsors;
-      })
-    }
+    effect(() => {
+      this.src()
+      this.root()
+      this.path()
+      this.subscribe()
+    })
+  }
+
+  subscribe() {
+    this.sub = this.service.readDocument<AboutUsSponsors>(this.src(), this.root(), ...this.path()).subscribe(
+      data => {
+        this.sponsors.set(data);
+      }
+    )
   }
 
 

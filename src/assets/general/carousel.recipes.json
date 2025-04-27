@@ -1,0 +1,290 @@
+[
+  {
+    "description": {
+      "intro": {
+        "header": {
+          "title": "Sándwich de Huevo Gourmet",
+          "text": "Un delicioso sándwich de huevo con toques gourmet para un desayuno o brunch especial."
+        },
+        "image": {
+          "alt": "Sándwich de huevo gourmet en pan artesanal",
+          "src": "path"
+        }
+      },
+      "author": "FoodChampsHQ",
+      "icons": ["link", "linkedin", "twitter", "facebook"],
+      "tags": {
+        "categories": ["Desayuno", "Gourmet"],
+        "allergens": ["Gluten", "Huevos"]
+      }
+    },
+    "ingredients": [
+      { "title": "Pan artesanal", "text": "2 rebanadas gruesas." },
+      { "title": "Huevos", "text": "2 huevos grandes." },
+      { "title": "Queso cheddar", "text": "2 lonchas." },
+      { "title": "Aguacate", "text": "1/2, en rodajas." },
+      { "title": "Mantequilla", "text": "1 cucharada para dorar el pan." }
+    ],
+    "steps": [
+      { "title": "Step 1", "text": "Tostar el pan en mantequilla hasta dorar." },
+      { "title": "Step 2", "text": "Freír los huevos al gusto." },
+      { "title": "Step 3", "text": "Colocar las lonchas de queso sobre los huevos calientes para que se derritan." },
+      { "title": "Step 4", "text": "Armar el sándwich añadiendo aguacate y el huevo con queso." },
+      { "title": "Step 5", "text": "Servir inmediatamente acompañado de ensalada fresca." }
+    ],
+    "stars": 5,
+    "votes": 1
+  },
+  {
+    "description": {
+      "intro": {
+        "header": {
+          "title": "Cena Ligera de Espárragos y Alcachofas",
+          "text": "Una cena ligera, fresca y saludable a base de espárragos y alcachofas."
+        },
+        "image": {
+          "alt": "Plato elegante con espárragos y alcachofas",
+          "src": "path"
+        }
+      },
+      "author": "GreenKitchen",
+      "icons": ["link", "linkedin", "twitter", "facebook"],
+      "tags": {
+        "categories": ["Vegetariano", "Cena Ligera"],
+        "allergens": []
+      }
+    },
+    "ingredients": [
+      { "title": "Espárragos", "text": "1 manojo, cortados." },
+      { "title": "Corazones de alcachofa", "text": "1 taza, cortados en cuartos." },
+      { "title": "Aceite de oliva", "text": "2 cucharadas." },
+      { "title": "Limón", "text": "1, en rodajas." },
+      { "title": "Pimienta negra", "text": "Al gusto." }
+    ],
+    "steps": [
+      { "title": "Step 1", "text": "Saltear los espárragos y alcachofas en aceite de oliva." },
+      { "title": "Step 2", "text": "Agregar sal y pimienta al gusto." },
+      { "title": "Step 3", "text": "Incorporar rodajas de limón para aromatizar." },
+      { "title": "Step 4", "text": "Cocinar hasta que las verduras estén tiernas pero crujientes." },
+      { "title": "Step 5", "text": "Servir caliente acompañado de pan integral." }
+    ],
+    "stars": 4,
+    "votes": 5
+  },
+  {
+    "description": {
+      "intro": {
+        "header": {
+          "title": "Parfait de Yogurt y Frutas",
+          "text": "Una combinación fresca y dulce de yogurt natural con frutas variadas."
+        },
+        "image": {
+          "alt": "Parfait de yogurt con frutas de colores",
+          "src": "path"
+        }
+      },
+      "author": "HealthyTreats",
+      "icons": ["link", "linkedin", "twitter", "facebook"],
+      "tags": {
+        "categories": ["Postre", "Saludable"],
+        "allergens": ["Lácteos"]
+      }
+    },
+    "ingredients": [
+      { "title": "Yogurt natural", "text": "1 taza." },
+      { "title": "Fresas", "text": "1/2 taza, picadas." },
+      { "title": "Moras", "text": "1/2 taza." },
+      { "title": "Mango", "text": "1/2 taza, en cubos." },
+      { "title": "Granola", "text": "1/4 taza." }
+    ],
+    "steps": [
+      { "title": "Step 1", "text": "Colocar una capa de yogurt en el fondo de un vaso." },
+      { "title": "Step 2", "text": "Agregar una capa de frutas." },
+      { "title": "Step 3", "text": "Repetir las capas hasta llenar el vaso." },
+      { "title": "Step 4", "text": "Coronar con granola." },
+      { "title": "Step 5", "text": "Servir frío inmediatamente." }
+    ],
+    "stars": 5,
+    "votes": 2
+  },
+  {
+    "description": {
+      "intro": {
+        "header": {
+          "title": "Salmón Fresco con Ensalada Verde",
+          "text": "Un platillo saludable y sabroso a base de salmón a la plancha y ensalada fresca."
+        },
+        "image": {
+          "alt": "Plato de salmón dorado con ensalada variada",
+          "src": "path"
+        }
+      },
+      "author": "SeaFoodLovers",
+      "icons": ["link", "linkedin", "twitter", "facebook"],
+      "tags": {
+        "categories": ["Cena Saludable", "Pescados"],
+        "allergens": ["Pescado"]
+      }
+    },
+    "ingredients": [
+      { "title": "Filete de salmón", "text": "200g por porción." },
+      { "title": "Lechuga", "text": "1 taza, lavada y troceada." },
+      { "title": "Tomates cherry", "text": "10 unidades." },
+      { "title": "Aceite de oliva", "text": "1 cucharada para cocinar." },
+      { "title": "Jugo de limón", "text": "Al gusto para aderezar." }
+    ],
+    "steps": [
+      { "title": "Step 1", "text": "Salpimentar el salmón." },
+      { "title": "Step 2", "text": "Cocinarlo a la plancha hasta dorarlo por ambos lados." },
+      { "title": "Step 3", "text": "Preparar una ensalada con lechuga y tomates." },
+      { "title": "Step 4", "text": "Aderezar la ensalada con jugo de limón y aceite de oliva." },
+      { "title": "Step 5", "text": "Servir el salmón junto a la ensalada." }
+    ],
+    "stars": 5,
+    "votes": 4
+  },
+  {
+    "description": {
+      "intro": {
+        "header": {
+          "title": "Café Frío con Crema y Glaseado de Cacao",
+          "text": "Un café frío dulce y cremoso perfecto para días calurosos."
+        },
+        "image": {
+          "alt": "Café frío servido con crema y topping de cacao",
+          "src": "path"
+        }
+      },
+      "author": "CoffeeLovers",
+      "icons": ["link", "linkedin", "twitter", "facebook"],
+      "tags": {
+        "categories": ["Bebidas", "Café"],
+        "allergens": ["Lácteos"]
+      }
+    },
+    "ingredients": [
+      { "title": "Café frío", "text": "1 taza preparada." },
+      { "title": "Crema batida", "text": "1/4 taza." },
+      { "title": "Jarabe de chocolate", "text": "2 cucharadas." },
+      { "title": "Hielo", "text": "Al gusto." },
+      { "title": "Cacao en polvo", "text": "Para decorar." }
+    ],
+    "steps": [
+      { "title": "Step 1", "text": "Llenar un vaso grande con hielo." },
+      { "title": "Step 2", "text": "Añadir el café frío." },
+      { "title": "Step 3", "text": "Cubrir con crema batida." },
+      { "title": "Step 4", "text": "Decorar con jarabe de chocolate." },
+      { "title": "Step 5", "text": "Espolvorear cacao en polvo al final." }
+    ],
+    "stars": 4,
+    "votes": 7
+  },
+  {
+    "description": {
+      "intro": {
+        "header": {
+          "title": "Bizcocho de Nueces y Almendra",
+          "text": "Un delicioso bizcocho húmedo lleno de nueces y almendras."
+        },
+        "image": {
+          "alt": "Bizcocho casero de nueces y almendras",
+          "src": "path"
+        }
+      },
+      "author": "BakingMasters",
+      "icons": ["link", "linkedin", "twitter", "facebook"],
+      "tags": {
+        "categories": ["Postres", "Repostería"],
+        "allergens": ["Frutos Secos", "Gluten"]
+      }
+    },
+    "ingredients": [
+      { "title": "Harina", "text": "200g." },
+      { "title": "Nueces", "text": "100g picadas." },
+      { "title": "Almendras", "text": "100g picadas." },
+      { "title": "Huevos", "text": "3 unidades." },
+      { "title": "Azúcar", "text": "150g." }
+    ],
+    "steps": [
+      { "title": "Step 1", "text": "Batir los huevos con azúcar hasta esponjar." },
+      { "title": "Step 2", "text": "Añadir la harina tamizada." },
+      { "title": "Step 3", "text": "Incorporar nueces y almendras." },
+      { "title": "Step 4", "text": "Verter en un molde engrasado." },
+      { "title": "Step 5", "text": "Hornear a 180°C durante 30 minutos." }
+    ],
+    "stars": 5,
+    "votes": 3
+  },
+  {
+    "description": {
+      "intro": {
+        "header": {
+          "title": "Hamburguesa Clásica",
+          "text": "La hamburguesa clásica con carne jugosa, queso y vegetales frescos."
+        },
+        "image": {
+          "alt": "Hamburguesa con queso derretido y papas",
+          "src": "path"
+        }
+      },
+      "author": "BurgerTime",
+      "icons": ["link", "linkedin", "twitter", "facebook"],
+      "tags": {
+        "categories": ["Comida Rápida", "Almuerzo"],
+        "allergens": ["Gluten", "Lácteos"]
+      }
+    },
+    "ingredients": [
+      { "title": "Carne molida", "text": "150g por hamburguesa." },
+      { "title": "Queso cheddar", "text": "1 loncha." },
+      { "title": "Pan de hamburguesa", "text": "1 unidad." },
+      { "title": "Lechuga", "text": "1 hoja." },
+      { "title": "Tomate", "text": "2 rodajas." }
+    ],
+    "steps": [
+      { "title": "Step 1", "text": "Formar y sazonar la carne." },
+      { "title": "Step 2", "text": "Cocinar la carne en la parrilla o sartén." },
+      { "title": "Step 3", "text": "Colocar queso sobre la carne caliente." },
+      { "title": "Step 4", "text": "Armar la hamburguesa con pan, lechuga y tomate." },
+      { "title": "Step 5", "text": "Servir caliente con papas fritas." }
+    ],
+    "stars": 5,
+    "votes": 10
+  },
+  {
+    "description": {
+      "intro": {
+        "header": {
+          "title": "Ensalada Variada de Verduras",
+          "text": "Una ensalada fresca, colorida y llena de nutrientes."
+        },
+        "image": {
+          "alt": "Plato colorido de ensalada mixta",
+          "src": "path"
+        }
+      },
+      "author": "FreshBites",
+      "icons": ["link", "linkedin", "twitter", "facebook"],
+      "tags": {
+        "categories": ["Vegano", "Saludable"],
+        "allergens": []
+      }
+    },
+    "ingredients": [
+      { "title": "Lechuga", "text": "1 taza troceada." },
+      { "title": "Zanahoria", "text": "1 rallada." },
+      { "title": "Pepino", "text": "1/2 en rodajas." },
+      { "title": "Pimiento rojo", "text": "1/2 en tiras." },
+      { "title": "Aceite de oliva", "text": "2 cucharadas." }
+    ],
+    "steps": [
+      { "title": "Step 1", "text": "Lavar y preparar todas las verduras." },
+      { "title": "Step 2", "text": "Mezclar en un bol grande." },
+      { "title": "Step 3", "text": "Aderezar con aceite de oliva y sal." },
+      { "title": "Step 4", "text": "Servir fresca." },
+      { "title": "Step 5", "text": "Agregar semillas si se desea." }
+    ],
+    "stars": 5,
+    "votes": 6
+  }
+]

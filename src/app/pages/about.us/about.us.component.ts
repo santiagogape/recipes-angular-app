@@ -18,10 +18,12 @@ import {AboutUsTeamComponent} from '@components/about-us/about.us.team/about.us.
   styleUrl: './about.us.component.css'
 })
 export class AboutUsComponent {
-  welcome: string = 'assets/about/about.us.welcome.json';
-  stats: string = "assets/about/about.us.stats.json";
-  sponsors: string = "assets/about/about.us.sponsors.json";
-  marketing: string = "assets/about/about.us.marketing.json";
-  team: string = "assets/about/about.us.team.json";
+  root = "web"
+  path = ["pages", "about"]
+  welcome = "welcome";
+  stats = "stats";
+  sponsors = "sponsors";
+  marketing = "marketing";
+  team = "team";
 
 }

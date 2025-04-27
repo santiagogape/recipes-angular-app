@@ -1,8 +1,8 @@
 <div class="section-padding">
   <div id="welcome-container" class="flex-column section-max-width">
     <div class="flex-column">
-      <span class=" heading-1 ">{{welcome.intro.header.title}}</span>
-      <p class=" text-body-large ">{{welcome.intro.header.text}}</p>
+      <span class=" heading-1 ">{{welcome().intro.header.title}}</span>
+      <p class=" text-body-large ">{{welcome().intro.header.text}}</p>
       <div class="welcome-about-us-actions">
         <button class="button-background-filled welcome-about-us-button">
           <!-- <a rel="internal" href="/recipes/recipes.html" id="link-recipes" class="button-link">Discover recipes</a> -->
@@ -15,8 +15,8 @@
       </div>
     </div>
     <img
-      [alt]="welcome.intro.image.alt"
-      [src]="welcome.intro.image.src"
+      [alt]="welcome().intro.image.alt"
+      [src]="welcome().intro.image.src"
       class="img-ratio-16-9"
     />
   </div>

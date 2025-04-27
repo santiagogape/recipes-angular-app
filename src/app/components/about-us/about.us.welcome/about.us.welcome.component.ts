@@ -1,9 +1,11 @@
-import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, effect, inject, input, OnDestroy, OnInit, signal} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {AboutUsWelcomeService} from '@services/interfaces/loading/about-us/about.us.welcome.service';
-import {JsonAboutUsWelcomeService} from '@services/instances/loading/about-us/json.about.us.welcome.service';
 import {AboutUsWelcome} from '@models/about/about.us.welcome';
 import {CardInitializer} from '@models/general/card';
+import {DatabaseAPI} from '@services/firebase/databaseAPI';
+import {FirestoreService} from '@services/firebase/firestore.service';
+
+
 
 @Component({
   selector: 'about-us-welcome',
@@ -12,21 +14,32 @@ import {CardInitializer} from '@models/general/card';
   styleUrl: './about.us.welcome.component.css'
 })
 export class AboutUsWelcomeComponent implements OnInit, OnDestroy {
+  constructor() {}
   ngOnDestroy(): void {
     this.sub.unsubscribe()
   }
   ngOnInit(): void {
-    if (this.src){
-      this.service.welcome(this.src).subscribe(
-        data => {
-          this.welcome = data
-        }
-      )
-    }
+    effect(() => {
+      this.src()
+      this.root()
+      this.path()
+      this.subscribe()
+    })
   }
 
-  @Input() src:string = ""
-  service: AboutUsWelcomeService = inject(JsonAboutUsWelcomeService)
-  welcome: AboutUsWelcome = {intro:CardInitializer()}
-  sub: Subscription = new Subscription;
+  root = input.required<string>();
+  path = input.required<string[]>();
+  src = input.required<string>();
+  welcome = signal<AboutUsWelcome>({intro:CardInitializer()})
+
+  service: DatabaseAPI = inject(FirestoreService)
+  sub: Subscription = new Subscription();
+
+  subscribe() {
+    this.service.readDocument<AboutUsWelcome>(this.src(),this.root(),...this.path()).subscribe(
+      data => {
+        this.welcome.set(data)
+      }
+    )
+  }
 }

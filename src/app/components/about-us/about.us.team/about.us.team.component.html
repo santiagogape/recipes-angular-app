@@ -1,12 +1,12 @@
 <div class="section-padding">
   <div class="team-max-width section-max-width">
     <div class="team-section-title">
-      <span id="team-subheading" class="text-body-small">{{team.header.text}}</span>
-      <span id="team-heading" class="heading-2 ">{{team.header.title}}</span>
-      <p id="team-description" class="text-body-large">{{team.description}}</p>
+      <span id="team-subheading" class="text-body-small">{{team().header.text}}</span>
+      <span id="team-heading" class="heading-2 ">{{team().header.title}}</span>
+      <p id="team-description" class="text-body-large">{{team().description}}</p>
     </div>
     <div id="team-members" class="team-members grid-columns-4">
-      @for (member of team.members; track member.image.src){
+      @for (member of team().members; track member.image.src){
         <div class="team-member-card">
           <img
             [alt]="member.image.alt"

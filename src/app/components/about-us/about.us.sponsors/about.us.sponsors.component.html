@@ -1,8 +1,8 @@
 <div class="section-padding">
   <div class="sponsors-max-width section-max-width">
-    <span id="sponsors-title" class="sponsors-text heading-2">{{sponsors.title}}</span>
+    <span id="sponsors-title" class="sponsors-text heading-2">{{sponsors().title}}</span>
     <div id="sponsors-logos" class="grid-columns-6">
-      @for (image of sponsors.sponsors; track image.src){
+      @for (image of sponsors().sponsors; track image.src){
         <img [src]="image.src" [alt]="image.alt" class="img-ratio-16-9"/>
       }
     </div>

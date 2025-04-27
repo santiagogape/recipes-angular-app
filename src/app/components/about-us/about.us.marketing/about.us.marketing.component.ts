@@ -1,9 +1,9 @@
-import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, effect, inject, input, OnDestroy, OnInit, signal} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {JsonAboutUsMarketingService} from '@services/instances/loading/about-us/json.about.us.marketing.service';
-import {AboutUsMarketingService} from '@services/interfaces/loading/about-us/about.us.marketing.service';
 import {AboutUsMarketing} from '@models/about/about.us.marketing';
 import {HeaderInitializer} from '@models/general/header';
+import {DatabaseAPI} from '@services/firebase/databaseAPI';
+import {FirestoreService} from '@services/firebase/firestore.service';
 
 @Component({
   selector: 'about-us-marketing',
@@ -12,21 +12,31 @@ import {HeaderInitializer} from '@models/general/header';
   styleUrl: './about.us.marketing.component.css'
 })
 export class AboutUsMarketingComponent implements OnInit, OnDestroy {
-  @Input() src: string= ""
   sub: Subscription = new Subscription();
-  service: AboutUsMarketingService = inject(JsonAboutUsMarketingService)
-  marketing: AboutUsMarketing = {header:HeaderInitializer(),features:[],description:""}
+  service: DatabaseAPI = inject(FirestoreService)
   constructor() {}
 
+  marketing = signal<AboutUsMarketing>({header:HeaderInitializer(),features:[],description:""})
+  src = input.required<string>()
+  root = input.required<string>()
+  path = input.required<string[]>()
+
   ngOnInit(): void {
-    if (this.src) {
-      this.sub = this.service.getOurMarketing(this.src).subscribe(
-        data => this.marketing = data
-      )
-    }
+    effect(() => {
+      this.src()
+      this.root()
+      this.path()
+      this.subscribe()
+    });
   }
 
   ngOnDestroy(): void {
     this.sub.unsubscribe()
+  }
+
+  subscribe(){
+    this.sub = this.service.readDocument<AboutUsMarketing>(this.src(),this.root(),...this.path()).subscribe(
+      data => this.marketing.set(data)
+    )
   }
 }

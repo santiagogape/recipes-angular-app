@@ -1,9 +1,9 @@
-import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, effect, inject, input, OnDestroy, OnInit, signal} from '@angular/core';
 import {AboutUsTeam} from '@models/about/about.us.team';
-import {JsonAboutUsTeamService} from '@services/instances/loading/about-us/json.about.us.team.service';
-import {AboutUsTeamService} from '@services/interfaces/loading/about-us/about.us.team.service';
 import {Subscription} from 'rxjs';
 import {HeaderInitializer} from '@models/general/header';
+import {DatabaseAPI} from '@services/firebase/databaseAPI';
+import {FirestoreService} from '@services/firebase/firestore.service';
 
 @Component({
   selector: 'about-us-team',
@@ -12,20 +12,31 @@ import {HeaderInitializer} from '@models/general/header';
   styleUrl: './about.us.team.component.css'
 })
 export class AboutUsTeamComponent implements OnInit, OnDestroy {
-  @Input() src: string = "";
-  team: AboutUsTeam = {header:HeaderInitializer(),description:"",members:[]};
-  service: AboutUsTeamService = inject(JsonAboutUsTeamService)
+  service: DatabaseAPI = inject(FirestoreService)
   sub: Subscription = new Subscription()
   constructor() {}
+
+  team = signal<AboutUsTeam>({header:HeaderInitializer(),description:"",members:[]})
+  src = input.required<string>()
+  root = input.required<string>()
+  path = input.required<string[]>()
 
   ngOnDestroy(): void {
       this.sub.unsubscribe()
   }
 
   ngOnInit(): void {
-      if (this.src) {
-        this.sub = this.service.getTeam(this.src).subscribe(team => { this.team = team })
-      }
+    effect(() => {
+      this.src()
+      this.root()
+      this.path()
+      this.subscribe()
+    })
+  }
+
+  subscribe(){
+    this.sub = this.service.readDocument<AboutUsTeam>(this.src(),this.root(),...this.path())
+      .subscribe(data => this.team.set(data))
   }
 
 }
