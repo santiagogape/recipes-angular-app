@@ -47,7 +47,7 @@ export class FirestoreService implements DatabaseAPI {
 
   //leer por ID
   readDocument<T extends ID>(id: string, collectionName: string, ...path: string[]): Observable<T> {
-    return docData(doc(this.firestore, collectionName, ...path, id) as DocumentReference<T>) as Observable<T>;
+    return docData(doc(this.firestore, collectionName, ...path, id) as DocumentReference<T>, { idField: 'id' }) as Observable<T>;
   }
 
   // Eliminar documento

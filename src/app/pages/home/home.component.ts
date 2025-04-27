@@ -16,8 +16,11 @@ import {SliderComponent} from '@components/general/slider/slider.component';
   standalone: true
 })
 export class HomeComponent {
-  public carousel: string = "assets/general/carousel.json";
-  public marketing: string = "assets/home/index.marketing.json";
+  root = "web"
+  path = ["pages","home"]
+  public carousel = "carousel";
+  public carouselCollection = "recipes"
+  public marketing = "assets/home/index.marketing.json";
   public slider: string = "assets/home/index.slider.json";
   public type: string = "gallery";
   constructor() {}

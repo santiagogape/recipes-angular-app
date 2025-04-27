@@ -5,5 +5,17 @@ export interface User extends ID {
   username: string;
   email: string;
   picture: string;
+  job: string
 }
 // friends: User[]
+
+export function UserInitializer(): User {
+  return new class implements User {
+    email=  "";
+    id=  "";
+    job=  "";
+    name=  "";
+    picture=  "";
+    username=  "";
+  }
+}

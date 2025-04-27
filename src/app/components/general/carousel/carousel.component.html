@@ -1,16 +1,18 @@
 <div class="carousel-container ">
   <div class="carousel-column section-padding section-max-width">
     <div class="carousel-header">
-      <span class=" heading-1 carousel-text">{{carousel.header.title}}</span>
-      <p class=" text-body-large carousel-text">{{carousel.header.text}}</p>
+      <span class=" heading-1 carousel-text">{{header().title}}</span>
+      <p class=" text-body-large carousel-text">{{header().text}}</p>
     </div>
   </div>
   <div class="carousel-gallery">
     <div class="carousel-container-horizontal">
       <div class="carousel-horizontal">
         @for (num of times; track num) {
-          @for (image of carousel.normal; track image.src) {
-            <img [alt]="image.alt" [src]="image.src" class="carousel-placeholder-image  img-scale"/>
+          @for (pair of normal(); track pair.recipeData.description.intro.image.src) {
+            <img [alt]="pair.recipeData.description.intro.image.alt"
+                 [src]="pair.recipeData.description.intro.image.src"
+                 class="carousel-placeholder-image  img-scale"/>
           }
         }
       </div>
@@ -18,8 +20,10 @@
     <div class="carousel-container-horizontal">
       <div class="carousel-horizontal carousel-horizontal-reverse">
         @for (num of times; track num) {
-          @for (image of carousel.reverse; track image.src) {
-            <img [alt]="image.alt" [src]="image.src" class="carousel-placeholder-image  img-scale"/>
+          @for (pair of reverse(); track pair.recipeData.description.intro.image.src) {
+            <img [alt]="pair.recipeData.description.intro.image.alt"
+                 [src]="pair.recipeData.description.intro.image.src"
+                 class="carousel-placeholder-image  img-scale"/>
           }
         }
       </div>
