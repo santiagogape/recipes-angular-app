@@ -1,4 +1,4 @@
-import {Component, computed, effect, inject, input, signal} from '@angular/core';
+import {Component, computed, effect, inject, Input, OnInit, signal} from '@angular/core';
 import {GallerySlider} from '@models/general/slider';
 import {combineLatest, Subscription, switchMap, tap} from 'rxjs';
 import {AuthorRecipeData} from '@models/general/AuthorRecipePair';
@@ -12,32 +12,26 @@ import { Slider } from '@components/general/slider/slider.component';
   templateUrl: './image.slider.component.html',
   styleUrl: './image.slider.component.css'
 })
-export class ImageSliderComponent extends Slider {
+export class ImageSliderComponent extends Slider implements OnInit {
   gallery = signal<AuthorRecipeData[]>([])
   recipes = computed(() => this.gallery().map(p => p.recipeData))
   sub: Subscription = new Subscription();
 
   service: DatabaseAPI = inject(FirestoreService)
-  src = input.required<string>()
-  root = input.required<string>()
-  path = input.required<string[]>()
+  @Input() src: string = ""
+  @Input() root: string = ""
+  @Input() path: string[] = []
   title = signal("")
 
   constructor() {
     super();
     effect(() => {
-      this.src()
-      this.root()
-      this.path()
-      this.subscribeGallery();
-    })
-    effect(() => {
       console.log(this.recipes())
     });
   }
 
-  subscribeGallery(){
-    this.sub = this.service.readDocument<GallerySlider>(this.src(), this.root(), ...this.path()).pipe(
+  ngOnInit(){
+    this.sub = this.service.readDocument<GallerySlider>(this.src, this.root, ...this.path).pipe(
       tap(data => this.title.set(data.title)),
       switchMap(data => {
         const observables = data.recipes.map(r => this.service.getAuthorRecipeDataFromID(r));

@@ -1,4 +1,4 @@
-import {Component, effect, inject, input, signal} from '@angular/core';
+import {Component, effect, inject, Input, OnInit, signal} from '@angular/core';
 import {combineLatest, Subscription, switchMap, tap } from 'rxjs';
 import {DatabaseAPI} from '@services/firebase/databaseAPI';
 import {FirestoreService} from '@services/firebase/firestore.service';
@@ -12,35 +12,29 @@ import {Slider} from '@components/general/slider/slider.component';
   templateUrl: './testimonials.slider.component.html',
   styleUrl: './testimonials.slider.component.css'
 })
-export class TestimonialsSliderComponent extends Slider{
+export class TestimonialsSliderComponent extends Slider implements OnInit{
   testimonials = signal<RecipesTestimonialData[]>([])
   sub: Subscription = new Subscription();
-  src = input.required<string>()
-  root = input.required<string>()
-  path = input.required<string[]>()
+  @Input() src = ""
+  @Input()   root = ""
+  @Input() path: string[] = []
   service: DatabaseAPI = inject(FirestoreService)
   title = signal("")
 
   constructor() {
     super();
     effect(() => {
-      this.src()
-      this.root()
-      this.path()
-      this.subscribeTestimonials();
-    })
-    effect(() => {
       console.log(this.testimonials())
     });
   }
 
 
-  subscribeTestimonials(){
-    this.sub = this.service.readDocument<TestimonialsSlider>(this.src(), this.root(), ...this.path()).pipe(
+  ngOnInit(){
+    this.sub = this.service.readDocument<TestimonialsSlider>(this.src, this.root, ...this.path).pipe(
       tap((data)=> console.log("data",data)),
       tap(data => this.title.set(data.title)),
       switchMap(data => {
-        const observables = data.testimonials.map(this.service.getTestimonialDataFromID);
+        const observables = data.testimonials.map(r => this.service.getTestimonialDataFromID(r));
         return combineLatest([...observables]); // Observable<RecipesTestimonialData[]>
       }),
     ).subscribe({
