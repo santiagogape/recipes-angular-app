@@ -4,8 +4,10 @@ import {CommonModule, NgOptimizedImage} from '@angular/common';
 import { RouterLink, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {FirestoreService} from '@services/firebase/firestore.service';
+import {ID} from '@services/firebase/databaseAPI';
 
-interface NavbarData {
+interface NavbarData extends ID{
   links: NavLink[];
   mobileLinks: MobileNavLink[];
   buttons: NavButton[];
@@ -40,6 +42,7 @@ interface NavButton {
 export class NavbarComponent implements OnInit {
   protected auth = inject(AuthService);
   private http = inject(HttpClient);
+  firestore =  inject(FirestoreService)
 
   constructor(private router: Router) {}
 

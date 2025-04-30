@@ -1,4 +1,13 @@
-import {Component, effect, inject, input, OnDestroy, OnInit, signal} from '@angular/core';
+import {
+  Component,
+  effect,
+  inject,
+  input,
+  OnDestroy,
+  signal,
+  TemplateRef,
+  ViewChild
+} from '@angular/core';
 import {CarouselInitializer, CarouselTwoRows} from '@models/general/carousel';
 import {combineLatest, Subscription} from 'rxjs';
 import {DatabaseAPI} from '@services/firebase/databaseAPI';
@@ -21,21 +30,30 @@ import {
 } from '@angular/fire/firestore';
 import { Recipe } from '@models/my/my.recipes';
 import {User} from '@models/my/user';
+import {RouterLink} from '@angular/router';
+import {NgTemplateOutlet} from '@angular/common';
 
 @Component({
   selector: 'carousel',
-  imports: [],
+  imports: [
+    RouterLink,
+    NgTemplateOutlet
+  ],
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.css',
   standalone: true
 })
-export class CarouselComponent implements OnInit, OnDestroy {
+export class CarouselComponent implements OnDestroy {
+  /**
+   * route(id: string | undefined, id1: string | undefined): string | any[] | _i1.UrlTree | null | undefined {
+   *       throw new Error('Method not implemented.');
+   *   }
+   */
   service:DatabaseAPI = inject(FirestoreService)
   header = signal<Header>(HeaderInitializer())
   normal = signal<AuthorRecipeData[]>([])
   reverse = signal<AuthorRecipeData[]>([])
   firestore = inject(Firestore)
-
 
 
   protected carousel: CarouselTwoRows = CarouselInitializer();
@@ -46,14 +64,10 @@ export class CarouselComponent implements OnInit, OnDestroy {
   subReverseObs: Subscription[] = []
   protected subReverse: Unsubscribe = () => {};
 
-  constructor() {}
 
-  root = input.required<string>()
-  path = input.required<string[]>()
-  src = input.required<string>()
-  srcCollection = input.required<string>()
+  @ViewChild('recipeImage', { static: true }) recipeImageTemplate!: TemplateRef<RecipeImageContext>;
 
-  ngOnInit() {
+  constructor() {
     effect(() => {
       this.root()
       this.path()
@@ -63,11 +77,16 @@ export class CarouselComponent implements OnInit, OnDestroy {
     });
   }
 
+  root = input.required<string>()
+  path = input.required<string[]>()
+  src = input.required<string>()
+  srcCollection = input.required<string>()
+
   subscribe() {
     const normalQuery = query(collection(this.firestore, this.root(), ...this.path(), this.src(), this.srcCollection()),
       where('direction', '==', "normal"));
     const reverseQuery = query(collection(this.firestore, this.root(), ...this.path(), this.src(), this.srcCollection()),
-      where('direction', '==', "normal"));
+      where('direction', '==', "reverse"));
     this.subCarousel = this.service.readDocument<CarouselTwoRows>(this.src(),this.root(),...this.path()).subscribe(
       data => this.header.set(data.header)
     )
@@ -75,9 +94,6 @@ export class CarouselComponent implements OnInit, OnDestroy {
     this.subNormal = onSnapshot(normalQuery, (querySnapshot) => {
       this.subNormalObs.forEach(sub => sub.unsubscribe())
       this.subNormalObs = []
-
-      const updatedRecipesData: AuthorRecipeData[] = [];
-      let count = signal(0)
       querySnapshot.forEach((document) => {
         let pair = { id: document.id, ...document.data() } as AuthorRecipe;
         let author = doc(this.firestore, "users", pair.author) as DocumentReference<User>;
@@ -87,16 +103,12 @@ export class CarouselComponent implements OnInit, OnDestroy {
           combineLatest([docData(author, { idField: 'id' }), docData(recipe, { idField: 'id' })]).subscribe(
             ([author, recipe]) => {
               if (author && recipe) {
-                updatedRecipesData.push({authorData: author, recipeData: recipe, id: pair.id} as AuthorRecipeData)
-                count.update(i => i + 1)
+                this.normal.update(arr => [...arr,
+                  {authorData: author, recipeData: recipe, id: pair.id} as AuthorRecipeData])
               }
             }
           )
         )
-
-      });
-      effect(() => {
-        if (count() == querySnapshot.docs.length) this.normal.set([...updatedRecipesData])
       });
     });
 
@@ -104,8 +116,6 @@ export class CarouselComponent implements OnInit, OnDestroy {
     this.subReverse = onSnapshot(reverseQuery, (querySnapshot) => {
       this.subReverseObs.forEach(sub => sub.unsubscribe())
       this.subReverseObs = []
-      const updatedRecipesData: AuthorRecipeData[] = [];
-      let count = signal(0)
       querySnapshot.forEach((document) => {
         let pair = { id: document.id, ...document.data() } as AuthorRecipe;
         let author = doc(this.firestore, "users", pair.author) as DocumentReference<User>;
@@ -115,17 +125,15 @@ export class CarouselComponent implements OnInit, OnDestroy {
           combineLatest([docData(author, { idField: 'id' }), docData(recipe, { idField: 'id' })]).subscribe(
             ([author, recipe]) => {
               if (author && recipe) {
-                updatedRecipesData.push({authorData: author, recipeData: recipe, id: pair.id} as AuthorRecipeData)
-                count.update(i => i + 1)
+                this.reverse.update(arr => [...arr,
+                  {authorData: author, recipeData: recipe, id: pair.id} as AuthorRecipeData])
               }
             }
           )
         )
 
       });
-      effect(() => {
-        if (count() == querySnapshot.docs.length) this.reverse.set([...updatedRecipesData])
-      });
+
     });
   }
 
@@ -136,4 +144,12 @@ export class CarouselComponent implements OnInit, OnDestroy {
     this.subNormal()
     this.subReverse()
   }
+
+  duplicate(arr: AuthorRecipeData[]) {
+    return [...arr, ...arr]
+  }
+}
+
+interface RecipeImageContext {
+  $implicit: AuthorRecipeData;
 }

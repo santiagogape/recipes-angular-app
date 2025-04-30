@@ -1,0 +1,17 @@
+<div class="section-padding">
+  <span class="heading-1">{{title()}}</span>
+  <div class="section-max-width slider-container">
+    <div id="swiper" class="swiper">
+      <div class="swiper-wrapper">
+        @for (recipe of recipes(); track recipe.description.intro.image.src){
+          <div class="swiper-slide">
+            <img [alt]=recipe.description.intro.image.alt [src]="recipe.description.intro.image.src" class="img-ratio-4-3"/>
+          </div>
+        }
+      </div>
+      <div class="swiper-button-next" (click)="onNextClick()"></div>
+      <div class="swiper-button-prev" (click)="onPrevClick()"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</div>

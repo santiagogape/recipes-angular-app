@@ -1,5 +1,4 @@
 import { Injectable, inject } from '@angular/core';
-import {DatabaseAPI} from './databaseAPI';
 import {
   Firestore,
   collection,
@@ -11,13 +10,17 @@ import {
   CollectionReference,
   addDoc, docData
 } from '@angular/fire/firestore';
-import {map, Observable} from 'rxjs';
-import { ID } from './databaseAPI';
+import {combineLatest, map, Observable, tap} from 'rxjs';
+import { DatabaseAPI, ID } from './databaseAPI';
+import {AuthorRecipe, AuthorRecipeData} from '@models/general/AuthorRecipePair';
+import { User } from '@models/my/user';
+import {Recipe} from '@models/my/my.recipes';
+import {RecipesTestimonial, RecipesTestimonialData} from '@models/recipes/recipes.testimonial';
 
 
 @Injectable({ providedIn: 'root' })
 export class FirestoreService implements DatabaseAPI {
-  private firestore = inject(Firestore);
+  firestore = inject(Firestore);
 
   // Obtener colección completa
   getCollection<T extends ID>(collectionName: string, ...path: string[]): Observable<T[]> {
@@ -55,4 +58,37 @@ export class FirestoreService implements DatabaseAPI {
     const ref = doc(this.firestore, collectionName, ...path, documentId);
     await deleteDoc(ref);
   }
+
+  getAuthorRecipeDataFromID(pair: AuthorRecipe): Observable<AuthorRecipeData> {
+    return combineLatest([
+      this.readDocument<User>(pair.author,"users"),
+      this.readDocument<Recipe>(pair.recipe,"users",pair.author,"recipes")
+    ]).pipe(tap(([a,r])=> console.log("a,r",a,r))).pipe(
+      map(
+        ([authorData, valorData]) =>
+        ({ id:pair.id, authorData:authorData, recipeData: valorData })
+      )
+    ).pipe(tap((p)=> console.log("p",p)));
+  }
+
+  getTestimonialDataFromID(testimonial: RecipesTestimonial): Observable<RecipesTestimonialData> {
+    return combineLatest([
+      this.readDocument<User>(testimonial.author,"users"),
+      this.getAuthorRecipeDataFromID(testimonial.recipe)
+    ]).pipe(
+      tap(([a,r]) => console.log(a,r)),
+      map(
+        ([authorData, valorData]) =>
+          ({
+            id:testimonial.id,
+            valuation:testimonial.valuation,
+            description:testimonial.description,
+            author:authorData,
+            recipe:valorData
+          })
+      )
+    )
+  }
+
+
 }

@@ -1,0 +1,32 @@
+{
+  "title": "Learn Popular Recipes",
+  "testimonials": [
+    {
+      "valuation": 5,
+      "description": "FoodChampsHQ has revolutionized the way I cook at\n                home. The recipes are easy to follow and always turn\n                out delicious!",
+      "author": "KjRmbKn1gvb567YaTDptzGY0AlH3",
+      "recipe": {
+        "author": "KjRmbKn1gvb567YaTDptzGY0AlH3",
+        "recipe": "2BESPTnnmq2DN8cK8ZbG"
+      }
+    },
+    {
+      "valuation": 5,
+      "description": "I love trying out new recipes from FoodChampsHQ. The\n                ingredient substitution advice has been a game-changer\n                for me!",
+      "author": "KjRmbKn1gvb567YaTDptzGY0AlH3",
+      "recipe": {
+        "author": "KjRmbKn1gvb567YaTDptzGY0AlH3",
+        "recipe": "14yHgaRRj3HED9izUDdx"
+      }
+    },
+    {
+      "valuation": 5,
+      "description": "FoodChampsHQ has made cooking fun and exciting for me.\n                I highly recommend this website to anyone looking to\n                explore new cuisines!",
+      "author": "KjRmbKn1gvb567YaTDptzGY0AlH3",
+      "recipe": {
+        "author": "KjRmbKn1gvb567YaTDptzGY0AlH3",
+        "recipe": "0uFuGCeCaBW7NiMXZLSR"
+      }
+    }
+  ]
+}

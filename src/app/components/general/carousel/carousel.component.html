@@ -6,28 +6,30 @@
     </div>
   </div>
   <div class="carousel-gallery">
+    <ng-template #recipeImage let-pair >
+      <img
+        routerLink="/recipes/page"
+        [queryParams]="{a:pair.authorData.id,r:pair.recipeData.id}"
+        [alt]="pair.recipeData.description.intro.image.alt"
+        [src]="pair.recipeData.description.intro.image.src"
+        class="carousel-placeholder-image img-scale" />
+    </ng-template>
     <div class="carousel-container-horizontal">
       <div class="carousel-horizontal">
-        @for (num of times; track num) {
-          @for (pair of normal(); track pair.recipeData.description.intro.image.src) {
-            <img [alt]="pair.recipeData.description.intro.image.alt"
-                 [src]="pair.recipeData.description.intro.image.src"
-                 class="carousel-placeholder-image  img-scale"/>
+          @for (pair of duplicate(normal()); track $index) {
+            <ng-container *ngTemplateOutlet="recipeImageTemplate; context: { $implicit:pair}"></ng-container>
           }
-        }
       </div>
     </div>
     <div class="carousel-container-horizontal">
       <div class="carousel-horizontal carousel-horizontal-reverse">
-        @for (num of times; track num) {
-          @for (pair of reverse(); track pair.recipeData.description.intro.image.src) {
-            <img [alt]="pair.recipeData.description.intro.image.alt"
-                 [src]="pair.recipeData.description.intro.image.src"
-                 class="carousel-placeholder-image  img-scale"/>
-          }
+        @for (pair of duplicate(reverse()); track $index) {
+          <ng-container *ngTemplateOutlet="recipeImageTemplate; context: { $implicit:pair}"></ng-container>
         }
       </div>
     </div>
   </div>
 </div>
+
+
 
