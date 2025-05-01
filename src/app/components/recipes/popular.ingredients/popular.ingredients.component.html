@@ -5,7 +5,7 @@
       <span class="ingredients-text text-body-large ingredients-text-inline"></span>
     </div>
     <div class="ingredients-grid">
-      @for (card of ingredients.cards; track card.header.title){
+      @for (card of section().cards; track card.header.title){
         <div class="ingredients-card flex-column card-layout">
           <img [alt]="card.image.alt" [src]="card.image.src" class="ingredients-image img-round img-ratio-1-1"/>
           <span class="heading-2 ingredients-text-inline">{{card.header.title}}</span>

@@ -1,4 +1,4 @@
-import {Component, effect, inject, input, OnDestroy, OnInit, signal} from '@angular/core';
+import {Component, effect, inject, input, OnDestroy, signal} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {AboutUsWelcome} from '@models/about/about.us.welcome';
 import {CardInitializer} from '@models/general/card';
@@ -13,18 +13,17 @@ import {FirestoreService} from '@services/firebase/firestore.service';
   templateUrl: './about.us.welcome.component.html',
   styleUrl: './about.us.welcome.component.css'
 })
-export class AboutUsWelcomeComponent implements OnInit, OnDestroy {
-  constructor() {}
-  ngOnDestroy(): void {
-    this.sub.unsubscribe()
-  }
-  ngOnInit(): void {
+export class AboutUsWelcomeComponent implements OnDestroy {
+  constructor() {
     effect(() => {
       this.src()
       this.root()
       this.path()
       this.subscribe()
     })
+  }
+  ngOnDestroy(): void {
+    this.sub.unsubscribe()
   }
 
   root = input.required<string>();

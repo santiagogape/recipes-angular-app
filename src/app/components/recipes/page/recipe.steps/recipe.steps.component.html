@@ -12,7 +12,7 @@
         <div class="recipe-steps-step-content">
           <span class="heading-3 recipe-steps-text">Ingredients</span>
           <ul class="recipe-steps-ul list">
-            @for (ingredient of ingredients; track ingredient){
+            @for (ingredient of ingredients(); track ingredient){
               <li class="list-item">
                 <span class="recipe-steps-text recipe-steps-ingredient">{{ingredient.title}} - {{ingredient.text}}</span>
               </li>
@@ -20,7 +20,7 @@
           </ul>
         </div>
       </div>
-      @for (step of steps; track step.title){
+      @for (step of steps(); track step.title){
         <div class="recipe-steps-step">
           <div class="recipe-steps-separator">
             <div class="recipe-steps-separator-point"></div>
@@ -38,7 +38,7 @@
         <h2 class="recipe-steps-title heading-2 recipe-steps-text">Rate this recipe!</h2>
         <div class="star-rating-wrapper">
           <!--StarRating component-->
-          <star-rating></star-rating>
+          <star-rating (valuation)="valuate($event)"></star-rating>
         </div>
       </div>
     </div>

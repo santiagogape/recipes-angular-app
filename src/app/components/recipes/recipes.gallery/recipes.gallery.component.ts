@@ -1,9 +1,7 @@
-import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
-import {RecipesGalleryService} from '@services/interfaces/loading/recipes/recipes.gallery.service';
-import {JsonRecipesGalleryService} from '@services/instances/loading/recipes/json.recipes.gallery.service';
+import {Component, effect, inject, input, OnDestroy, signal} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {RecipesGallery} from '@models/recipes/recipes.gallery';
-import {HeaderInitializer} from '@models/general/header';
+import {RecipeGalleryInitializer, RecipesGallery} from '@models/recipes/recipes.gallery';
+import {FirestoreService} from '@services/firebase/firestore.service';
 
 @Component({
   selector: 'recipes-gallery',
@@ -11,23 +9,27 @@ import {HeaderInitializer} from '@models/general/header';
   templateUrl: './recipes.gallery.component.html',
   styleUrl: './recipes.gallery.component.css'
 })
-export class RecipesGalleryComponent implements OnInit, OnDestroy {
-  @Input() src: string = ""
-  service: RecipesGalleryService = inject(JsonRecipesGalleryService)
+export class RecipesGalleryComponent implements OnDestroy {
   sub: Subscription = new Subscription();
-  protected gallery: RecipesGallery = {header:HeaderInitializer(), last:[], first:[],middle:[]};
-  constructor() {}
 
-  ngOnDestroy(): void {
-      this.sub.unsubscribe()
+  src = input.required<string>()
+  root = input.required<string>()
+  path = input.required<string[]>()
+  db = inject(FirestoreService)
+  section = signal<RecipesGallery>(RecipeGalleryInitializer())
+
+  constructor() {
+    effect(() => {
+      effect(() => {
+        if (!(this.src() && this.root() && this.path())) return
+        this.sub = this.db.readDocument<RecipesGallery>(this.src(), this.root(), ...this.path())
+          .subscribe((welcome) => this.section.set(welcome))
+      });
+    });
   }
 
-  ngOnInit(): void {
-    if (this.src) {
-      this.sub = this.service.getGallery(this.src).subscribe(
-        gallery => this.gallery = gallery
-      )
-    }
+  ngOnDestroy(): void {
+    this.sub.unsubscribe()
   }
 
 

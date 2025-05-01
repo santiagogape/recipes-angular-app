@@ -1,7 +1,6 @@
-import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, effect, inject, input, OnDestroy, signal} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {RecipesIngredientsService} from '@services/interfaces/loading/recipes/recipes.ingredients.service';
-import {JsonRecipesIngredientsService} from '@services/instances/loading/recipes/json.recipes.ingredients.service';
+import {FirestoreService} from '@services/firebase/firestore.service';
 import {RecipesIngredients} from '@models/recipes/recipes.ingredients';
 import {HeaderInitializer} from '@models/general/header';
 
@@ -11,23 +10,27 @@ import {HeaderInitializer} from '@models/general/header';
   templateUrl: './popular.ingredients.component.html',
   styleUrl: './popular.ingredients.component.css'
 })
-export class PopularIngredientsComponent implements OnInit , OnDestroy {
-  @Input() src: string = ""
+export class PopularIngredientsComponent implements  OnDestroy {
   sub: Subscription = new Subscription();
-  service: RecipesIngredientsService = inject(JsonRecipesIngredientsService)
-  protected ingredients: RecipesIngredients = {header:HeaderInitializer(),cards:[]};
-  constructor() {}
+
+  src = input.required<string>()
+  root = input.required<string>()
+  path = input.required<string[]>()
+  db = inject(FirestoreService)
+  section = signal<RecipesIngredients>({header:HeaderInitializer(), cards:[]})
+
+  constructor() {
+    effect(() => {
+      effect(() => {
+        if (!(this.src() && this.root() && this.path())) return
+        this.sub = this.db.readDocument<RecipesIngredients>(this.src(), this.root(), ...this.path())
+          .subscribe((section) => this.section.set(section))
+      });
+    });
+  }
 
   ngOnDestroy(): void {
-        this.sub.unsubscribe()
-    }
-
-  ngOnInit(): void {
-        if (this.src) {
-          this.sub = this.service.getIngredients(this.src).subscribe(
-            ingredients => this.ingredients = ingredients
-          )
-        }
-    }
+    this.sub.unsubscribe()
+  }
 
 }

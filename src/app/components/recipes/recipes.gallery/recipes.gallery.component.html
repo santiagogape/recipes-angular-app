@@ -1,13 +1,13 @@
 <div class="recipes-gallery section-padding">
   <div class="recipes-gallery-max-width">
     <div class="recipes-gallery-section-title">
-      <span class="recipes-gallery-text heading-2 recipes-gallery-text-inline">{{gallery.header.title}}</span>
-      <span class="recipes-gallery-text text-body-large recipes-gallery-text-inline">{{gallery.header.text}}</span>
+      <span class="recipes-gallery-text heading-2 recipes-gallery-text-inline">{{section().header.title}}</span>
+      <span class="recipes-gallery-text text-body-large recipes-gallery-text-inline">{{section().header.text}}</span>
     </div>
     <div class="recipes-gallery-container">
       <div class="recipes-gallery-content">
         <div class="recipes-gallery-container-column">
-          @for (img of gallery.first;track img.src){
+          @for (img of section().first;track img.src){
             <img
               [alt]="img.alt"
               [src]="img.src"
@@ -16,32 +16,24 @@
           }
         </div>
         <div class="recipes-gallery-container-column">
-          @if (gallery.middle.at(0)){
-            <img
-              [alt]="gallery.middle.at(0)?.alt"
-              [src]="gallery.middle.at(0)?.src"
-              class="recipes-gallery-image-short img-ratio-4-3"
-            />
+          @for (img of section().middle;track $index){
+            @if ($index === 0 || $index === section().middle.length) {
+              <img
+                [alt]="section().middle.at(0)?.alt"
+                [src]="section().middle.at(0)?.src"
+                class="recipes-gallery-image-short img-ratio-4-3"
+              />
+            } @else {
+              <img
+                [alt]="img.alt"
+                [src]="img.src"
+                class="recipes-gallery-image-large img-ratio-1-1"
+              />
+            }
           }
-
-          @for (img of gallery.middle.slice(1,-1);track img.src){
-            <img
-              [alt]="img.alt"
-              [src]="img.src"
-              class="recipes-gallery-image-large img-ratio-1-1"
-            />
-          }
-          @if (gallery.middle.at(-1)){
-            <img
-              [alt]="gallery.middle.at(-1)?.alt"
-              [src]="gallery.middle.at(-1)?.src"
-              class="recipes-gallery-image-short img-ratio-4-3"
-            />
-          }
-
         </div>
         <div class="recipes-gallery-container-column">
-          @for (img of gallery.last;track img.src){
+          @for (img of section().last;track img.src){
             <img
               [alt]="img.alt"
               [src]="img.src"

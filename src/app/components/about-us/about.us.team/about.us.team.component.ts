@@ -1,4 +1,4 @@
-import {Component, effect, inject, input, OnDestroy, OnInit, signal} from '@angular/core';
+import {Component, effect, inject, input, OnDestroy, signal} from '@angular/core';
 import {AboutUsTeam} from '@models/about/about.us.team';
 import {Subscription} from 'rxjs';
 import {HeaderInitializer} from '@models/general/header';
@@ -11,10 +11,17 @@ import {FirestoreService} from '@services/firebase/firestore.service';
   templateUrl: './about.us.team.component.html',
   styleUrl: './about.us.team.component.css'
 })
-export class AboutUsTeamComponent implements OnInit, OnDestroy {
+export class AboutUsTeamComponent implements  OnDestroy {
   service: DatabaseAPI = inject(FirestoreService)
   sub: Subscription = new Subscription()
-  constructor() {}
+  constructor() {
+    effect(() => {
+      this.src()
+      this.root()
+      this.path()
+      this.subscribe()
+    })
+  }
 
   team = signal<AboutUsTeam>({header:HeaderInitializer(),description:"",members:[]})
   src = input.required<string>()
@@ -23,15 +30,6 @@ export class AboutUsTeamComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
       this.sub.unsubscribe()
-  }
-
-  ngOnInit(): void {
-    effect(() => {
-      this.src()
-      this.root()
-      this.path()
-      this.subscribe()
-    })
   }
 
   subscribe(){

@@ -1,6 +1,6 @@
 <div>
   <div class="flex-column section-padding">
-    @for (section of sections; track section.image.src) {
+    @for (section of section().sections; track section.image.src) {
         <div [class]=this.direction(section)>
           <!-- marketing image 'index-marketing-container-reverse grid-columns-auto-300 section-max-width' -->
           <img

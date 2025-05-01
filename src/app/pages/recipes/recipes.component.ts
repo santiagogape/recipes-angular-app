@@ -16,10 +16,10 @@ import {TestimonialsSliderComponent} from '@components/recipes/testimonials.slid
   styleUrl: './recipes.component.css'
 })
 export class RecipesComponent {
-  protected browser = "assets/recipes/recipes.welcome.browser.json"
-  protected ingredients = "assets/recipes/recipes.ingredients.json"
-  protected gallery = "assets/recipes/recipes.gallery.json"
   root = "web"
   path = ["pages","recipes"]
+  browser = "welcome"
+  ingredients = "ingredients"
+  gallery = "gallery"
   testimonials = "testimonials"
 }

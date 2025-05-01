@@ -57,7 +57,6 @@ export class CarouselComponent implements OnDestroy {
 
 
   protected carousel: CarouselTwoRows = CarouselInitializer();
-  protected times: Array<number> = [1,2]
   protected subCarousel: Subscription = new Subscription();
   protected subNormal: Unsubscribe = () => {};
   subNormalObs: Subscription[] = []

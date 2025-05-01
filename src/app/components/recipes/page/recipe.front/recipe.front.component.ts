@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, input} from '@angular/core';
 import {RecipeDescription} from '@models/my/my.recipes';
 import {TaggingComponent} from '@components/general/tagging/tagging.component';
 
@@ -11,6 +11,6 @@ import {TaggingComponent} from '@components/general/tagging/tagging.component';
   styleUrl: './recipe.front.component.css'
 })
 export class RecipeFrontComponent {
-  @Input() description!: RecipeDescription;
+  description = input.required<RecipeDescription>();
   constructor() {}
 }

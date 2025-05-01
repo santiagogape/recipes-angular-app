@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, input, output} from '@angular/core';
 import {StarRatingComponent} from '@components/general/star.rating/star-rating.component';
 import {Header} from '@models/general/header';
 
@@ -11,8 +11,13 @@ import {Header} from '@models/general/header';
   styleUrl: './recipe.steps.component.css'
 })
 export class RecipeStepsComponent {
-  @Input() ingredients: Header[] = [];
-  @Input() steps: Header[] = [];
-  @Input() title: string = '';
+  ingredients = input.required<Header[]>()
+  steps = input.required<Header[]>()
+  title = "Follow this easy instructions:"
+  valuation = output<number>()
   constructor() {}
+
+  valuate(event: number){
+    this.valuation.emit(event)
+  }
 }

@@ -1,4 +1,4 @@
-import {Component, effect, inject, input, OnDestroy, OnInit, signal} from '@angular/core';
+import {Component, effect, inject, input, OnDestroy, signal} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {AboutUsSponsors} from '@models/about/about.us.sponsors';
 import {DatabaseAPI} from '@services/firebase/databaseAPI';
@@ -10,10 +10,17 @@ import {FirestoreService} from '@services/firebase/firestore.service';
   templateUrl: './about.us.sponsors.component.html',
   styleUrl: './about.us.sponsors.component.css'
 })
-export class AboutUsSponsorsComponent implements OnInit, OnDestroy{
+export class AboutUsSponsorsComponent implements  OnDestroy{
   sub: Subscription = new Subscription();
   service: DatabaseAPI = inject(FirestoreService);
-  constructor() {}
+  constructor() {
+    effect(() => {
+      this.src()
+      this.root()
+      this.path()
+      this.subscribe()
+    })
+  }
 
   sponsors = signal<AboutUsSponsors>({title:"",sponsors:[]})
   src = input.required<string>()
@@ -22,15 +29,6 @@ export class AboutUsSponsorsComponent implements OnInit, OnDestroy{
 
   ngOnDestroy(): void {
     this.sub.unsubscribe()
-  }
-
-  ngOnInit(): void {
-    effect(() => {
-      this.src()
-      this.root()
-      this.path()
-      this.subscribe()
-    })
   }
 
   subscribe() {

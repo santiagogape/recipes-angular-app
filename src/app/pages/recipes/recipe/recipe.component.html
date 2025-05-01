@@ -1,7 +1,3 @@
-@if (recipe){
-  <recipe-front [description]="recipe.description"></recipe-front>
-  <recipe-steps [ingredients]="recipe.ingredients" [steps]="recipe.steps"></recipe-steps>
-}
-@if (carousel) {
-  <!-- <carousel [src]="carousel"></carousel> -->
-}
+<recipe-front [description]="recipe().description"></recipe-front>
+<recipe-steps [ingredients]="recipe().ingredients" [steps]="recipe().steps" (valuation)="console.log('valuated',$event)"></recipe-steps>
+<carousel [root]="carrouseRoot" [path]="path" [src]="carousel" [srcCollection]="collection"></carousel>

@@ -1,9 +1,8 @@
-import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
-import {JsonRecipesWelcomeBrowserService} from '@services/instances/loading/recipes/json.recipes.welcome.browser.service';
-import {RecipesWelcomeBrowserService} from '@services/interfaces/loading/recipes/recipes.welcome.browser.service';
+import {Component, effect, inject, input, OnDestroy, signal} from '@angular/core';
 import {Subscription} from 'rxjs';
 import { CardInitializer} from '@models/general/card';
 import {RecipesWelcomeBrowser} from '@models/recipes/recipes.welcome.browser';
+import {FirestoreService} from '@services/firebase/firestore.service';
 
 @Component({
   selector: 'recipes-welcome-browser',
@@ -11,20 +10,25 @@ import {RecipesWelcomeBrowser} from '@models/recipes/recipes.welcome.browser';
   templateUrl: './recipes.welcome.browser.component.html',
   styleUrl: './recipes.welcome.browser.component.css'
 })
-export class RecipesWelcomeBrowserComponent implements OnInit, OnDestroy {
-  @Input() src: string = ""
-  service: RecipesWelcomeBrowserService = inject(JsonRecipesWelcomeBrowserService)
-  browser: RecipesWelcomeBrowser = {intro:CardInitializer()}
+export class RecipesWelcomeBrowserComponent implements OnDestroy {
   sub: Subscription = new Subscription()
   ngOnDestroy(): void {
     this.sub.unsubscribe()
   }
-  ngOnInit(): void {
-    if (this.src) {
-      this.sub = this.service.getBrowser(this.src).subscribe(
-        browser => this.browser = browser
-      )
-    }
-  }
 
+  src = input.required<string>()
+  root = input.required<string>()
+  path = input.required<string[]>()
+  db = inject(FirestoreService)
+  section = signal<RecipesWelcomeBrowser>({intro:CardInitializer()})
+
+  constructor() {
+    effect(() => {
+      effect(() => {
+        if (!(this.src() && this.root() && this.path())) return
+        this.sub = this.db.readDocument<RecipesWelcomeBrowser>(this.src(), this.root(), ...this.path())
+          .subscribe((welcome) => this.section.set(welcome))
+      });
+    });
+  }
 }

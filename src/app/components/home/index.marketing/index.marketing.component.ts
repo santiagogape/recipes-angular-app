@@ -1,8 +1,7 @@
-import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
-import {JsonHomeMarketingService} from '@services/instances/loading/home/json.home.marketing.service';
-import {IndexMarketing} from '@models/home/index.marketing';
-import {HomeMarketingService} from '@services/interfaces/loading/home/home.marketing.service';
+import {Component, effect, inject, input, OnDestroy, signal} from '@angular/core';
+import {HomeMarketingSection, IndexMarketing} from '@models/home/index.marketing';
 import {Subscription} from 'rxjs';
+import {FirestoreService} from '@services/firebase/firestore.service';
 
 @Component({
   selector: 'index-marketing',
@@ -10,19 +9,19 @@ import {Subscription} from 'rxjs';
   templateUrl: './index.marketing.component.html',
   styleUrl: './index.marketing.component.css'
 })
-export class IndexMarketingComponent implements OnInit, OnDestroy {
-  private service: HomeMarketingService = inject(JsonHomeMarketingService)
-  @Input() marketing: string = "";
-  protected sections: IndexMarketing[] = [];
+export class IndexMarketingComponent implements OnDestroy {
+  db = inject(FirestoreService)
+  section = signal<HomeMarketingSection>({sections:[]});
+  root = input.required<string>()
+  path = input.required<string[]>()
+  src = input.required<string>()
   protected sub: Subscription = new Subscription();
-  constructor() {}
-
-  ngOnInit() {
-    if (this.marketing) {
-      this.sub = this.service.getMarketingSections(this.marketing).subscribe(
-        sections => this.sections = sections
-      );
-    }
+  constructor() {
+    effect(() => {
+      if (!(this.src() && this.root() && this.path())) return
+      this.sub = this.db.readDocument<HomeMarketingSection>(this.src(), this.root(), ...this.path())
+        .subscribe((marketing) => this.section.set(marketing))
+    });
   }
 
   ngOnDestroy() {

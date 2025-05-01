@@ -20,7 +20,7 @@ export class HomeComponent {
   path = ["pages","home"]
   public carousel = "carousel";
   public carouselCollection = "recipes"
-  public marketing = "assets/home/index.marketing.json";
+  public marketing = "marketing";
   public gallery: string = "gallery";
   constructor() {}
 }

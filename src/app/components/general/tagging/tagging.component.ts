@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, input} from '@angular/core';
 import {RecipeTags} from '@models/my/my.recipes';
 
 @Component({
@@ -8,6 +8,6 @@ import {RecipeTags} from '@models/my/my.recipes';
   styleUrl: './tagging.component.css'
 })
 export class TaggingComponent {
-  @Input() tags!: RecipeTags
+  tags = input.required<RecipeTags>()
   constructor() {}
 }
