@@ -8,6 +8,15 @@
   justify-items: center;
 }
 
+.recipe-intro {
+  gap: 1rem;
+  padding: 1rem;
+}
+
+#recipe-ingredients {
+  align-self: flex-start;
+}
+
 @media(max-width: 767px) {
   .my_recipe_description-ul {
     padding-left: var(--dl-space-space-threeunits);
@@ -15,8 +24,6 @@
 }
 
 @media(max-width: 479px) {
-
-
   .my_recipe_description-ul {
     padding-left: var(--dl-space-space-oneandhalfunits);
   }

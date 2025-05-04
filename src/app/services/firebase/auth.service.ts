@@ -1,4 +1,4 @@
-import { Injectable, inject } from '@angular/core';
+import {Injectable, inject, signal} from '@angular/core';
 import {
   Auth,
   authState,
@@ -7,12 +7,14 @@ import {
   signOut,
   updateProfile
 } from '@angular/fire/auth';
-import {map, Observable, shareReplay} from 'rxjs';
+import { map, shareReplay, tap} from 'rxjs';
 import {NoLogin} from '@services/error.codes';
 
-@Injectable({ providedIn: 'root' })
+
+@Injectable({providedIn: 'root'})
 export class AuthService {
   private auth = inject(Auth);
+  currentUserID = signal<string>("")
 
   // Observable del estado de autenticación
   authState$ = authState(this.auth);
@@ -23,39 +25,38 @@ export class AuthService {
     shareReplay(1)
   );
 
-  // Método para obtener el UID como observable
-  get currentUserId$(): Observable<string | null> {
-    return this.authState$.pipe(
-      map(user => user?.uid || null)
+  constructor() {
+    this.authState$.pipe(
+      map(user => user?.uid || NoLogin),
+      tap(x => this.currentUserID.set(x))
     );
-  }
-
-  // Método para obtener el UID de forma sincrónica
-  getCurrentUserId(): string {
-    return this.auth.currentUser?.uid || NoLogin;
   }
 
   async signUp(email: string, password: string, username: string) {
     try {
       return await createUserWithEmailAndPassword(this.auth, email, password)
         .then(async (userCredential) => {
-          await updateProfile(userCredential.user, { displayName: username })
-          return userCredential.user;
-        }).then((user) => { return user})
+          await updateProfile(userCredential.user, {displayName: username})
+          this.currentUserID.set(userCredential.user.uid)
+          return userCredential.user.uid;
+        })
     } catch (error: any) {
       throw new Error(this.handleAuthError(error));
     }
   }
 
-  async signIn(email: string, password: string) {
+  async signIn(email: string, password: string){
     try {
-      await signInWithEmailAndPassword(this.auth, email, password)
+      let id =  (await signInWithEmailAndPassword(this.auth, email, password)).user.uid
+      this.currentUserID.set(id)
+      return id;
     } catch (error: any) {
       throw new Error(this.handleAuthError(error));
     }
   }
 
   async signOut() {
+    this.currentUserID.set(NoLogin)
     await signOut(this.auth)
   }
 
@@ -75,4 +76,6 @@ export class AuthService {
         return 'Error desconocido';
     }
   }
+
+
 }

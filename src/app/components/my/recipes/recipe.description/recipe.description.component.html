@@ -1,31 +1,41 @@
 @if (fillContent()){
   <div [id]="recipe().description.intro.header.title" class="section-padding">
     <div class="recipe-container flex-column section-max-width">
-      <header>
+      <header class="recipe-intro flex-column">
         <h1 id="recipe-name" class="heading-2">{{recipe().description.intro.header.title}}</h1>
         <p id="recipe-description" class="text-body-small">{{recipe().description.intro.header.text}}</p>
-        <button (click)="nextRecipe($event)">Next</button>
-        <button (click)="previousRecipe($event)">Previous</button>
+        <div class="flex-row">
+          <button (click)="previousRecipe($event)" class="button-link button-animated button-background-filled">Previous</button>
+          <button (click)="nextRecipe($event)" class="button-link button-animated button-background-filled-reverse">Next</button>
+        </div>
         <img [src]="recipe().description.intro.image.src" [alt]="recipe().description.intro.image.alt" class="img-ratio-4-3">
+        <tagging [tags]="recipe().description.tags"></tagging>
       </header>
-      <section class="recipe-container section-max-width">
-        <h2 class="heading-2">Ingredientes</h2>
-        <ul id="recipe-ingredients" class="my_recipe_description-ul flex-column">
-          @for (ingredient of recipe().ingredients; track ingredient.title){
-            <span class="heading-3 text-align-left">{{ingredient.title}}</span>
-            <p class="text-body-small">{{ingredient.text}}</p>
-          }
-        </ul>
-      </section>
-      <section class="recipe-container section-max-width">
-        <h2 class="heading-2">Pasos</h2>
-        <ul id="recipe-steps" class="my_recipe_description-ul flex-column">
-          @for (step of recipe().steps; track step.title){
-            <span class="heading-3 text-align-left">{{step.title}}</span>
-            <p class="text-body-small">{{step.text}}</p>
-          }
-        </ul>
-      </section>
+      <article class="flex-row">
+        <section id="recipe-ingredients" class="recipe-container section-max-width flex-column">
+          <h2 class="heading-2">Ingredientes</h2>
+          <ul class="my_recipe_description-ul flex-column">
+            @for (ingredient of recipe().ingredients; track ingredient.title){
+              <li>
+                <span class="heading-3 text-align-left">{{ingredient.title}}</span>
+                <p class="text-body-small">{{ingredient.text}}</p>
+              </li>
+            }
+          </ul>
+        </section>
+        <section class="recipe-container section-max-width flex-column">
+          <h2 class="heading-2">Pasos</h2>
+          <ul id="recipe-steps" class="my_recipe_description-ul flex-column">
+            @for (step of recipe().steps; track step.title){
+              <li>
+                <span class="heading-3 text-align-left">{{step.title}}</span>
+                <p class="text-body-small">{{step.text}}</p>
+              </li>
+            }
+          </ul>
+        </section>
+      </article>
+
     </div>
   </div>
 } @else {

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {Router, RouterModule} from '@angular/router';
 import {AuthService} from '@services/firebase/auth.service';
+import {FirestoreService} from '@services/firebase/firestore.service';
 
 @Component({
   selector: 'sign-in-content',
@@ -16,6 +17,7 @@ export class SignInContentComponent {
   @Input() redirectOnSubmit: string | null = '/dashboard';
   @Input() showSignUpLink: boolean = true;
   authService = inject(AuthService);
+  db = inject(FirestoreService)
   private router: Router =  inject(Router);
 
   credentials = {
@@ -32,7 +34,9 @@ export class SignInContentComponent {
         this.credentials.email,
         this.credentials.password
       );
-      console.log('Usuario iniciado:', this.credentials.email, 'con uid: ', this.authService.getCurrentUserId());
+
+
+      // console.log('Usuario iniciado:', this.credentials.email, 'con uid: ', this.authService.getCurrentUserId());
       // Redirigir o mostrar mensaje de éxito
       await this.router.navigate(['/home']); // o a donde quieras
     } catch (error) {

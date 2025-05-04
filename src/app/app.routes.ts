@@ -7,6 +7,7 @@ import {RecipeComponent} from '@pages/recipes/recipe/recipe.component';
 import {SignUpComponent} from '@pages/sign-up/sign-up.component';
 import {SignInComponent} from '@pages/sign-in/sign-in.component';
 import {ProfileComponent} from '@pages/my/profile/profile.component';
+import {authGuard} from './guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -14,9 +15,9 @@ export const routes: Routes = [
   { path: 'about', component: AboutUsComponent },
   { path: 'recipes', component: RecipesComponent },
   { path: 'recipes/page', component: RecipeComponent },
-  { path: 'my/recipes', component: MyRecipesComponent },
+  { path: 'my/recipes', component: MyRecipesComponent, canActivate: [authGuard] },
   { path: 'recipe', component: RecipeComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'sign-in', component: SignInComponent },
-  { path: 'my/profile', component: ProfileComponent },
+  { path: 'my/profile', component: ProfileComponent, canActivate: [authGuard] },
 ];

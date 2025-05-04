@@ -1,14 +1,30 @@
-@if (current()){
+@if (current() && !editing() && !creating()){
   <recipe-description [id]="current()" (next)="next()" (prev)="previous()"></recipe-description>
-} @else {
-  no recipe sent
-}
-<div class="section-padding">
-  <div class="my-recipes-container flex-column section-max-width">
-    <div class="my-recipes-buttons-container flex-row section-max-width">
-      <button class="button-background-filled">Get Cooking Now!</button>
-      <button class="button-background-filled-reverse">Privacy statement</button>
-      <button class="button-background-filled-reverse">Refund Policy</button>
+  <div class="section-padding">
+    <div class="my-recipes-container flex-column section-max-width">
+      <div class="my-recipes-buttons-container flex-row section-max-width">
+        <button routerLink="/recipes/page" [queryParams]="{a:this.auth.currentUserID(),r:current()}" class="button-background-filled-reverse">Get Cooking Now!</button>
+        <button class="button-background-filled" (click)="create()">Create Recipes!</button>
+        <button class="button-background-filled" (click)="edit()">Modify this recipe</button>
+        <button class="button-background-filled-reverse" (click)="delete()">Delete this recipe</button>
+      </div>
     </div>
   </div>
-</div>
+} @else if (this.idSignals().length === 0) {
+  <div class="section-padding">
+    <div class="my-recipes-container flex-column section-max-width">
+      <div class="my-recipes-buttons-container flex-row section-max-width">
+        <button routerLink="/recipes/page" [queryParams]="{a:this.auth.currentUserID(),r:current()}" class="button-background-filled-reverse">Get Cooking Now!</button>
+        <button class="button-background-filled" (click)="create()">Create Recipes!</button>
+      </div>
+    </div>
+  </div>
+}
+@if (creating()) {
+  <app-recipe-creating [id]="NoRecipes" (newRecipe)="store($event)" [onStored]="!creating()"></app-recipe-creating>
+} @else if (editing()) {
+  <app-recipe-creating [id]="current()" (newRecipeModified)="update($event)" [onStored]="!editing()"></app-recipe-creating>
+}
+
+
+

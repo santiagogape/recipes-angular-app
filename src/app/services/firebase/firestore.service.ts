@@ -10,7 +10,7 @@ import {
   CollectionReference,
   addDoc, docData
 } from '@angular/fire/firestore';
-import {combineLatest, map, Observable, tap} from 'rxjs';
+import {combineLatest, map, Observable} from 'rxjs';
 import { DatabaseAPI, ID } from './databaseAPI';
 import {AuthorRecipe, AuthorRecipeData} from '@models/general/AuthorRecipePair';
 import { User } from '@models/my/user';
@@ -33,6 +33,10 @@ export class FirestoreService implements DatabaseAPI {
     return collectionData(ref, { idField: 'id' }).pipe(
       map((docs: any[]) => docs.map(doc => doc.id)) // Extraemos solo las IDs
     );
+  }
+
+  generateID(collectionName: string, ...path: string[]){
+    return doc(this.firestore, collectionName, ...path).id
   }
 
 
@@ -63,12 +67,12 @@ export class FirestoreService implements DatabaseAPI {
     return combineLatest([
       this.readDocument<User>(pair.author,"users"),
       this.readDocument<Recipe>(pair.recipe,"users",pair.author,"recipes")
-    ]).pipe(tap(([a,r])=> console.log("a,r",a,r))).pipe(
+    ]).pipe(
       map(
         ([authorData, valorData]) =>
         ({ id:pair.id, authorData:authorData, recipeData: valorData })
       )
-    ).pipe(tap((p)=> console.log("p",p)));
+    );
   }
 
   getTestimonialDataFromID(testimonial: RecipesTestimonial): Observable<RecipesTestimonialData> {
@@ -76,7 +80,6 @@ export class FirestoreService implements DatabaseAPI {
       this.readDocument<User>(testimonial.author,"users"),
       this.getAuthorRecipeDataFromID(testimonial.recipe)
     ]).pipe(
-      tap(([a,r]) => console.log(a,r)),
       map(
         ([authorData, valorData]) =>
           ({

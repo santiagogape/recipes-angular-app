@@ -1,0 +1,61 @@
+{
+  "logo": {
+    "src": "https://firebasestorage.googleapis.com/v0/b/foodchamps-c1e3a.firebasestorage.app/o/logo-food-champs.png?alt=media&token=e9724533-c301-4ccd-8ad0-2ee4353aeb58",
+    "alt": "Food Champs Logo"
+  },
+  "links": [
+    {  "label": "Home", "routerLink": ["/home"] },
+    {  "label": "Recipes", "routerLink": ["/recipes"] },
+    {  "label": "About us", "routerLink": ["/about"] },
+    {  "label": "My recipes", "routerLink": ["/my","recipes"] }
+  ],
+  "buttons": [
+    {  "label": "Your profile", "routerLink": ["my","profile"] }
+  ],
+  "mobileLinks": [
+    {
+      "routerLink": ["/home"],
+      "image": {
+        "src": "https://images.unsplash.com/photo-1574484184081-afea8a62f9c0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+        "alt": "Image of a cozy kitchen setting"
+      },
+      "header": {
+        "title": "Home",
+        "text": "Explore a variety of delicious recipes to try at home"
+      }
+    },
+    {
+      "routerLink": ["/recipes"],
+      "image": {
+        "src": "https://images.unsplash.com/photo-1493770348161-369560ae357d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+        "alt": "Image of a beautifully plated dish"
+      },
+      "header": {
+        "title": "Recipes",
+        "text": "Discover a wide range of recipes from appetizers to desserts"
+      }
+    },
+    {
+      "routerLink": ["/about"],
+      "image": {
+        "src": "https://images.unsplash.com/photo-1586197103709-a0b1f31b76ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+        "alt": "Image of a contact us form"
+      },
+      "header": {
+        "title": "About us",
+        "text": "Get in touch with us for any inquiries or collaborations"
+      }
+    },
+    {
+      "routerLink": ["/my","recipes"],
+      "image": {
+        "src": "https://images.unsplash.com/photo-1486428263684-28ec9e4f2584?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+        "alt": "Image of a person writing in a food blog"
+      },
+      "header": {
+        "title": "My recipes",
+        "text": "Write interesting articles and tips about cooking and food trends"
+      }
+    }
+  ]
+}

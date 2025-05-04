@@ -1,0 +1,73 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="section-padding">
+  <div >
+    <!-- DESCRIPTION -->
+    <fieldset formGroupName="description">
+      <legend>
+        Create a new recipe:
+        add an image, title, description, categories and allergens
+      </legend>
+
+      <div formGroupName="intro" class="recipe-container flex-column section-max-width">
+        <div formGroupName="header" class="recipe-intro flex-column">
+          <input class="heading-2" formControlName="title" placeholder="Título" required />
+          <input class="text-body-small" formControlName="text" placeholder="Descripción" required />
+        </div>
+        @if (image()){
+          <img [src]="image()" alt="" class="img-ratio-4-3">
+        }
+        <div>
+          <label for="image-input">Select Image:</label>
+          <input id="image-input" type="file" (change)="onFileSelected($event)" accept="image/*" />
+        </div>
+      </div>
+
+      <div formGroupName="tags" class="item-max-width flex-column">
+        <div formArrayName="categories" class="item-max-width flex-column">
+          <label>Categorías:</label>
+          <div class="flex-row tag-row" *ngFor="let cat of categories.controls; let i = index">
+            <input class="recipe-tag recipe-tag-category" [formControlName]="i" placeholder="Categoría" required />
+            <img (click)="removeControl(categories, i)" class="navbar-close-menu navbar-icon-pop-up recipe-tag-category"
+                 src="assets/close-button-icon-png.png"  alt=""/>
+          </div>
+          <button type="button" (click)="addControl(categories)">Añadir categoría</button>
+        </div>
+
+        <div formArrayName="allergens" class="item-max-width flex-column" >
+          <label>Alergenos:</label>
+          <div class="flex-row tag-row" *ngFor="let allergen of allergens.controls; let i = index">
+            <input class="recipe-tag recipe-tag-allergen" [formControlName]="i" placeholder="Alérgeno" required />
+            <img (click)="removeControl(allergens, i)" class="navbar-close-menu navbar-icon-pop-up recipe-tag-allergen"
+                 src="assets/close-button-icon-png.png"  alt=""/>
+          </div>
+          <button type="button" (click)="addControl(allergens)">Añadir alérgeno</button>
+        </div>
+      </div>
+    </fieldset>
+    <article class="flex-row">
+      <!-- INGREDIENTES -->
+      <fieldset formArrayName="ingredients" class="recipe-container section-max-width flex-column">
+        <legend class="heading-2">Ingredientes</legend>
+        <div class="my_recipe_description-ul flex-column" *ngFor="let ing of ingredients.controls; let i = index" [formGroupName]="i">
+          <input class="heading-3 text-align-left" formControlName="title" placeholder="Título" required />
+          <input class="text-body-small" formControlName="text" placeholder="Texto" required />
+          <button type="button" (click)="removeControl(ingredients, i)">Eliminar</button>
+        </div>
+        <button type="button" (click)="addControl(ingredients, createHeader())">Añadir ingrediente</button>
+      </fieldset>
+
+      <!-- PASOS -->
+      <fieldset class="recipe-container section-max-width flex-column" formArrayName="steps">
+        <legend class="heading-2">Pasos</legend>
+        <div class="my_recipe_description-ul flex-column" *ngFor="let step of steps.controls; let i = index" [formGroupName]="i">
+          <input class="heading-3 text-align-left" formControlName="title" placeholder="Título" required />
+          <input class="text-body-small" formControlName="text" placeholder="Texto" required />
+          <button type="button" (click)="removeControl(steps, i)">Eliminar</button>
+        </div>
+        <button type="button" (click)="addControl(steps, this.createHeader())">Añadir paso</button>
+      </fieldset>
+    </article>
+  </div>
+  <!-- SUBMIT -->
+  <button class="button-background-filled" type="submit">Guardar receta</button>
+  <button class="button-background-filled-reverse" type="reset">Reiniciar formulario</button>
+</form>
