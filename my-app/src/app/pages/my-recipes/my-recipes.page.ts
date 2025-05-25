@@ -78,7 +78,7 @@ interface RecipeForm {
   selector: 'app-my-recipes',
   templateUrl: 'my-recipes.page.html',
   styleUrls: ['my-recipes.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonItem, IonList, IonIcon, IonFab, IonFabButton, IonModal, IonButton, IonButtons, TaggingComponent, IonListHeader, IonLabel, IonImg, IonFooter, ImageDropzoneComponent, FormsModule, NgForOf, ReactiveFormsModule, IonInput],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonItem, IonList, IonIcon, IonFab, IonFabButton, IonModal, IonButton, IonButtons, TaggingComponent, IonListHeader, IonLabel, IonImg, ImageDropzoneComponent, FormsModule, NgForOf, ReactiveFormsModule, IonInput],
 })
 export class MyRecipesPage {
 
