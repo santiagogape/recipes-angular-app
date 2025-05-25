@@ -1,0 +1,25 @@
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.image-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.fab-overlay {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.light-divider {
+  border: none;
+  border-top: 1px solid var(--ion-color-light);
+  margin: 4px 0;
+}

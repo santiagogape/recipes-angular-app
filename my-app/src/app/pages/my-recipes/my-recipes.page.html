@@ -1,0 +1,229 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      My Recipes 3
+    </ion-title>
+      <ion-button slot="end" color="primary" (click)="openCreateRecipeModal()">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-modal [isOpen]="CreateUpdate">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="end">
+            <ion-button (click)="onSubmit()">Confirm</ion-button>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button (click)="closeCreateUpdateModal()">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+        <app-image-dropzone [intro]="isNew() ? '': editing().description.intro.image.src" (image)="newImage($event)"></app-image-dropzone>
+      </ion-header>
+      <ion-content>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="section-padding">
+          <div >
+            <!-- DESCRIPTION -->
+            <fieldset formGroupName="description">
+              <legend>
+                Create a new recipe:
+                add an image, title, description, categories and allergens
+              </legend>
+
+              <div formGroupName="intro" class="recipe-container flex-column section-max-width">
+                <div formGroupName="header" class="recipe-intro flex-column">
+                  <ion-input class="heading-2" formControlName="title" placeholder="Título" required=""/>
+                  <ion-input class="text-body-small" formControlName="text" placeholder="Descripción" required=""/>
+                </div>
+              </div>
+
+              <div formGroupName="tags" class="item-max-width flex-column">
+                <div formArrayName="categories" class="item-max-width flex-column">
+                  <ion-label>Categorías:</ion-label>
+                  <div class="flex-row tag-row" *ngFor="let cat of categories.controls; let i = index">
+                    <ion-input class="recipe-tag recipe-tag-category" [formControlName]="i" placeholder="Categoría"
+                               required=""/>
+                    <ion-button (click)="removeControl(categories, i)" shape="round">
+                      <ion-icon slot="icon-only" name="trash"></ion-icon>
+                    </ion-button>
+                  </div>
+                  <ion-button type="button" (click)="addControl(categories)">
+                    <ion-icon slot="icon-only" name="add"></ion-icon>
+                  </ion-button>
+                </div>
+
+                <div formArrayName="allergens" class="item-max-width flex-column" >
+                  <label>Alergenos:</label>
+                  <div class="flex-row tag-row" *ngFor="let allergen of allergens.controls; let i = index">
+                    <ion-input class="recipe-tag recipe-tag-allergen" [formControlName]="i" placeholder="Alérgeno"
+                               required=""/>
+                    <ion-button (click)="removeControl(allergens, i)" shape="round">
+                      <ion-icon slot="icon-only" name="trash"></ion-icon>
+                    </ion-button>
+                  </div>
+                  <ion-button type="button" (click)="addControl(allergens)">
+                    <ion-icon slot="icon-only" name="add"></ion-icon>
+                  </ion-button>
+                </div>
+              </div>
+            </fieldset>
+            <article class="flex-row">
+              <!-- INGREDIENTES -->
+              <fieldset formArrayName="ingredients" class="recipe-container section-max-width flex-column">
+                <legend class="heading-2">Ingredientes</legend>
+                <div class="my_recipe_description-ul flex-column" *ngFor="let ing of ingredients.controls; let i = index" [formGroupName]="i">
+                  <ion-input class="heading-3 text-align-left" formControlName="title" placeholder="Título"
+                             required=""/>
+                  <ion-input class="text-body-small" formControlName="text" placeholder="Texto" required=""/>
+                  <ion-button type="button" (click)="removeControl(ingredients, i)">
+                    <ion-icon slot="icon-only" name="trash"></ion-icon>
+                  </ion-button>
+                </div>
+                <ion-button type="button" (click)="addControl(ingredients, createHeader())">
+                  <ion-icon slot="icon-only" name="add"></ion-icon>
+                </ion-button>
+              </fieldset>
+
+              <!-- PASOS -->
+              <fieldset class="recipe-container section-max-width flex-column" formArrayName="steps">
+                <legend class="heading-2">Pasos</legend>
+                <div class="my_recipe_description-ul flex-column" *ngFor="let step of steps.controls; let i = index" [formGroupName]="i">
+                  <ion-input class="heading-3 text-align-left" formControlName="title" placeholder="Título" required />
+                  <ion-input class="text-body-small" formControlName="text" placeholder="Texto" required />
+                  <ion-button type="button" (click)="removeControl(steps, i)">
+                    <ion-icon slot="icon-only" name="trash"></ion-icon>
+                  </ion-button>
+                </div>
+                <ion-button type="button" (click)="addControl(steps, this.createHeader())">
+                  <ion-icon slot="icon-only" name="add"></ion-icon>
+                </ion-button>
+              </fieldset>
+            </article>
+          </div>
+          <!-- SUBMIT -->
+          <ion-button class="button-background-filled" type="submit">Guardar receta</ion-button>
+          <ion-button class="button-background-filled-reverse" type="reset">Reiniciar formulario</ion-button>
+        </form>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>{{modalRecipe().description.intro.header.title}}</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false)">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              <h2>{{modalRecipe().description.intro.header.text}}</h2>
+            </ion-card-title>
+            <hr class="light-divider" />
+            <ion-card-subtitle>
+              <h4>{{modalRecipe().description.author}}</h4>
+            </ion-card-subtitle>
+          </ion-card-header>
+          <hr class="light-divider" />
+          <div class="image-container">
+            <!-- https://ionicframework.com/docs/img/demos/thumbnail.svg -->
+            <ion-img [src]="modalRecipe().description.intro.image.src" [alt]="modalRecipe().description.intro.image.alt" class="img-ratio-4-3"></ion-img>
+            <ion-fab class="fab-overlay" vertical="bottom" horizontal="end" slot="fixed">
+              <ion-fab-button
+                (click)="toggleFavorite(modalRecipe().id || '')"
+                color="warning"
+              >
+                @if (isFavorite()) {
+                  <ion-icon name="star-outline"></ion-icon>
+                } @else {
+                  <ion-icon name="star"></ion-icon>
+                }
+              </ion-fab-button>
+              <ion-fab-button color="light">
+                <ion-icon name="trash"></ion-icon>
+              </ion-fab-button>
+            </ion-fab>
+          </div>
+          <tagging [tags]="modalRecipe().description.tags"></tagging>
+        </ion-card>
+        <ion-list>
+          <ion-list-header class="heading-2"><h2>Ingredientes</h2></ion-list-header>
+          @for (ingredient of modalRecipe().ingredients; track ingredient.title){
+            <ion-item>
+              <ion-label class="ion-text-wrap">
+                <div class="heading-3 text-align-left">{{ ingredient.title }}</div>
+                <hr class="light-divider" />
+                <div class="text-body-small">{{ ingredient.text }}</div>
+              </ion-label>
+            </ion-item>
+          }
+        </ion-list>
+        <ion-list>
+          <ion-list-header class="heading-2"><h2>Pasos</h2></ion-list-header>
+          @for (step of modalRecipe().steps; track step.title) {
+            <ion-item>
+              <ion-label class="ion-text-wrap">
+                <div class="heading-3 text-align-left">{{ step.title }}</div>
+                <hr class="light-divider" />
+                <div class="text-body-small">{{ step.text }}</div>
+              </ion-label>
+            </ion-item>
+          }
+
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-list>
+    @for (recipe of this.recipes(); track recipe.id) {
+      <ion-item>
+        <ion-card>
+          <div class="image-container">
+            <!-- https://ionicframework.com/docs/img/demos/thumbnail.svg -->
+            <ion-img (click)="setOpen(true, recipe.id)" [src]="recipe.description.intro.image.src" [alt]="recipe.description.intro.image.alt"/>
+
+            <ion-fab class="fab-overlay" vertical="bottom" horizontal="end" slot="fixed">
+              <ion-fab-button color="warning">
+                <ion-icon name="star"></ion-icon>
+              </ion-fab-button>
+              <ion-fab-button color="danger">
+                <ion-icon name="pencil" (click)="openEditRecipeModal(recipe)"></ion-icon>
+              </ion-fab-button>
+              <ion-fab-button color="light">
+                <ion-icon name="trash" (click)="deleteRecipe(recipe.id? recipe.id : '')"></ion-icon>
+              </ion-fab-button>
+            </ion-fab>
+          </div>
+
+          <ion-card-header>
+            <ion-card-title>{{recipe.description.intro.header.title}}</ion-card-title>
+            <ion-card-subtitle>{{recipe.description.author}}</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            {{recipe.description.intro.header.text}}
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+    }
+  </ion-list>
+
+  @if (!viewing()){
+    <ion-card>
+      <ion-card-content>
+        <h1>No hay recetas creadas</h1>
+      </ion-card-content>
+    </ion-card>
+  }
+</ion-content>
+

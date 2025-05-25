@@ -1,0 +1,21 @@
+<ion-content class="ion-padding">
+  <div class="form-container">
+    <app-image-dropzone (image)="newImage($event)"></app-image-dropzone>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <ion-input label="Username" formControlName="username" required=""></ion-input>
+      <ion-note color="danger" *ngIf="form.get('username')?.invalid && form.get('username')?.touched">
+      Username is required
+    </ion-note>
+      <ion-input label="Email" formControlName="email" type="email" required=""></ion-input>
+      <ion-note color="danger" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+        Enter a valid email
+      </ion-note>
+      <ion-input label="Password" formControlName="password" type="password" required=""></ion-input>
+      <ion-note color="danger" *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
+        Password must be at least 8 alphanumeric characters
+      </ion-note>
+      <ion-button type="submit" expand="block" [disabled]="form.invalid">Sign Up</ion-button>
+    </form>
+  </div>
+</ion-content>

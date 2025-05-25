@@ -1,0 +1,10 @@
+<div class="image-dropzone"
+     (click)="onDropzoneClick()"
+     (dragover)="onDragOver($event)"
+     (dragleave)="onDragLeave()"
+     (drop)="onDrop($event)"
+>
+  <input #fileInput type="file" accept="image/*" (change)="onFileSelected($event)" hidden />
+  <ion-label class="image-overlay">Haz clic o arrastra una imagen aquí</ion-label>
+  <ion-img #preview [src]="previewUrl" *ngIf="previewUrl" alt="itinerary photo"></ion-img>
+</div>

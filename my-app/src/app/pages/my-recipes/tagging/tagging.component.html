@@ -1,0 +1,37 @@
+
+<!--
+<div id="recipe-tags" class="item-max-width flex-column">
+  <div id="categories" class="flex-row tag-row">
+    @for (tag of tags().categories; track tag){
+      <span class="recipe-tag recipe-tag-category">{{tag}}</span>
+    }
+  </div>
+  <div id="allergens" class="flex-row tag-row">
+    @for (tag of tags().allergens; track tag){
+      <span class="recipe-tag recipe-tag-allergen">{{tag}}</span>
+    }
+  </div>
+</div>
+
+-->
+<ion-grid>
+  <ion-row class="tag-row" id="categories">
+    @for (tag of tags().categories; track tag) {
+      <ion-col size="auto">
+        <ion-chip color="success">
+          <ion-label>{{ tag }}</ion-label>
+        </ion-chip>
+      </ion-col>
+    }
+  </ion-row>
+  <ion-row class="tag-row" id="allergens">
+    @for (tag of tags().allergens; track tag) {
+      <ion-col size="auto">
+        <ion-chip color="warning">
+          <ion-label>{{ tag }}</ion-label>
+        </ion-chip>
+      </ion-col>
+    }
+  </ion-row>
+</ion-grid>
+

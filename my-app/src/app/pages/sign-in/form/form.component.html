@@ -1,0 +1,26 @@
+<ion-content class="ion-padding">
+  <div class="form-container">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <ion-list lines="none">
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input formControlName="email" type="email" required=""></ion-input>
+        </ion-item>
+        <ion-note color="danger" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+          Enter a valid email
+        </ion-note>
+
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input formControlName="password" type="password" required=""></ion-input>
+        </ion-item>
+        <ion-note color="danger" *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
+          Password must be at least 8 alphanumeric characters
+        </ion-note>
+
+      </ion-list>
+
+      <ion-button type="submit" expand="block" [disabled]="form.invalid">Sign In</ion-button>
+    </form>
+  </div>
+</ion-content>

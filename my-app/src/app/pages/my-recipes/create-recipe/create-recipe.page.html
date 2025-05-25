@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>create-recipe</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">create-recipe</ion-title>
+      <div class="image-dropzone" id="dropzone">
+        <ion-label class="image-overlay">Haz clic o arrastra una imagen aquí</ion-label>
+        <ion-img id="preview" src="" alt="itinerary photo" style="display: none;" />
+        <ion-input label="Foto" type="file" id="fileInput" accept="image/*"></ion-input>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>

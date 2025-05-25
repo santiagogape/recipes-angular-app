@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
+import { authGuard} from "@services/auth.guard";
 
 export const routes: Routes = [
   {
@@ -7,30 +8,37 @@ export const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'sign-in',
         loadComponent: () =>
-          import('../tab1/tab1.page').then((m) => m.Tab1Page),
+          import('@pages/sign-in/sign-in.page').then((m) => m.SignInPage),
       },
       {
-        path: 'tab2',
+        path: 'register',
         loadComponent: () =>
-          import('../tab2/tab2.page').then((m) => m.Tab2Page),
+          import('@pages/register/register.page').then((m) => m.RegisterPage),
       },
       {
-        path: 'tab3',
+        path: 'my-recipes',
+        canActivate: [authGuard],
         loadComponent: () =>
-          import('../tab3/tab3.page').then((m) => m.Tab3Page),
+          import('@pages/my-recipes/my-recipes.page').then((m) => m.MyRecipesPage),
+      },
+      {
+        path: 'favourites',
+        canActivate: [authGuard],
+        loadComponent: () =>
+          import('@pages/my-recipes/favourites/favourites.page').then((m) => m.FavouritesPage),
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/register',
         pathMatch: 'full',
       },
     ],
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/register',
     pathMatch: 'full',
   },
 ];
